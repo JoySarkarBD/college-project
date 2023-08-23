@@ -10,8 +10,10 @@ import {
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import GoToInput from "../Form/GoToInput";
 import SearchInput from "../Form/SearchInput";
+import Pagination from "../Pagination/Pagination";
 import TableTopbar from "../TableTopbar/TableTopbar";
 import dummyData from "./../../../data.json"; // Update the path to your data.json
+import "./DataTable.css";
 
 const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
@@ -26,12 +28,12 @@ const DataTable = () => {
         Filter: columnFilter,
       },
       {
-        Header: "Role",
+        Header: "ROLE",
         accessor: "role",
         Filter: columnFilter,
       },
       {
-        Header: "Assign To",
+        Header: "ASSIGN TO",
         accessor: "assignTo",
         Filter: columnFilter,
         Cell: ({ value }) => {
@@ -43,12 +45,12 @@ const DataTable = () => {
         },
       },
       {
-        Header: "Due Date",
+        Header: "DUE DATE",
         accessor: "dueDate",
         Filter: columnFilter,
       },
       {
-        Header: "Status",
+        Header: "STATUS",
         accessor: "status",
         Filter: columnFilter,
       },
@@ -81,28 +83,16 @@ const DataTable = () => {
   return (
     <div>
       <div className='d-flex justify-content-between align-items-center'>
+        {/* Go To Input */}
         <div className='ms-2'>
-          {/* <span>
-            Go to page:{" "}
-            <input
-              type='number'
-              defaultValue={pageIndex + 1}
-              onChange={e => {
-                const pageNumber = e.target.value
-                  ? Number(e.target.value) - 1
-                  : 0;
-                gotoPage(pageNumber);
-              }}
-              style={{ width: "50px" }}
-            />
-          </span> */}
           <GoToInput
             type='number'
             title='Go to page:'
-            gotoPage
+            gotoPage={gotoPage}
             defaultValue={pageIndex + 1}
           />
         </div>
+        {/* Search Input */}
         <div>
           <SearchInput
             type='text'
@@ -111,6 +101,7 @@ const DataTable = () => {
           />
         </div>
       </div>
+      {/* Table topbar */}
       <TableTopbar />
       <table className='table' {...getTableProps()}>
         {/* Header */}
@@ -189,42 +180,14 @@ const DataTable = () => {
         </tbody>
       </table>
       {/* Pagination */}
-      <div>
-        <button onClick={() => gotoPage(0)} disabled={pageIndex === 0}>
-          {"<<"}
-        </button>
-        <button
-          onClick={() => gotoPage(pageIndex - 1)}
-          disabled={pageIndex === 0}>
-          {"<"}
-        </button>
-        <button
-          onClick={() => gotoPage(pageIndex + 1)}
-          disabled={pageIndex >= page.length - 1}>
-          {">"}
-        </button>
-        <button
-          onClick={() => gotoPage(page.length - 1)}
-          disabled={pageIndex >= page.length - 1}>
-          {">>"}
-        </button>
-        <span>
-          Page{" "}
-          <strong>
-            {pageIndex + 1} of {page.length}
-          </strong>{" "}
-        </span>
-        <select
-          value={pageSize}
-          onChange={e => {
-            setPageSize(Number(e.target.value));
-          }}>
-          {[10, 20, 30, 40, 50].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
+      <div className='d-flex align-items-center justify-content-center mt-5'>
+        <Pagination
+          gotoPage={gotoPage}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+          page={page}
+          pageIndex={pageIndex}
+        />
       </div>
     </div>
   );

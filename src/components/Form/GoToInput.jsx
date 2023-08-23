@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import "./SearchInput.css";
 
@@ -10,11 +11,10 @@ const GoToInput = ({ title, gotoPage, ...attributes }) => {
       <input
         className='mx-2 py-1 px-2 w-25'
         {...attributes}
-        // defaultValue={pageIndex + 1}
-        // onChange={e => {
-        //   const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
-        //   gotoPage(pageNumber);
-        // }}
+        onChange={e => {
+          const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
+          gotoPage(pageNumber);
+        }}
       />
     </>
   );
