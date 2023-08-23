@@ -1,6 +1,8 @@
-/* column filter*/
+/* column filter */
+
 export const columnFilter = ({ column }) => {
   const { filterValue, setFilter } = column;
+
   return (
     <span>
       <input
