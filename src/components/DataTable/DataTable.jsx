@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { FiEdit2 } from 'react-icons/fi';
+import { FiEdit2 } from "react-icons/fi";
 import {
   useFilters,
   useGlobalFilter,
@@ -8,6 +8,8 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
+
+// this is the column searching function
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import GoToInput from "../Form/GoToInput";
 import SearchInput from "../Form/SearchInput";
@@ -18,14 +20,18 @@ import dummyData from "./../../../data.json"; // Update the path to your data.js
 import "./DataTable.css";
 
 const DataTable = () => {
+  // select row state
   const [selectedRows, setSelectedRows] = useState([]);
 
+  // extracting unique names from the dummy json data
   const uniqueNames = Array.from(
-    new Set(dummyData.map(item => item.assignTo.name))
+    new Set(dummyData.map((item) => item.assignTo.name))
   );
 
+  // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
 
+  // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
     () => [
       {
@@ -42,19 +48,22 @@ const DataTable = () => {
         Header: "ASSIGN TO",
         accessor: "assignTo",
         Cell: ({ value, row }) => {
+          // editing states
           const [isEditing, setIsEditing] = useState(false);
           const [editedName, setEditedName] = useState(value.name);
           const [editedEmail, setEditedEmail] = useState(value.mail);
 
+          // handle edit button
           const handleEditClick = () => {
             setIsEditing(true);
             setEditedName(value.name);
             setEditedEmail(value.mail);
           };
 
+          // handle save button
           const handleSaveClick = () => {
             // Update the value in the row data or take any other action you need
-            const updatedData = data.map(rowData =>
+            const updatedData = data.map((rowData) =>
               rowData.id === row.original.id
                 ? {
                     ...rowData,
@@ -69,24 +78,29 @@ const DataTable = () => {
           return (
             <div>
               {isEditing ? (
+                /* new view after clicking on edit button of assignTo cell */
                 <div className="edit_box">
                   <input
-                    type='text'
+                    type="text"
                     value={editedEmail}
-                    onChange={e => setEditedEmail(e.target.value)}
+                    onChange={(e) => setEditedEmail(e.target.value)}
                   />
                   <select
                     value={editedName}
-                    onChange={e => setEditedName(e.target.value)}>
-                    {uniqueNames.map(assigneeName => (
+                    onChange={(e) => setEditedName(e.target.value)}
+                  >
+                    {uniqueNames.map((assigneeName) => (
                       <option key={assigneeName} value={assigneeName}>
                         {assigneeName}
                       </option>
                     ))}
                   </select>
-                  <button onClick={handleSaveClick} className="save_btn">Save</button>
+                  <button onClick={handleSaveClick} className="save_btn">
+                    Save
+                  </button>
                 </div>
               ) : (
+                /* normal view by default of assignTo cell */
                 <div className="edit_assign_to">
                   <div className="fw-bolder">
                     {value.name}
@@ -94,7 +108,7 @@ const DataTable = () => {
                     {value.mail}
                   </div>
                   <button className="edit-btn" onClick={handleEditClick}>
-                    <FiEdit2/>
+                    <FiEdit2 />
                   </button>
                 </div>
               )}
@@ -102,8 +116,9 @@ const DataTable = () => {
           );
         },
         Filter: columnFilter,
+        // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
-          return rows.filter(row => {
+          return rows.filter((row) => {
             const assignTo = row.values.assignTo;
             return (
               assignTo.name.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -126,6 +141,7 @@ const DataTable = () => {
     [data]
   );
 
+  // useTable functionalities from react-table
   const {
     getTableProps,
     getTableBodyProps,
@@ -149,48 +165,49 @@ const DataTable = () => {
   );
 
   return (
-    <div className='px-5 my-5 table-responsive'>
-      <div className='d-flex justify-content-between align-items-center'>
+    <div className="px-5 my-5 table-responsive">
+      <div className="row">
         {/* Go To Input */}
-        <div className='ms-2'>
+        <div className="col-lg-4 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center">
           <GoToInput
-            type='number'
-            title='Go to page:'
+            type="number"
+            title="Go to page:"
             gotoPage={gotoPage}
             defaultValue={pageIndex + 1}
           />
         </div>
 
-        <span>
+        <div className="col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center">
           {/* Step 2: Attach event handler */}
           <SelectNames uniqueNames={uniqueNames} />
-        </span>
+        </div>
 
         {/* Search Input */}
-        <div>
+        <div className="col-lg-4 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center">
           <SearchInput
-            type='text'
-            title='Search'
+            type="text"
+            title="Search"
             setGlobalFilter={setGlobalFilter}
           />
         </div>
       </div>
       {/* Table topbar */}
       <TableTopbar />
-      <table className='table' {...getTableProps()}>
-        {/* Header */}
+      <table className="table" {...getTableProps()}>
+        {/* Mapping the data of header */}
         <thead>
           {headerGroups.map((headerGroup, index) => (
             <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+              {/* select all */}
               <th>
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   checked={selectedRows.length === page.length}
                   onChange={() => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map(row => row.original));
+                      setSelectedRows(page.map((row) => row.original));
                     }
                   }}
                 />
@@ -199,8 +216,9 @@ const DataTable = () => {
               {headerGroup.headers.map((column, index) => (
                 <th
                   key={index}
-                  scope='col'
-                  {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  scope="col"
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -220,22 +238,23 @@ const DataTable = () => {
           {page.map((row, index) => {
             prepareRow(row);
             return (
+              // Mapping the table body row data
               <tr key={index} {...row.getRowProps()}>
                 <td>
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     checked={selectedRows.some(
-                      selectedRow => selectedRow.id === row.original.id
+                      (selectedRow) => selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          selectedRow => selectedRow.id === row.original.id
+                          (selectedRow) => selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            selectedRow => selectedRow.id !== row.original.id
+                            (selectedRow) => selectedRow.id !== row.original.id
                           )
                         );
                       } else {
@@ -255,7 +274,7 @@ const DataTable = () => {
         </tbody>
       </table>
       {/* Pagination */}
-      <div className='d-flex align-items-center justify-content-center mt-5'>
+      <div className="d-flex align-items-center justify-content-center mt-5">
         <Pagination
           gotoPage={gotoPage}
           pageSize={pageSize}
