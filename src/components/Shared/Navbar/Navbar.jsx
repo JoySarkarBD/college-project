@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className='navbar navbar-expand-lg bg-body-tertiary'>
-      <div className='container-fluid'>
-        <a className='navbar-brand' href='#'>
-          Navbar
-        </a>
+    <nav className='navbar navbar-expand-lg nav_section'>
+      <div className='container-fluid '>
         <button
           className='navbar-toggler'
           type='button'
@@ -18,28 +16,62 @@ const Navbar = () => {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarNav'>
-          <ul className='navbar-nav'>
+          {/* Left side navigation */}
+          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link active' aria-current='page' to='/'>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active_link nav-link" : "nav-link"
+                }
+                aria-current='page'
+                to='/'>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/admin'>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active_link nav-link" : "nav-link"
+                }
+                to='admin'>
                 Admin
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
-                Pricing
-              </a>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active_link nav-link" : "nav-link"
+                }
+                to='work-queue'>
+                Work Queue
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <a className='nav-link disabled' aria-disabled='true'>
-                Disabled
-              </a>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active_link nav-link" : "nav-link"
+                }
+                to='upload-data'>
+                Upload Data
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active_link nav-link" : "nav-link"
+                }
+                to='reports'>
+                Reports
+              </NavLink>
             </li>
           </ul>
+
+          {/* right side  */}
+          <div className='d-flex'>
+            <button className='btn supervisor_btn '>
+              User Like Supervisor
+            </button>
+          </div>
         </div>
       </div>
     </nav>
