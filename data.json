@@ -1,0 +1,162 @@
+[
+  {
+    "id": "20D754327501",
+    "role": "Manager",
+    "assignTo": "John Doe",
+    "assignDate": "2023-08-23",
+    "dueDate": "2023-09-15",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327502",
+    "role": "Technician",
+    "assignTo": "Jane Smith",
+    "assignDate": "2023-08-20",
+    "dueDate": "2023-09-10",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327503",
+    "role": "Operator",
+    "assignTo": "Alex Johnson",
+    "assignDate": "2023-08-25",
+    "dueDate": "2023-09-05",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327504",
+    "role": "Manager",
+    "assignTo": "Emily Brown",
+    "assignDate": "2023-08-22",
+    "dueDate": "2023-09-20",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327505",
+    "role": "Technician",
+    "assignTo": "Michael Lee",
+    "assignDate": "2023-08-24",
+    "dueDate": "2023-09-18",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327506",
+    "role": "Operator",
+    "assignTo": "Sophia Wilson",
+    "assignDate": "2023-08-21",
+    "dueDate": "2023-09-12",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327507",
+    "role": "Manager",
+    "assignTo": "Daniel Martinez",
+    "assignDate": "2023-08-26",
+    "dueDate": "2023-09-07",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327508",
+    "role": "Technician",
+    "assignTo": "Olivia Johnson",
+    "assignDate": "2023-08-23",
+    "dueDate": "2023-09-16",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327509",
+    "role": "Manager",
+    "assignTo": "William Davis",
+    "assignDate": "2023-08-22",
+    "dueDate": "2023-09-21",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327510",
+    "role": "Technician",
+    "assignTo": "Ella Anderson",
+    "assignDate": "2023-08-20",
+    "dueDate": "2023-09-11",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327511",
+    "role": "Operator",
+    "assignTo": "Liam Wilson",
+    "assignDate": "2023-08-25",
+    "dueDate": "2023-09-08",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327512",
+    "role": "Manager",
+    "assignTo": "Ava Smith",
+    "assignDate": "2023-08-24",
+    "dueDate": "2023-09-17",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327513",
+    "role": "Technician",
+    "assignTo": "James Brown",
+    "assignDate": "2023-08-22",
+    "dueDate": "2023-09-22",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327514",
+    "role": "Operator",
+    "assignTo": "Mia Johnson",
+    "assignDate": "2023-08-21",
+    "dueDate": "2023-09-13",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327515",
+    "role": "Manager",
+    "assignTo": "Noah Garcia",
+    "assignDate": "2023-08-26",
+    "dueDate": "2023-09-09",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327516",
+    "role": "Technician",
+    "assignTo": "Sophia Lee",
+    "assignDate": "2023-08-23",
+    "dueDate": "2023-09-14",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327517",
+    "role": "Operator",
+    "assignTo": "Ethan Smith",
+    "assignDate": "2023-08-20",
+    "dueDate": "2023-09-10",
+    "status": "Open"
+  },
+  {
+    "id": "20D754327518",
+    "role": "Manager",
+    "assignTo": "Isabella Martinez",
+    "assignDate": "2023-08-22",
+    "dueDate": "2023-09-23",
+    "status": "Unassigned"
+  },
+  {
+    "id": "20D754327519",
+    "role": "Technician",
+    "assignTo": "William Davis",
+    "assignDate": "2023-08-25",
+    "dueDate": "2023-09-06",
+    "status": "In Progress"
+  },
+  {
+    "id": "20D754327520",
+    "role": "Operator",
+    "assignTo": "Emma Wilson",
+    "assignDate": "2023-08-24",
+    "dueDate": "2023-09-19",
+    "status": "Open"
+  }
+]
