@@ -1,14 +1,14 @@
-.navbar {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
 .navbar-toggler {
   border: 1px solid #ffffff !important;
-  background: #ffffff;
-  color: black;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 .nav_section {
   background: #191d88;
 }
@@ -18,15 +18,9 @@
 }
 
 .nav-link {
-  padding: 15px 75px !important;
-  font-size: 22px !important;
   color: #ffffff !important;
-  font-weight: 700 !important;
 }
 
 .supervisor_btn {
-  background: transparent !important;
   color: #7298d4 !important;
-  font-size: 20px;
-  font-weight: 500 !important;
 }
