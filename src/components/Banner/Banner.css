@@ -1,0 +1,32 @@
+.banner_head {
+  border-bottom: 2px solid gray;
+}
+.banner_head h3 {
+  color: #5d5a5a;
+  font-weight: 500 !important;
+}
+
+.banner p {
+  margin-bottom: 0 !important;
+}
+
+.banner .title {
+  font-size: 32px;
+  font-weight: bold;
+}
+.banner .status-items p {
+  margin-top: 0;
+  font-weight: 500;
+  color: black;
+}
+.banner .banner-img-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+}
+
+.banner .banner-left-side p {
+  max-width: 450px;
+  width: 100%;
+}
