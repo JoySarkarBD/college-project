@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { FiEdit2 } from 'react-icons/fi';
 import {
   useFilters,
   useGlobalFilter,
@@ -68,7 +69,7 @@ const DataTable = () => {
           return (
             <div>
               {isEditing ? (
-                <div>
+                <div className="edit_box">
                   <input
                     type='text'
                     value={editedEmail}
@@ -83,16 +84,18 @@ const DataTable = () => {
                       </option>
                     ))}
                   </select>
-                  <button onClick={handleSaveClick}>Save</button>
+                  <button onClick={handleSaveClick} className="save_btn">Save</button>
                 </div>
               ) : (
-                <div>
-                  <div>
+                <div className="edit_assign_to">
+                  <div className="fw-bolder">
                     {value.name}
                     <br />
                     {value.mail}
                   </div>
-                  <button onClick={handleEditClick}>Edit</button>
+                  <button className="edit-btn" onClick={handleEditClick}>
+                    <FiEdit2/>
+                  </button>
                 </div>
               )}
             </div>

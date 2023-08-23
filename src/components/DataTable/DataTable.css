@@ -18,3 +18,37 @@ td:nth-child(2) {
 td:nth-child(3) {
   color: #084298 !important;
 }
+
+.edit_assign_to {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+.edit-btn {
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+.save_btn {
+  border: none;
+  background: none;
+  background: #084298;
+  font-weight: 500;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.edit_box {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.edit_box input {
+  margin: 5px 0;
+  padding: 0 5px;
+}
+.edit_box select {
+  margin: 1px 0;
+  padding: 1px 5px;
+}
