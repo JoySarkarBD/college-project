@@ -8,10 +8,14 @@ import {
   useTable,
 } from "react-table";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
-import dummyData from "./../../../data.json"; // Update the path to your data.json
+import dummyData from "./../../../data.json";
 
 const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
+
+  const uniqueNames = Array.from(
+    new Set(dummyData.map((item) => item.assignTo.name))
+  );
 
   const data = React.useMemo(() => dummyData, []);
 
@@ -30,13 +34,68 @@ const DataTable = () => {
       {
         Header: "Assigned To",
         accessor: "assignTo",
-        Cell: ({ value }) => (
-          <div>
-            {value.name}
-            <br />
-            {value.mail}
-          </div>
-        ),
+        Cell: ({ value, row }) => {
+          const [isEditing, setIsEditing] = useState(false);
+          const [editedName, setEditedName] = useState(value.name);
+          const [editedEmail, setEditedEmail] = useState(value.mail);
+
+          // Preprocess the data to create a unique list of assignee names
+          const uniqueAssigneeNames = [
+            ...new Set(data.map((row) => row.assignTo.name)),
+          ];
+          const handleEditClick = () => {
+            setIsEditing(true);
+            setEditedName(value.name);
+            setEditedEmail(value.mail);
+          };
+
+          const handleSaveClick = () => {
+            // Update the value in the row data or take any other action you need
+            const updatedData = data.map((rowData) =>
+              rowData.id === row.original.id
+                ? {
+                    ...rowData,
+                    assignTo: { name: editedName, mail: editedEmail },
+                  }
+                : rowData
+            );
+            // Update your data state or data source with updatedData
+            setIsEditing(false);
+          };
+
+          return (
+            <div>
+              {isEditing ? (
+                <div>
+                  <input
+                    type='text'
+                    value={editedEmail}
+                    onChange={(e) => setEditedEmail(e.target.value)}
+                  />
+                  <select
+                    value={editedName}
+                    onChange={(e) => setEditedName(e.target.value)}>
+                    {uniqueAssigneeNames.map((assigneeName) => (
+                      <option key={assigneeName} value={assigneeName}>
+                        {assigneeName}
+                      </option>
+                    ))}
+                  </select>
+                  <button onClick={handleSaveClick}>Save</button>
+                </div>
+              ) : (
+                <div>
+                  <div>
+                    {value.name}
+                    <br />
+                    {value.mail}
+                  </div>
+                  <button onClick={handleEditClick}>Edit</button>
+                </div>
+              )}
+            </div>
+          );
+        },
         Filter: columnFilter,
         filter: (rows, id, filterValue) => {
           return rows.filter((row) => {
@@ -59,7 +118,7 @@ const DataTable = () => {
         Filter: columnFilter,
       },
     ],
-    []
+    [data]
   );
 
   const {
@@ -101,6 +160,18 @@ const DataTable = () => {
             style={{ width: "50px" }}
           />
         </span>
+        <span>
+          {/* Step 2: Attach event handler */}
+          <select>
+            <option value=''>Select Name</option>
+            {uniqueNames.map((assigneeName) => (
+              <option key={assigneeName} value={assigneeName}>
+                {assigneeName}
+              </option>
+            ))}
+          </select>
+          <button>Go</button>
+        </span>
         <input
           type='text'
           placeholder='Search...'
@@ -125,6 +196,7 @@ const DataTable = () => {
                   }}
                 />
               </th>
+
               {headerGroup.headers.map((column, index) => (
                 <th
                   key={index}
