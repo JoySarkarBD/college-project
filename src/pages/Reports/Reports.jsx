@@ -4,7 +4,9 @@ const Reports = () => {
   return (
     <div>
       <PageTitle title='Reports' />
-      <h1>Reports Coming Soon</h1>
+      <h1 className='text-center my-5 text-secondary'>
+        Reports Coming Soon...
+      </h1>
     </div>
   );
 };
