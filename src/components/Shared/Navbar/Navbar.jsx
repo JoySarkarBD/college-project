@@ -8,6 +8,7 @@ const Navbar = () => {
       <Header />
       <nav className='navbar navbar-expand-lg nav_section p-0'>
         <div className='container-fluid '>
+          {/* navigation toggle button */}
           <button
             className='navbar-toggler'
             type='button'
@@ -18,60 +19,66 @@ const Navbar = () => {
             aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon text-primary'></span>
           </button>
+          {/* Navigation section */}
           <div className='collapse navbar-collapse' id='navbarNav'>
             {/* Left side navigation */}
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
+                {/* Home Nav */}
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-4 py-3 px-5"
-                      : "nav-link fw-bold fs-4 py-3 px-5"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
                   }
                   aria-current='page'
                   to='/'>
                   Home
                 </NavLink>
               </li>
+              {/* Admin Nav */}
               <li className='nav-item'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-4 py-3 px-5"
-                      : "nav-link fw-bold fs-4 py-3 px-5"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
                   }
                   to='admin'>
                   Admin
                 </NavLink>
               </li>
+              {/* Work Queue Nav */}
               <li className='nav-item'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-4 py-3 px-5"
-                      : "nav-link fw-bold fs-4 py-3 px-5"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 text-lg text-md  py-3 px-3"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
                   }
                   to='work-queue'>
                   Work Queue
                 </NavLink>
               </li>
+              {/*   Upload Data Nav */}
               <li className='nav-item'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-4 py-3 px-5"
-                      : "nav-link fw-bold fs-4 py-3 px-5"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
                   }
                   to='upload-data'>
                   Upload Data
                 </NavLink>
               </li>
+              {/*   Reports Nav */}
               <li className='nav-item'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-4 py-3 px-5"
-                      : "nav-link fw-bold fs-4 py-3 px-5"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
                   }
                   to='reports'>
                   Reports
@@ -81,7 +88,7 @@ const Navbar = () => {
 
             {/* right side  */}
             <div className='d-flex'>
-              <button className='btn supervisor_btn bg-transparent fw-normal fs-5 '>
+              <button className='btn supervisor_btn bg-transparent fw-normal fs-lg-3 fs-md-4 fs-sm-5 '>
                 User Like Supervisor
               </button>
             </div>
