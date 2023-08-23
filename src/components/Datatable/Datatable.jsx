@@ -1,47 +1,58 @@
 import React, { useState } from "react";
 import {
+  useFilters,
   useGlobalFilter,
   usePagination,
   useSortBy,
   useTable,
 } from "react-table";
-import data from "../../../data.json"; // Import your data JSON
+import dummyData from "../../../data.json"; // Import your data JSON
+import { columnFilter } from "../ColumnFilter/ColumnFilter";
 
 const DataTable = () => {
+  /* selected rows state */
   const [selectedRows, setSelectedRows] = useState([]);
 
-  console.log(selectedRows);
+  const data = React.useMemo(() => dummyData, []);
 
+  /* define table column */
   const columns = React.useMemo(
     () => [
       {
         Header: "ID",
         accessor: "id",
+        Filter: columnFilter,
       },
       {
         Header: "Role",
         accessor: "role",
+        Filter: columnFilter,
       },
       {
         Header: "Assign To",
         accessor: "assignTo",
+        Filter: columnFilter,
       },
       {
         Header: "Assign Date",
         accessor: "assignDate",
+        Filter: columnFilter,
       },
       {
         Header: "Due Date",
         accessor: "dueDate",
+        Filter: columnFilter,
       },
       {
         Header: "Status",
         accessor: "status",
+        Filter: columnFilter,
       },
     ],
     []
   );
 
+  /* useTable functionalities from react-table */
   const {
     getTableProps,
     getTableBodyProps,
@@ -59,6 +70,7 @@ const DataTable = () => {
       initialState: { pageIndex: 0, pageSize: 10 },
     },
     useGlobalFilter,
+    useFilters,
     useSortBy,
     usePagination
   );
@@ -118,6 +130,9 @@ const DataTable = () => {
                           : " 🔼"
                         : ""}
                     </span>
+                    <div>
+                      {column.canFilter ? column.render("Filter") : null}
+                    </div>
                   </th>
                 ))}
               </tr>
