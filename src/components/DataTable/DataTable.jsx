@@ -81,7 +81,7 @@ const DataTable = () => {
   );
 
   return (
-    <div>
+    <div className="px-5 my-5">
       <div className='d-flex justify-content-between align-items-center'>
         {/* Go To Input */}
         <div className='ms-2'>
