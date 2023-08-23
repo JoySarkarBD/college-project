@@ -3,7 +3,17 @@ input {
   border: 2px solid gray;
 }
 
-input:focus {
+select {
+  border-radius: 4px;
+  border: 2px solid gray;
+}
+
+input:focus,
+select:focus {
   box-shadow: none !important;
   outline: 0 !important;
+}
+
+.go_btn {
+  background: #000;
 }
