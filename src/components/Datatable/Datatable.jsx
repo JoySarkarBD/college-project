@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
   useFilters,
@@ -27,15 +28,24 @@ const DataTable = () => {
         Filter: columnFilter,
       },
       {
-        Header: "Assign To",
+        Header: "Assigned To",
         accessor: "assignTo",
+        Cell: ({ value }) => (
+          <div>
+            {value.name}
+            <br />
+            {value.mail}
+          </div>
+        ),
         Filter: columnFilter,
-        Cell: ({ value }) => {
-          return (
-            <div>
-              {value.name} <br /> {value.mail}
-            </div>
-          );
+        filter: (rows, id, filterValue) => {
+          return rows.filter((row) => {
+            const assignTo = row.values.assignTo;
+            return (
+              assignTo.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+              assignTo.mail.toLowerCase().includes(filterValue.toLowerCase())
+            );
+          });
         },
       },
       {
