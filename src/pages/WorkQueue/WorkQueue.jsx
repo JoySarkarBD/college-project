@@ -1,7 +1,10 @@
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
+
 const WorkQueue = () => {
   return (
     <div>
-      <h1>WorkQueue</h1>
+      <PageTitle title='Work Queue' />
+      <h1>Work Queue Coming Soon</h1>
     </div>
   );
 };

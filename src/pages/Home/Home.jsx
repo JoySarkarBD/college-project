@@ -1,11 +1,13 @@
 import Announcements from "../../components/Announcements/Announcements";
 import Banner from "../../components/Banner/Banner";
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
 
 const Home = () => {
   return (
     <>
-      <Banner/>
-      <Announcements/>
+      <PageTitle title='Home' />
+      <Banner />
+      <Announcements />
     </>
   );
 };

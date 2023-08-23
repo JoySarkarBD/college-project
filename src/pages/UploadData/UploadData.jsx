@@ -1,7 +1,10 @@
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
+
 const UploadData = () => {
   return (
     <div>
-      <h1>Upload Data</h1>
+      <PageTitle title='Upload Data' />
+      <h1>Upload Data Coming Soon</h1>
     </div>
   );
 };

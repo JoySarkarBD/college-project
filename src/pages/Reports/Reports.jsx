@@ -1,7 +1,10 @@
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
+
 const Reports = () => {
   return (
     <div>
-      <h1>Reports</h1>
+      <PageTitle title='Reports' />
+      <h1>Reports Coming Soon</h1>
     </div>
   );
 };
