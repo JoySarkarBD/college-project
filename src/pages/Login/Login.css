@@ -1,0 +1,82 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.login-page .title {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: #10135c;
+  font-size: 35px;
+  row-gap: 10px;
+}
+
+.login_form {
+  width: 600px;
+  min-height: 300px;
+  height: 100%;
+  padding: 15px;
+  border: 2px solid #2f88e1;
+}
+.login_form h3 {
+  background: #2f88e1;
+  color: white;
+  font-size: 25px;
+  padding: 5px 10px;
+  font-weight: 600;
+}
+.login_form .form-check_id2 {
+  padding-left: 40px !important;
+}
+.login_form {
+  color: gray;
+}
+.login_form h5 {
+  font-weight: 400 !important;
+}
+.login_form .windows_id_input {
+  border-color: gray;
+  font-weight: 500;
+}
+
+.login_form .form_label {
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login_form .btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44%;
+  margin: 30px auto;
+  color: black;
+  background: #e8eef6;
+  border: 2px solid #e2e4e7;
+  padding: 15px 0px;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .login_form {
+    max-width: 400px !important;
+    width: 100% !important;
+  }
+  .login_form .form_label {
+    max-width: 175px;
+    width: 175px;
+  }
+}
+.form-check-input {
+  cursor: pointer;
+}
+.form-check-input:checked {
+  background-color: gray;
+  border-color: gray;
+}
