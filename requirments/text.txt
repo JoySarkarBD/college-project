@@ -1,8 +1,0 @@
-So to consolidate the requirements
-1. These 2 screens shared are required
-2. Needs created using react js
-3. Use any css library
-4. Use props state hooks components etc
-5. Header and footer separate reusable js files to be prepared do that these can be reused
-6. Table to be prepared in json file and to be imported to js files later on
-7. Explain the code during delivery

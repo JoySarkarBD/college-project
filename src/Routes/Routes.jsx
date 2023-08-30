@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Admin from "../pages/Admin/Admin";
 import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
 import Reports from "../pages/Reports/Reports";
 import UploadData from "../pages/UploadData/UploadData";
 import WorkQueue from "../pages/WorkQueue/WorkQueue";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/work-queue",
