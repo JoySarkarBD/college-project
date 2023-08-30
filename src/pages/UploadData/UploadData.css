@@ -1,0 +1,80 @@
+.upload_data_title {
+  color: #02237e;
+}
+
+.upload_divider {
+  width: 215px;
+  margin: 0 auto;
+  border: 2px solid #c1c2ca;
+}
+
+.upload_btn {
+  background: #d9d9d9;
+  color: #000;
+  font-weight: 800;
+  padding: 5px 25px;
+  font-family: sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+span {
+  margin-left: 0.3rem;
+  font-family: sans-serif;
+}
+
+.validation_btn {
+  background: #01256f;
+  color: #c1c2ca;
+  margin-left: 100px;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.export_btn {
+  background: #d9d9d9;
+  color: #f9f9f9;
+  border: 0;
+  outline: 0;
+  margin-left: 100px;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.err_mod_icon {
+  fill: #e26642;
+}
+
+.succ_icon {
+  fill: #01256f;
+}
+
+.warn_heading {
+  color: #113589;
+}
+
+.ok_btn {
+  background: #063587;
+  color: #fff;
+  border-radius: 28px;
+}
+
+.cancel_btn {
+  background: #fff;
+  color: #063587;
+  border-radius: 28px;
+}
+
+.btn-close:focus {
+  outline: 0 !important;
+  box-shadow: none;
+}
