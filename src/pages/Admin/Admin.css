@@ -2,3 +2,31 @@
   border-bottom: 3px solid #e5e5e5;
   width: 12%;
 }
+
+.delegate_form .formInput {
+  border-radius: 2px;
+  border: 1px solid rgb(179, 174, 174);
+}
+.delegate_form label {
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #2f2f2f;
+}
+.btn-delegate {
+  background: #10135c;
+  color: white;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 30px;
+  text-transform: uppercase;
+}
+
+.delegationTable thead {
+  background: #e8e8ec;
+}
+
+.delegationTable_container {
+  margin-top: 150px;
+}
