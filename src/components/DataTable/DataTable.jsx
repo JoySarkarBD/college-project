@@ -63,14 +63,6 @@ const DataTable = () => {
         Header: "ASSIGN TO",
         accessor: "assignTo",
         Cell: ({ value, row }) => {
-          // editing states
-          const [isEditing, setIsEditing] = useState(false);
-
-          // handle edit button
-          const handleEditClick = () => {
-            setIsEditing(true);
-          };
-
           return (
             <div>
               {/* normal view by default of assignTo cell */}
@@ -84,7 +76,6 @@ const DataTable = () => {
                 <button
                   className='edit-btn'
                   type='button'
-                  onClick={() => handleEditClick()}
                   data-bs-toggle='modal'
                   data-bs-target='#exampleModal3'>
                   <FiEdit2 />
