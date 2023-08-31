@@ -7,6 +7,7 @@ import ManageUploadData from "../pages/Admin/ManageUploadData";
 import ManageUser from "../pages/Admin/ManageUser";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import ModifyUser from "../pages/ModifyUser/ModifyUser";
 import AuditReport from "../pages/Reports/AuditReport";
 import DataExport from "../pages/Reports/DataExport";
 import UploadData from "../pages/UploadData/UploadData";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/add-user",
         element: <AddUser />,
+      },
+      {
+        path: "/modify-user",
+        element: <ModifyUser />,
       },
       {
         path: "/work-queue",

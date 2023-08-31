@@ -1,7 +1,16 @@
 .addUserForm {
-  border: 1px solid gray;
-  border-radius: 10px;
+  border: 2px solid #c1bebe;
+  border-radius: 15px;
   padding: 50px;
+}
+.title h2 {
+  color: #10135c;
+  font-weight: 700 !important;
+  font-size: 35px;
+  text-transform: uppercase;
+  display: inline;
+  border-bottom: 2px solid #c1bebe;
+  padding: 10px 9px;
 }
 
 .addUserForm .formInput {
@@ -12,4 +21,30 @@
 .addUserForm label {
   font-weight: 500;
   font-size: 15px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #2f2f2f;
+}
+.addUserForm .btn_input {
+  background: #10135c;
+  color: white;
+  border-radius: 15px;
+}
+.addUserForm .select {
+  margin: 5px 0px !important;
+}
+.addUserForm .form_buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px !important;
+}
+.addUserForm .form_buttons button {
+  background: #10135c;
+  color: white;
+  border: none;
+  padding: 5px 25px;
+  border-radius: 30px;
+  text-transform: uppercase;
 }
