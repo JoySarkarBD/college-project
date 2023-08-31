@@ -164,7 +164,30 @@ const WorkingDataTable = () => {
               // Mapping the table body row data
               <tr key={index} {...row.getRowProps()}>
                 <td>
-                  <input type='checkbox' />
+                  <input
+                    type='checkbox'
+                    checked={selectedRows.some(
+                      (selectedRow) =>
+                        selectedRow.claimId === row.original.claimId
+                    )}
+                    onChange={() => {
+                      if (
+                        selectedRows.some(
+                          (selectedRow) =>
+                            selectedRow.claimId === row.original.claimId
+                        )
+                      ) {
+                        setSelectedRows(
+                          selectedRows.filter(
+                            (selectedRow) =>
+                              selectedRow.claimId !== row.original.claimId
+                          )
+                        );
+                      } else {
+                        setSelectedRows([...selectedRows, row.original]);
+                      }
+                    }}
+                  />
                 </td>
                 {row.cells.map((cell, index) => (
                   <td key={index} {...cell.getCellProps()}>
