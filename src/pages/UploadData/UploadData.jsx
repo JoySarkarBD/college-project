@@ -35,7 +35,7 @@ const UploadData = () => {
   };
 
   //
-  let dataBsTarget = !showErrorModal ? "#successModal" : "#errorModal";
+  let dataBsTarget = showErrorModal ? "#errorModal" : "#successModal";
 
   return (
     <>
@@ -96,7 +96,7 @@ const UploadData = () => {
             id='errorModal'
             tabIndex='-1'
             aria-labelledby='exampleModalLabel'
-            aria-hidden={showErrorModal}>
+            aria-hidden={!showErrorModal}>
             <div className='modal-dialog modal-dialog-centered'>
               <div className='modal-content'>
                 <div className='modal-header border-0'>
@@ -137,7 +137,7 @@ const UploadData = () => {
             id='successModal'
             tabIndex='-1'
             aria-labelledby='exampleModalLabel'
-            aria-hidden={showSuccessModal}>
+            aria-hidden={!showSuccessModal}>
             <div className='modal-dialog modal-dialog-centered'>
               <div className='modal-content'>
                 <div className='modal-header border-0'>
