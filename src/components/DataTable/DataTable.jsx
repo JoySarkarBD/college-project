@@ -74,45 +74,22 @@ const DataTable = () => {
           return (
             <div>
               {/* normal view by default of assignTo cell */}
-              {isEditing ? (
-                <>
-                  <div className='edit_assign_to'>
-                    <div className='fw-bolder'>
-                      {/* {value.name}
-                      <br />
-                      {value.mail} */}
-                    </div>
+              <div className='edit_assign_to'>
+                <div className='fw-bolder'>
+                  {value.name}
+                  <br />
+                  {value.mail}
+                </div>
 
-                    <button
-                      className='edit-btn'
-                      type='button'
-                      onClick={() => handleEditClick()}
-                      data-bs-toggle='modal'
-                      data-bs-target='#exampleModal3'>
-                      <FiEdit2 />
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className='edit_assign_to'>
-                    <div className='fw-bolder'>
-                      {value.name}
-                      <br />
-                      {value.mail}
-                    </div>
-
-                    <button
-                      className='edit-btn'
-                      type='button'
-                      onClick={() => handleEditClick()}
-                      data-bs-toggle='modal'
-                      data-bs-target='#exampleModal3'>
-                      <FiEdit2 />
-                    </button>
-                  </div>
-                </>
-              )}
+                <button
+                  className='edit-btn'
+                  type='button'
+                  onClick={() => handleEditClick()}
+                  data-bs-toggle='modal'
+                  data-bs-target='#exampleModal3'>
+                  <FiEdit2 />
+                </button>
+              </div>
             </div>
           );
         },
