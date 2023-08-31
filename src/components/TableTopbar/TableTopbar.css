@@ -1,4 +1,21 @@
 .topBar_style {
   background: #1d5384;
   height: 50px;
+  width: 100%;
+}
+
+.download_button {
+  column-gap: 10px;
+}
+.download_button button {
+  border: none;
+  background: none;
+  font-size: 31px;
+}
+.download_button .btn-csv {
+  color: black;
+}
+
+.download_button .btn-excel {
+  color: #1d5384;
 }
