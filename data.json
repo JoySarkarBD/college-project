@@ -2,7 +2,10 @@
   {
     "id": "20D754327501",
     "role": "Manager",
-    "assignTo": { "name": "John Doe", "mail": "johndeo@example.com" },
+    "assignTo": {
+      "name": "John Doe",
+      "mail": "johndeo@example.com"
+    },
     "assignDate": "2023-08-23",
     "dueDate": "2023-09-15",
     "status": "In Progress"
@@ -10,7 +13,10 @@
   {
     "id": "20D754327502",
     "role": "Technician",
-    "assignTo": { "name": "John Doe", "mail": "johndeo@example.com" },
+    "assignTo": {
+      "name": "John Doe",
+      "mail": "johndeo@example.com"
+    },
     "assignDate": "2023-08-20",
     "dueDate": "2023-09-10",
     "status": "Open"
@@ -18,7 +24,10 @@
   {
     "id": "20D754327503",
     "role": "Operator",
-    "assignTo": { "name": "Alex Johnson", "mail": "Alex@Johnson.com" },
+    "assignTo": {
+      "name": "Alex Johnson",
+      "mail": "Alex@Johnson.com"
+    },
     "assignDate": "2023-08-25",
     "dueDate": "2023-09-05",
     "status": "Unassigned"
@@ -26,7 +35,10 @@
   {
     "id": "20D754327504",
     "role": "Manager",
-    "assignTo": { "name": "Emily Brown", "mail": "Emily@Brown.com" },
+    "assignTo": {
+      "name": "Emily Brown",
+      "mail": "Emily@Brown.com"
+    },
     "assignDate": "2023-08-22",
     "dueDate": "2023-09-20",
     "status": "In Progress"
@@ -34,7 +46,10 @@
   {
     "id": "20D754327505",
     "role": "Technician",
-    "assignTo": { "name": "Michael Lee", "mail": "Michael@Lee.com" },
+    "assignTo": {
+      "name": "Michael Lee",
+      "mail": "Michael@Lee.com"
+    },
     "assignDate": "2023-08-24",
     "dueDate": "2023-09-18",
     "status": "Open"
@@ -42,7 +57,10 @@
   {
     "id": "20D754327506",
     "role": "Operator",
-    "assignTo": { "name": "Sophia Wilson", "mail": "Sophia@Wilson.com" },
+    "assignTo": {
+      "name": "Sophia Wilson",
+      "mail": "Sophia@Wilson.com"
+    },
     "assignDate": "2023-08-21",
     "dueDate": "2023-09-12",
     "status": "Unassigned"
@@ -50,7 +68,10 @@
   {
     "id": "20D754327507",
     "role": "Manager",
-    "assignTo": { "name": "Daniel Martinez", "mail": "Daniel@Martinez.com" },
+    "assignTo": {
+      "name": "Daniel Martinez",
+      "mail": "Daniel@Martinez.com"
+    },
     "assignDate": "2023-08-26",
     "dueDate": "2023-09-07",
     "status": "In Progress"
@@ -58,7 +79,10 @@
   {
     "id": "20D754327508",
     "role": "Technician",
-    "assignTo": { "name": "Olivia Johnson", "mail": "Olivia@Johnson.com" },
+    "assignTo": {
+      "name": "Olivia Johnson",
+      "mail": "Olivia@Johnson.com"
+    },
     "assignDate": "2023-08-23",
     "dueDate": "2023-09-16",
     "status": "Open"
@@ -66,7 +90,10 @@
   {
     "id": "20D754327509",
     "role": "Manager",
-    "assignTo": { "name": "William Davis", "mail": "William@Davis.com" },
+    "assignTo": {
+      "name": "William Davis",
+      "mail": "William@Davis.com"
+    },
     "assignDate": "2023-08-22",
     "dueDate": "2023-09-21",
     "status": "Unassigned"
@@ -74,7 +101,10 @@
   {
     "id": "20D754327510",
     "role": "Technician",
-    "assignTo": { "name": "Ella Anderson", "mail": "Ella@Anderson.com" },
+    "assignTo": {
+      "name": "Ella Anderson",
+      "mail": "Ella@Anderson.com"
+    },
     "assignDate": "2023-08-20",
     "dueDate": "2023-09-11",
     "status": "In Progress"
@@ -82,8 +112,10 @@
   {
     "id": "20D754327511",
     "role": "Operator",
-    "assignTo": "Liam Wilson",
-    "assignTo": { "name": "Liam Wilson", "mail": "Liam@Wilson.com" },
+    "assignTo": {
+      "name": "Liam Wilson",
+      "mail": "Liam@Wilson.com"
+    },
     "assignDate": "2023-08-25",
     "dueDate": "2023-09-08",
     "status": "Open"
@@ -91,7 +123,10 @@
   {
     "id": "20D754327512",
     "role": "Manager",
-    "assignTo": { "name": "Ava Smith", "mail": "Ava@Smith.com" },
+    "assignTo": {
+      "name": "Ava Smith",
+      "mail": "Ava@Smith.com"
+    },
     "assignDate": "2023-08-24",
     "dueDate": "2023-09-17",
     "status": "Unassigned"
@@ -99,7 +134,10 @@
   {
     "id": "20D754327513",
     "role": "Technician",
-    "assignTo": { "name": "James Brown", "mail": "James@Brown.com" },
+    "assignTo": {
+      "name": "James Brown",
+      "mail": "James@Brown.com"
+    },
     "assignDate": "2023-08-22",
     "dueDate": "2023-09-22",
     "status": "In Progress"
@@ -107,7 +145,10 @@
   {
     "id": "20D754327514",
     "role": "Operator",
-    "assignTo": { "name": "Mia Johnson", "mail": "Mia@Johnson.com" },
+    "assignTo": {
+      "name": "Mia Johnson",
+      "mail": "Mia@Johnson.com"
+    },
     "assignDate": "2023-08-21",
     "dueDate": "2023-09-13",
     "status": "Open"
@@ -115,7 +156,10 @@
   {
     "id": "20D754327515",
     "role": "Manager",
-    "assignTo": { "name": "Noah Garcia", "mail": "Noah@Garcia.com" },
+    "assignTo": {
+      "name": "Noah Garcia",
+      "mail": "Noah@Garcia.com"
+    },
     "assignDate": "2023-08-26",
     "dueDate": "2023-09-09",
     "status": "Unassigned"
@@ -123,7 +167,10 @@
   {
     "id": "20D754327516",
     "role": "Technician",
-    "assignTo": { "name": "Sophia Lee", "mail": "Sophia@Lee.com" },
+    "assignTo": {
+      "name": "Sophia Lee",
+      "mail": "Sophia@Lee.com"
+    },
     "assignDate": "2023-08-23",
     "dueDate": "2023-09-14",
     "status": "In Progress"
@@ -131,7 +178,10 @@
   {
     "id": "20D754327517",
     "role": "Operator",
-    "assignTo": { "name": "Ethan Smith", "mail": "Ethan@Smith.com" },
+    "assignTo": {
+      "name": "Ethan Smith",
+      "mail": "Ethan@Smith.com"
+    },
     "assignDate": "2023-08-20",
     "dueDate": "2023-09-10",
     "status": "Open"
@@ -150,7 +200,10 @@
   {
     "id": "20D754327519",
     "role": "Technician",
-    "assignTo": { "name": "William Davis", "mail": "William@Davis.com" },
+    "assignTo": {
+      "name": "William Davis",
+      "mail": "William@Davis.com"
+    },
     "assignDate": "2023-08-25",
     "dueDate": "2023-09-06",
     "status": "In Progress"
@@ -158,7 +211,10 @@
   {
     "id": "20D754327520",
     "role": "Operator",
-    "assignTo": { "name": "Emma Wilson", "mail": "Emma@Wilson.com" },
+    "assignTo": {
+      "name": "Emma Wilson",
+      "mail": "Emma@Wilson.com"
+    },
     "assignDate": "2023-08-24",
     "dueDate": "2023-09-19",
     "status": "Open"
