@@ -22,7 +22,7 @@ const WorkingDataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   console.log(selectedRows);
   // extracting unique names from the dummy json data
-  const names = dummyData.map((item) => item.assignTo.name);
+  const names = dummyData.map(item => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -132,7 +132,7 @@ const WorkingDataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map(row => row.original));
                     }
                   }}
                 />
@@ -167,19 +167,19 @@ const WorkingDataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) =>
+                      selectedRow =>
                         selectedRow.claimId === row.original.claimId
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) =>
+                          selectedRow =>
                             selectedRow.claimId === row.original.claimId
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) =>
+                            selectedRow =>
                               selectedRow.claimId !== row.original.claimId
                           )
                         );
@@ -201,19 +201,23 @@ const WorkingDataTable = () => {
       </table>
       {/* Pagination */}
       <div className='d-flex align-items-center justify-content-center mt-5'>
-        <GoToInput
-          type='number'
-          title='Go to page:'
-          gotoPage={gotoPage}
-          defaultValue={pageIndex + 1}
-        />
-        <Pagination
-          gotoPage={gotoPage}
-          pageSize={pageSize}
-          setPageSize={setPageSize}
-          page={page}
-          pageIndex={pageIndex}
-        />
+        <div className='me-auto w-50'>
+          <GoToInput
+            type='number'
+            title='Go to page:'
+            gotoPage={gotoPage}
+            defaultValue={pageIndex + 1}
+          />
+        </div>
+        <div className='me-auto w-100'>
+          <Pagination
+            gotoPage={gotoPage}
+            pageSize={pageSize}
+            setPageSize={setPageSize}
+            page={page}
+            pageIndex={pageIndex}
+          />
+        </div>
       </div>
     </div>
   );

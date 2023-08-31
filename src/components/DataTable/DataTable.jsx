@@ -16,7 +16,7 @@ import GoToInput from "../Form/GoToInput";
 import SearchInput from "../Form/SearchInput";
 import SelectNames from "../Form/SelectNames";
 import Pagination from "../Pagination/Pagination";
-import TableTopbar from "../TableTopbar/TableTopbar";
+import AdminTableTopbar from "../TableTopbar/AdminTableTopbar";
 import dummyData from "./../../../data.json"; // Update the path to your data.json
 import "./DataTable.css";
 
@@ -25,7 +25,7 @@ const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   // extracting unique names from the dummy json data
-  const names = dummyData.map((item) => item.assignTo.name);
+  const names = dummyData.map(item => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -33,7 +33,7 @@ const DataTable = () => {
   const uniqueAssigneesMap = new Map();
   const uniqueAssigneesArray = [];
 
-  dummyData.forEach((item) => {
+  dummyData.forEach(item => {
     const { name, mail } = item.assignTo;
     const key = `${name}-${mail}`;
 
@@ -87,7 +87,7 @@ const DataTable = () => {
         Filter: columnFilter,
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
-          return rows.filter((row) => {
+          return rows.filter(row => {
             const assignTo = row.values.assignTo;
             return (
               assignTo.name.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -161,7 +161,7 @@ const DataTable = () => {
         </div>
       </div>
       {/* Table topbar */}
-      <TableTopbar />
+      <AdminTableTopbar />
       <table className='table' {...getTableProps()}>
         {/* Mapping the data of header */}
         <thead>
@@ -176,7 +176,7 @@ const DataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map(row => row.original));
                     }
                   }}
                 />
@@ -212,17 +212,17 @@ const DataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) => selectedRow.id === row.original.id
+                      selectedRow => selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) => selectedRow.id === row.original.id
+                          selectedRow => selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) => selectedRow.id !== row.original.id
+                            selectedRow => selectedRow.id !== row.original.id
                           )
                         );
                       } else {
@@ -276,7 +276,7 @@ const DataTable = () => {
                   </span>
                   <span className='ps-3'>Select All</span>
                 </li>
-                {uniqueAssigneesArray.map((item) => {
+                {uniqueAssigneesArray.map(item => {
                   console.log(item.email);
                   return (
                     <li key={item.name} className='listing_sty3 py-1'>
@@ -284,9 +284,11 @@ const DataTable = () => {
                         <span>
                           <input type='checkbox' name='' id='' />
                         </span>
-                        <span className='ps-2'>{item.name}</span>
+                        <div>
+                          <p className='item_name'>{item.name}</p>
+                          <p className='item_mail'>{item?.mail}</p>
+                        </div>
                       </div>
-                      <span className='item_mail'>{item?.mail}</span>
                     </li>
                   );
                 })}

@@ -89,6 +89,14 @@ td:nth-child(3) {
   margin-left: 4px;
 }
 
+.item_name {
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 37px !important;
+  margin-bottom: 5px !important;
+}
+
 .item_mail {
   padding-left: 37px;
+  margin-bottom: 5px !important;
 }
