@@ -1,23 +1,23 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Shared/Footer/Footer";
 import Navbar from "../components/Shared/Navbar/Navbar";
 
 const Layout = () => {
-  // const location = useLocation();
-  // const noNav = location.pathname.includes("/admin");
-  // const noFooter =
-  //   location.pathname.includes("/admin") ||
-  //   location.pathname.includes("/work-queue") ||
-  //   location.pathname.includes("/upload-data") ||
-  //   location.pathname.includes("/reports");
+  const location = useLocation();
+  const noNav = location.pathname.includes("/login");
+  const noFooter =
+    location.pathname.includes("/work-queue") ||
+    location.pathname.includes("/upload-data") ||
+    location.pathname.includes("/reports") ||
+    location.pathname.includes("/login");
 
   return (
     <>
-      {/* {noNav || <Navbar />} */}
-      <Navbar />
+      {noNav || <Navbar />}
+
       <Outlet />
-      <Footer />
-      {/* {noFooter || <Footer />} */}
+
+      {noFooter || <Footer />}
     </>
   );
 };

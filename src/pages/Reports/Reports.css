@@ -1,4 +1,5 @@
-.audit_report_title {
+.audit_report_title,
+.data_report_title {
   color: #10135c;
   font-weight: 600;
   font-size: 35px;
