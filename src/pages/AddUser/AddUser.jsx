@@ -14,7 +14,7 @@ export default function AddUser() {
               <div className="col-8">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control formInput"
                   placeholder="LJKSHSD"
                 />
               </div>
@@ -32,7 +32,7 @@ export default function AddUser() {
               <label>NAME</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control formInput"
                 placeholder="PETERPARKER"
               />
             </div>
@@ -41,10 +41,10 @@ export default function AddUser() {
           {/* NAME FIELD*/}
           <div className="col-md-4">
             <div className="mb-3">
-              <label>NAME</label>
+              <label>Employee ID</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control formInput"
                 placeholder="PETERPARKER"
               />
             </div>
