@@ -1,9 +1,9 @@
-import "./AddUser.css";
-export default function AddUser() {
+import "./../AddUser/AddUser.css";
+export default function ModifyUser() {
   return (
     <div className="container my-5">
       <div className="title text-center">
-        <h2>Add User</h2>
+        <h2>Modify User</h2>
       </div>
       <form className="addUserForm mt-5">
         <div className="row">
@@ -11,17 +11,12 @@ export default function AddUser() {
           <div className="col-md-4 mb-4">
             <div className="row gx-3 align-items-center">
               <label className="label">MSID</label>
-              <div className="col-8">
+              <div className="col-12">
                 <input
                   type="text"
                   className="form-control formInput"
                   placeholder="LJKSHSD"
                 />
-              </div>
-              <div className="col-4">
-                <button type="submit" className="btn btn_input">
-                  CHECK
-                </button>
               </div>
             </div>
           </div>
@@ -135,14 +130,11 @@ export default function AddUser() {
 
         {/* form submit button */}
         <div className="text-center mt-5 form_buttons gap-2 gap-md-1">
-          {/* SAVE DETAILS BUTTON */}
-          <button>Save Details</button>
-
-          {/* SAVE AND ADD ANOTHER BUTTON */}
-          <button>SAVE AND ADD ANOTHER</button>
+          {/* SUBMIT BUTTON */}
+          <button className="px-5">SUBMIT</button>
 
           {/* RESET BUTTON */}
-          <button>RESET</button>
+          <button className="px-5">RESET</button>
         </div>
       </form>
     </div>
