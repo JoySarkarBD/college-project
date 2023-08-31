@@ -58,8 +58,8 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink className='dropdown-item' to='manager-user'>
-                      MANAGER USER
+                    <NavLink className='dropdown-item' to='manage-user'>
+                      MANAGE USER
                     </NavLink>
                   </li>
                   <li>

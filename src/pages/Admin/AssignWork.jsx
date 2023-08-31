@@ -2,7 +2,7 @@ import DataTable from "../../components/DataTable/DataTable";
 import PageTitle from "../../components/Shared/PageTitle/PageTitle";
 import "./Admin.css";
 
-const Admin = () => {
+const AssignWork = () => {
   return (
     <>
       <PageTitle title='Admin' />
@@ -15,4 +15,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AssignWork;
