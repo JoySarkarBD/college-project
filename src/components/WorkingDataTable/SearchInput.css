@@ -1,0 +1,24 @@
+input {
+  border-radius: 4px;
+  border: 2px solid gray;
+}
+
+input.number-inp[type="number"]::-webkit-outer-spin-button,
+input.number-inp[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+select {
+  border-radius: 4px;
+  border: 2px solid gray;
+}
+
+input:focus,
+select:focus {
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+.go_btn {
+  background: #000;
+}
