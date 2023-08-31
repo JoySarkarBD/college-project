@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { FiEdit2 } from "react-icons/fi";
@@ -24,7 +25,7 @@ const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   // extracting unique names from the dummy json data
-  const names = dummyData.map((item) => item.assignTo.name);
+  const names = dummyData.map(item => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -32,7 +33,7 @@ const DataTable = () => {
   const uniqueAssigneesMap = new Map();
   const uniqueAssigneesArray = [];
 
-  dummyData.forEach((item) => {
+  dummyData.forEach(item => {
     const { name, mail } = item.assignTo;
     const key = `${name}-${mail}`;
 
@@ -73,26 +74,52 @@ const DataTable = () => {
           return (
             <div>
               {/* normal view by default of assignTo cell */}
-              <div className='edit_assign_to'>
-                <div className='fw-bolder'>
-                  {value.name}
-                  <br />
-                  {value.mail}
-                </div>
-                <button
-                  className='edit-btn'
-                  type='button'
-                  onClick={() => handleEditClick()}>
-                  <FiEdit2 />
-                </button>
-              </div>
+              {isEditing ? (
+                <>
+                  <div className='edit_assign_to'>
+                    <div className='fw-bolder'>
+                      {/* {value.name}
+                      <br />
+                      {value.mail} */}
+                    </div>
+
+                    <button
+                      className='edit-btn'
+                      type='button'
+                      onClick={() => handleEditClick()}
+                      data-bs-toggle='modal'
+                      data-bs-target='#exampleModal3'>
+                      <FiEdit2 />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className='edit_assign_to'>
+                    <div className='fw-bolder'>
+                      {value.name}
+                      <br />
+                      {value.mail}
+                    </div>
+
+                    <button
+                      className='edit-btn'
+                      type='button'
+                      onClick={() => handleEditClick()}
+                      data-bs-toggle='modal'
+                      data-bs-target='#exampleModal3'>
+                      <FiEdit2 />
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           );
         },
         Filter: columnFilter,
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
-          return rows.filter((row) => {
+          return rows.filter(row => {
             const assignTo = row.values.assignTo;
             return (
               assignTo.name.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -181,7 +208,7 @@ const DataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map(row => row.original));
                     }
                   }}
                 />
@@ -217,17 +244,17 @@ const DataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) => selectedRow.id === row.original.id
+                      selectedRow => selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) => selectedRow.id === row.original.id
+                          selectedRow => selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) => selectedRow.id !== row.original.id
+                            selectedRow => selectedRow.id !== row.original.id
                           )
                         );
                       } else {
@@ -255,6 +282,50 @@ const DataTable = () => {
           page={page}
           pageIndex={pageIndex}
         />
+      </div>
+
+      {/* Modal */}
+      <div
+        className='modal fade'
+        id='exampleModal3'
+        tabIndex='-1'
+        aria-labelledby='exampleModalLabel'
+        aria-hidden='true'>
+        <div className='modal-dialog modal-dialog-centered '>
+          <div className='modal-content'>
+            <div className='modal-header border-0'>
+              <button
+                type='button'
+                className='btn-close'
+                data-bs-dismiss='modal'
+                aria-label='Close'></button>
+            </div>
+            <div className='modal-body listin_modal_body'>
+              <ul>
+                <li className='listing_sty'>
+                  <span className='ps-1'>
+                    <input type='checkbox' name='' id='' />
+                  </span>
+                  <span className='ps-3'>Select All</span>
+                </li>
+                {uniqueAssigneesArray.map(item => {
+                  console.log(item.email);
+                  return (
+                    <li key={item.name} className='listing_sty3 py-1'>
+                      <div className='listing_sty2'>
+                        <span>
+                          <input type='checkbox' name='' id='' />
+                        </span>
+                        <span className='ps-2'>{item.name}</span>
+                      </div>
+                      <span className='item_mail'>{item?.mail}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
