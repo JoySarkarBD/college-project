@@ -1,4 +1,6 @@
+import bannerImg from "../../assets/bannerImg.jpg";
 import "./Banner.css";
+
 const Banner = () => {
   return (
     <div className='container py-5 banner'>
@@ -43,7 +45,7 @@ const Banner = () => {
         </div>
         {/* banner right side */}
         <div className='col-12 col-md-6 col-lg-6 banner-img-area'>
-          <h3>IMAGE GOES HERE</h3>
+          <img src={bannerImg} alt='' />
         </div>
       </div>
     </div>

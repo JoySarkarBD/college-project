@@ -1,4 +1,5 @@
 import { BsQuestionCircleFill } from "react-icons/bs";
+import logo1 from "../../assets/logo1.jpg";
 import "./Header.css";
 
 const Header = () => {
@@ -6,10 +7,8 @@ const Header = () => {
     <nav className='navbar navbar-expand-lg bg-body-tertiary my-2'>
       <div className='container-fluid'>
         {/* Logo Image */}
-        <div
-          className='navbar-brand logo_img  py-3 px-lg-5 px-md-3 px-sm-1'
-          href='#'>
-          [ <small className='fs-lg-3 fs-md-4 fs-sm-5'> LOGO IMAGE </small> ]
+        <div className='navbar-brand   py-3 px-lg-5 px-md-3 px-sm-1' href='#'>
+          <img src={logo1} alt='' className='img-fluid logo_img' />
         </div>
 
         {/* Navigation toggle button */}
