@@ -99,16 +99,16 @@ const WorkingDataTable = () => {
 
   return (
     <div className='px-5 my-5 table-responsive'>
-      <div className='row'>
+      <div className='row table_top_area'>
         {/* Go To Input */}
 
-        <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>
+        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-end'>
           {/* Step 2: Attach event handler */}
           <SelectNames names={names} />
         </div>
 
         {/* Search Input */}
-        <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center'>
+        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center'>
           <SearchInput
             type='text'
             title='Search'

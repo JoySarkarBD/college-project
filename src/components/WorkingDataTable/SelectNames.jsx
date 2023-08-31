@@ -3,8 +3,8 @@ import "./SearchInput.css";
 
 const SelectNames = ({ names }) => {
   return (
-    <>
-      <p>VIEW ASSIGNMENTS:</p>
+    <div className="d-flex align-items-center">
+      <p className="m-0 fw-bold">VIEW ASSIGNMENTS:</p>
       <select className='mx-2 py-1 px-2 '>
         <option defaultValue='' disabled selected>
           Select Name
@@ -15,7 +15,7 @@ const SelectNames = ({ names }) => {
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 
