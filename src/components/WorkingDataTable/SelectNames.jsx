@@ -6,7 +6,7 @@ const SelectNames = ({ names }) => {
     <>
       <p>VIEW ASSIGNMENTS:</p>
       <select className='mx-2 py-1 px-2 '>
-        <option value='' disabled selected>
+        <option defaultValue='' disabled selected>
           Select Name
         </option>
         {names.map((assigneeName) => (

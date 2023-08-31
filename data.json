@@ -11,17 +11,6 @@
     "status": "In Progress"
   },
   {
-    "id": "20D754327502",
-    "role": "Technician",
-    "assignTo": {
-      "name": "John Doe",
-      "mail": "johndeo@example.com"
-    },
-    "assignDate": "2023-08-20",
-    "dueDate": "2023-09-10",
-    "status": "Open"
-  },
-  {
     "id": "20D754327503",
     "role": "Operator",
     "assignTo": {
@@ -196,17 +185,6 @@
     "assignDate": "2023-08-22",
     "dueDate": "2023-09-23",
     "status": "Unassigned"
-  },
-  {
-    "id": "20D754327519",
-    "role": "Technician",
-    "assignTo": {
-      "name": "William Davis",
-      "mail": "William@Davis.com"
-    },
-    "assignDate": "2023-08-25",
-    "dueDate": "2023-09-06",
-    "status": "In Progress"
   },
   {
     "id": "20D754327520",

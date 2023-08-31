@@ -42,6 +42,9 @@ const DataTable = () => {
     }
   });
 
+  // ei data diye modal e loop hobe and data show hobe......
+  console.log(uniqueAssigneesArray);
+
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
     () => [
@@ -69,22 +72,20 @@ const DataTable = () => {
 
           return (
             <div>
-              {!isEditing && (
-                /* normal view by default of assignTo cell */
-                <div className='edit_assign_to'>
-                  <div className='fw-bolder'>
-                    {value.name}
-                    <br />
-                    {value.mail}
-                  </div>
-                  <button
-                    className='edit-btn'
-                    type='button'
-                    onClick={() => handleEditClick()}>
-                    <FiEdit2 />
-                  </button>
+              {/* normal view by default of assignTo cell */}
+              <div className='edit_assign_to'>
+                <div className='fw-bolder'>
+                  {value.name}
+                  <br />
+                  {value.mail}
                 </div>
-              )}
+                <button
+                  className='edit-btn'
+                  type='button'
+                  onClick={() => handleEditClick()}>
+                  <FiEdit2 />
+                </button>
+              </div>
             </div>
           );
         },
