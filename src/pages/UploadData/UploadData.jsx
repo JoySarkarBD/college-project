@@ -5,43 +5,50 @@ import PageTitle from "../../components/Shared/PageTitle/PageTitle";
 import "./UploadData.css";
 
 const UploadData = () => {
-  const [selectedFileName, setSelectedFileName] = useState("");
-  // error modal & success modal state
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState(""); // Add this state
 
-  const handleFileChange = event => {
-    const file = event.target.files[0];
-    setSelectedFileName(file.name);
+  const validFileExtensions = ["xlsx", "xls"];
+
+  const validateFile = (fileName) => {
+    const fileExtension = fileName.split(".").pop();
+    return validFileExtensions.includes(fileExtension);
   };
 
-  // validate and upload file validation
   const handleValidateAndUpload = () => {
-    // Assuming valid file types are Excel files
-    const validFileTypes = [
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "application/vnd.ms-excel",
-    ];
+    const inputElement = document.getElementById("actual-btn");
+    const uploadedFile = inputElement.files[0];
 
-    const file = document.getElementById("actual-btn").files[0];
+    if (!uploadedFile) {
+      // No file selected
+      return;
+    }
 
-    if (file && validFileTypes.includes(file.type)) {
+    setSelectedFileName(uploadedFile.name); // Update selectedFileName
+    const isValidFile = validateFile(uploadedFile.name);
+
+    if (isValidFile) {
       setShowSuccessModal(true);
-      setShowErrorModal(false);
     } else {
-      setShowSuccessModal(false);
       setShowErrorModal(true);
     }
   };
 
-  //
+  const handleModalClose = () => {
+    setShowErrorModal(false);
+    setShowSuccessModal(false);
+    setSelectedFileName("");
+    window.location.reload();
+  };
+
   let dataBsTarget = showErrorModal ? "#errorModal" : "#successModal";
 
   return (
     <>
       <PageTitle title='Upload Data' />
       <div className='container'>
-        <h1 className='text-center mt-4 mb-2  upload_data_title  '>
+        <h1 className='text-center my-3 fs-2 upload_data_title fs-bold '>
           UPLOAD DATA
         </h1>
         <hr className='upload_divider' />
@@ -62,7 +69,7 @@ const UploadData = () => {
               type='file'
               id='actual-btn'
               style={{ display: "none" }}
-              onChange={handleFileChange}
+              onChange={handleValidateAndUpload}
               accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
             />
             {/*  Choose File Button */}
@@ -80,7 +87,8 @@ const UploadData = () => {
               className='validation_btn'
               onClick={handleValidateAndUpload}
               data-bs-toggle='modal'
-              data-bs-target={dataBsTarget}>
+              data-bs-target={dataBsTarget}
+              disabled={!selectedFileName}>
               Validate and Upload
             </button>
             {/* Export Erroneous Data Button */}
@@ -116,13 +124,18 @@ const UploadData = () => {
                 </div>
 
                 <div className='modal-footer border-0 justify-content-start mb-5'>
-                  <button type='button' className='ok_btn w-25 py-2'>
+                  <button
+                    type='button'
+                    className='ok_btn w-25 py-2'
+                    data-bs-dismiss='modal'
+                    onClick={handleModalClose}>
                     Ok
                   </button>
                   <button
                     type='button'
                     className='cancel_btn w-25 py-2'
-                    data-bs-dismiss='modal'>
+                    data-bs-dismiss='modal'
+                    onClick={handleModalClose}>
                     Cancel
                   </button>
                 </div>
@@ -157,7 +170,12 @@ const UploadData = () => {
                 </div>
 
                 <div className='modal-footer border-0 justify-content-start mb-5'>
-                  <button type='button' className='ok_btn w-25 py-2'>
+                  <button
+                    type='button'
+                    className='ok_btn w-25 py-2'
+                    data-bs-dismiss='modal'
+                    aria-label='Close'
+                    onClick={handleModalClose}>
                     Ok
                   </button>
                 </div>

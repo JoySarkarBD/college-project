@@ -16,7 +16,6 @@ const DataExportCard = () => {
                   type='checkbox'
                   value=''
                   id='flexCheckChecked'
-                  checked
                 />
                 <label
                   className='form-check-label ms-2 fw-bold fs-5'
@@ -61,7 +60,6 @@ const DataExportCard = () => {
                   type='checkbox'
                   value=''
                   id='flexCheckChecked'
-                  checked
                 />
                 <label
                   className='form-check-label ms-2 fw-bold fs-5'
