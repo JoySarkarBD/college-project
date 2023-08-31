@@ -43,7 +43,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive
                       ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
-                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
+                      : " nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
                   }
                   to='admin'
                   data-bs-toggle='dropdown'

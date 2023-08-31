@@ -41,7 +41,7 @@ const UploadData = () => {
     <>
       <PageTitle title='Upload Data' />
       <div className='container'>
-        <h1 className='text-center my-3 fs-2 upload_data_title fs-bold '>
+        <h1 className='text-center mt-4 mb-2  upload_data_title  '>
           UPLOAD DATA
         </h1>
         <hr className='upload_divider' />

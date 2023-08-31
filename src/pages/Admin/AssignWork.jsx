@@ -5,7 +5,7 @@ import "./Admin.css";
 const AssignWork = () => {
   return (
     <>
-      <PageTitle title='Admin' />
+      <PageTitle title='Assign Work' />
       <div className='text-center my-3 '>
         <h2 className='fw-bold'>ASSIGN WORK</h2>
         <div className='admin-heading mx-auto'></div>
