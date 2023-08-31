@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import AddUser from "../pages/AddUser/AddUser";
-import Admin from "../pages/Admin/Admin";
+import AssignWork from "../pages/Admin/AssignWork";
+import DelegateAccess from "../pages/Admin/DelegateAccess";
+import ManageUploadData from "../pages/Admin/ManageUploadData";
+import ManageUser from "../pages/Admin/ManageUser";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
-import Reports from "../pages/Reports/Reports";
+import AuditReport from "../pages/Reports/AuditReport";
+import DataExport from "../pages/Reports/DataExport";
 import UploadData from "../pages/UploadData/UploadData";
 import WorkQueue from "../pages/WorkQueue/WorkQueue";
 import ErrorPage from "../utilis/Error/ErrorPage";
@@ -21,8 +25,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/admin",
-        element: <Admin />,
+        path: "/assign-work",
+        element: <AssignWork />,
       },
       {
         path: "/login",
@@ -41,8 +45,24 @@ const router = createBrowserRouter([
         element: <UploadData />,
       },
       {
-        path: "/reports",
-        element: <Reports />,
+        path: "/data-export",
+        element: <DataExport />,
+      },
+      {
+        path: "/audit-report",
+        element: <AuditReport />,
+      },
+      {
+        path: "/manage-user",
+        element: <ManageUser />,
+      },
+      {
+        path: "/manage-upload-data",
+        element: <ManageUploadData />,
+      },
+      {
+        path: "/delegate-access",
+        element: <DelegateAccess />,
       },
     ],
   },
