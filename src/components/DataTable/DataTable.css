@@ -52,3 +52,43 @@ td:nth-child(3) {
   margin: 1px 0;
   padding: 1px 5px;
 }
+
+.listin_modal_body {
+  padding: 2px 0 !important;
+  height: 250px !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.listin_modal_body ul {
+  padding: 0 !important;
+}
+
+.listin_modal_body ul li {
+  list-style: none !important;
+}
+
+.listin_modal_body .listing_sty {
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  margin-left: 4px;
+}
+
+.listin_modal_body .listing_sty2 {
+  display: flex !important;
+  align-items: center !important;
+  width: 100%;
+  margin-left: 4px;
+}
+
+.listin_modal_body .listing_sty3 {
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  margin-left: 4px;
+}
+
+.item_mail {
+  padding-left: 40px;
+}
