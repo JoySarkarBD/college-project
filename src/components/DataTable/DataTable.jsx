@@ -24,9 +24,7 @@ const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   // extracting unique names from the dummy json data
-  const uniqueNames = Array.from(
-    new Set(dummyData.map((item) => item.assignTo.name))
-  );
+  const names = dummyData.map((item) => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -43,7 +41,7 @@ const DataTable = () => {
       uniqueAssigneesArray.push({ name, mail });
     }
   });
-  console.log(uniqueAssigneesArray);
+
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
     () => [
@@ -154,7 +152,7 @@ const DataTable = () => {
 
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>
           {/* Step 2: Attach event handler */}
-          <SelectNames uniqueNames={uniqueNames} />
+          <SelectNames names={names} />
         </div>
 
         {/* Search Input */}

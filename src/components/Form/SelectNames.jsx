@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import "./SearchInput.css";
 
-const SelectNames = ({ uniqueNames }) => {
+const SelectNames = ({ names }) => {
   return (
     <>
       <select className='mx-2 py-1 px-2 '>
         <option value='' disabled selected>
           Select Name
         </option>
-        {uniqueNames.map(assigneeName => (
+        {names.map((assigneeName) => (
           <option key={assigneeName} value={assigneeName}>
             {assigneeName}
           </option>

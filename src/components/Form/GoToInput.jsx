@@ -3,18 +3,26 @@
 import "./SearchInput.css";
 
 const GoToInput = ({ title, gotoPage, ...attributes }) => {
+  const handleInputChange = (e) => {
+    const rawValue = e.target.value;
+    let pageNumber = parseInt(rawValue);
+
+    if (isNaN(pageNumber) || pageNumber <= 0) {
+      gotoPage(0); // Default to page 1 for non-numeric or negative input
+    } else {
+      gotoPage(pageNumber - 1); // Adjusted to zero-based index
+    }
+  };
+
   return (
     <>
       <label htmlFor='search' className='fs-5'>
         {title}
       </label>
       <input
-        className='mx-2 py-1 px-2 w-25'
+        className='mx-2 py-1 px-2 w-25 number-inp'
         {...attributes}
-        onChange={e => {
-          const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0;
-          gotoPage(pageNumber);
-        }}
+        onChange={handleInputChange}
       />
     </>
   );
