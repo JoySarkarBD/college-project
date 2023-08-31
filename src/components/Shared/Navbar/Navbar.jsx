@@ -36,18 +36,45 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-              {/* Admin Nav */}
-              <li className='nav-item'>
+
+              {/* Admin Nav  dropdown */}
+              <li className='nav-item dropdown'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
-                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
                   }
-                  to='admin'>
+                  to='admin'
+                  data-bs-toggle='dropdown'
+                  aria-expanded='false'>
                   Admin
                 </NavLink>
+
+                <ul className='dropdown-menu'>
+                  <li>
+                    <NavLink className='dropdown-item' to='assign-work'>
+                      ASSIGN WORK
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className='dropdown-item' to='manager-user'>
+                      MANAGER USER
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className='dropdown-item' to='manage-upload-data'>
+                      MANAGE UPLOAD DATA
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className='dropdown-item' to='delegate-access'>
+                      DELEGATE ACCESS
+                    </NavLink>
+                  </li>
+                </ul>
               </li>
+
               {/* Work Queue Nav */}
               <li className='nav-item'>
                 <NavLink
@@ -72,17 +99,33 @@ const Navbar = () => {
                   Upload Data
                 </NavLink>
               </li>
-              {/*   Reports Nav */}
-              <li className='nav-item'>
+
+              {/*   Reports Nav dropdown */}
+              <li className='nav-item dropdown'>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
-                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3"
+                      ? "active_link nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
+                      : "nav-link fw-bold fs-lg-3 fs-md-4 fs-sm-5 py-3 px-3 nav-link dropdown-toggle"
                   }
-                  to='reports'>
-                  Reports
+                  to='reports'
+                  data-bs-toggle='dropdown'
+                  aria-expanded='false'>
+                  REPORT
                 </NavLink>
+
+                <ul className='dropdown-menu'>
+                  <li>
+                    <NavLink className='dropdown-item' to='data-export'>
+                      DATA EXPORT
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className='dropdown-item' to='audit-report'>
+                      AUDIT REPORT
+                    </NavLink>
+                  </li>
+                </ul>
               </li>
             </ul>
 

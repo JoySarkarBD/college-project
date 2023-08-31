@@ -24,3 +24,8 @@
 .supervisor_btn {
   color: #7298d4 !important;
 }
+
+.dropdown-item {
+  color: #191d88;
+  font-weight: 700;
+}
