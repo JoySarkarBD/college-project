@@ -1,7 +1,7 @@
 const emptyFilter = () => {
   return (
     <span>
-      <input type="text" className="visually-hidden-focusable" />
+      <input type="text" className="" style={{visibility: "hidden"}}/>
     </span>
   );
 };
