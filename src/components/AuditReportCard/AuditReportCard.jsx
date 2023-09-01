@@ -1,11 +1,15 @@
 import "./AuditReportCard.css";
 
 const AuditReportCard = () => {
+  const handleForm = () => {
+    event.preventDefault();
+  };
+
   return (
     <div className='container mt-5 '>
       <div className='card w-75 mx-auto '>
         <div className='card-body '>
-          <form action='#'>
+          <form action='#' onSubmit={handleForm}>
             {/* Report type Select */}
             <div className='w-50 mx-auto my-5'>
               <label className='form-label fw-bold'>REPORT TYPE</label>

@@ -1,12 +1,16 @@
 import "./DataExportCard.css";
 
 const DataExportCard = () => {
+  const handleForm = () => {
+    event.preventDefault();
+  };
+
   return (
     <div className='container mt-5 '>
       <div className='card w-75 mx-auto '>
         <div className='card-body '>
           <h3 className='text-center select_filter_title'>SELECT FILTERS</h3>
-          <form action='#' className='my-5'>
+          <form action='#' className='my-5' onSubmit={handleForm}>
             <div className='d-flex justify-content-between align-items-center px-5 '>
               {/* PROCESSED DATE Check */}
 
