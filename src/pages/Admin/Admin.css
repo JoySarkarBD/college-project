@@ -6,6 +6,7 @@
 .delegate_form .formInput {
   border-radius: 2px;
   border: 1px solid rgb(179, 174, 174);
+  margin: 0 !important;
 }
 .delegate_form label {
   font-weight: 500;
@@ -29,4 +30,21 @@
 
 .delegationTable_container {
   margin-top: 150px;
+}
+
+.delegate_form .css-13cymwt-control {
+  border-radius: 2px !important;
+  box-shadow: none;
+}
+
+.delegate_form .css-t3ipsp-control:focus {
+  box-shadow: none !important;
+  border-color: rgb(179, 174, 174);
+}
+.delegate_form .css-t3ipsp-control:hover {
+  box-shadow: none !important;
+  border-color: rgb(179, 174, 174) !important;
+}
+.css-1p3m7a8-multiValue {
+  font-size: 12px;
 }
