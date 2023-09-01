@@ -191,19 +191,19 @@ const UserDataTable = () => {
                     type="checkbox"
                     checked={selectedRows.some(
                       (selectedRow) =>
-                        selectedRow.claimId === row.original.claimId
+                        selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
                           (selectedRow) =>
-                            selectedRow.claimId === row.original.claimId
+                            selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
                             (selectedRow) =>
-                              selectedRow.claimId !== row.original.claimId
+                              selectedRow.id !== row.original.id
                           )
                         );
                       } else {
