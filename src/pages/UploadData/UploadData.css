@@ -47,9 +47,6 @@ span {
   font-weight: 700;
   cursor: pointer;
   border-radius: 20px;
-  box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -1px 7px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .err_mod_icon {

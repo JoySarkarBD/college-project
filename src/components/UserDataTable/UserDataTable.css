@@ -1,0 +1,12 @@
+.add_user_btn {
+  color: #05225f;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.user_add_icon {
+  fill: #05225f;
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
