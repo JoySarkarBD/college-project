@@ -1,7 +1,18 @@
-export default function ManageUser() {
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
+import UserDataTable from "../../components/UserDataTable/UserDataTable";
+import "./Admin.css";
+
+const ManageUser = () => {
   return (
-    <div>
-      <h3>Manage User page</h3>
-    </div>
+    <>
+      <PageTitle title='Manage User' />
+      <div className='text-center my-3 '>
+        <h2 className='fw-bold'>Manage User</h2>
+        <div className='admin-heading mx-auto'></div>
+      </div>
+      <UserDataTable />
+    </>
   );
-}
+};
+
+export default ManageUser;

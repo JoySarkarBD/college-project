@@ -3,6 +3,11 @@
   width: 12%;
 }
 
+.manage-heading {
+  border-bottom: 3px solid #e5e5e5;
+  width: 20%;
+}
+
 .delegate_form .formInput {
   border-radius: 2px;
   border: 1px solid rgb(179, 174, 174);

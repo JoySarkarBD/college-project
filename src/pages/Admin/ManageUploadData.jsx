@@ -1,8 +1,17 @@
+import ManageDataTable from "../../components/ManageDataTable/ManageDataTable";
+import PageTitle from "../../components/Shared/PageTitle/PageTitle";
+import "./Admin.css";
+
 const ManageUploadData = () => {
   return (
-    <div>
-      <h1>Manage upload Data</h1>
-    </div>
+    <>
+      <PageTitle title='Manage Upload Data' />
+      <div className='text-center my-3 '>
+        <h1 className='fw-bold'>Manage upload Data</h1>
+        <div className='manage-heading mx-auto'></div>
+      </div>
+      <ManageDataTable />
+    </>
   );
 };
 
