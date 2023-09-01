@@ -10,3 +10,11 @@
   margin-bottom: 5px;
   margin-left: 2px;
 }
+.btn-edit {
+  background: none;
+  border: 0;
+  color: #084298 !important;
+  text-decoration: underline;
+  font-size: 17px;
+  font-weight: 500;
+}

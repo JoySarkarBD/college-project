@@ -5,7 +5,7 @@ export const columnFilter = ({ column }) => {
     <span>
       <input
         value={filterValue || ""}
-        onChange={e => setFilter(e.target.value)}
+        onChange={(e) => setFilter(e.target.value)}
       />
     </span>
   );
