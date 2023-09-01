@@ -1,0 +1,14 @@
+[
+  {
+    "id": "JDILKGFU",
+    "name": {
+      "userName": "John Doe",
+      "email": "johndeo@example.com"
+    },
+    "role": "Manager",
+    "supervisorName": "Rahul Bose",
+    "teamName": "Auditor",
+    "userStatus": "Active",
+    "ticketsAssigned": 0
+  }
+]
