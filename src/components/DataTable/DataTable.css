@@ -15,8 +15,8 @@ td {
 td:nth-child(2) {
   color: #084298 !important;
 }
-td:nth-child(3) {
-  color: #084298 !important;
+.assign_value_clr {
+  color: #084298;
 }
 
 .edit_assign_to {

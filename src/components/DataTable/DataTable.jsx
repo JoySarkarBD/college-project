@@ -25,7 +25,7 @@ const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   // extracting unique names from the dummy json data
-  const names = dummyData.map((item) => item.assignTo.name);
+  const names = dummyData.map(item => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -33,7 +33,7 @@ const DataTable = () => {
   const uniqueAssigneesMap = new Map();
   const uniqueAssigneesArray = [];
 
-  dummyData.forEach((item) => {
+  dummyData.forEach(item => {
     const { name, mail } = item.assignTo;
     const key = `${name}-${mail}`;
 
@@ -52,15 +52,15 @@ const DataTable = () => {
     if (selectAll) {
       setSelectedItems([]);
     } else {
-      const allItemNames = uniqueAssigneesArray.map((item) => item.name);
+      const allItemNames = uniqueAssigneesArray.map(item => item.name);
       setSelectedItems(allItemNames);
     }
     setSelectAll(!selectAll);
   };
 
-  const handleSelectItem = (itemName) => {
+  const handleSelectItem = itemName => {
     if (selectedItems.includes(itemName)) {
-      setSelectedItems(selectedItems.filter((item) => item !== itemName));
+      setSelectedItems(selectedItems.filter(item => item !== itemName));
     } else {
       setSelectedItems([...selectedItems, itemName]);
     }
@@ -88,7 +88,7 @@ const DataTable = () => {
             <div>
               {/* normal view by default of assignTo cell */}
               <div className='edit_assign_to'>
-                <div className='fw-bolder'>
+                <div className='fw-bolder assign_value_clr'>
                   {value.name}
                   <br />
                   {value.mail}
@@ -108,7 +108,7 @@ const DataTable = () => {
         Filter: columnFilter,
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
-          return rows.filter((row) => {
+          return rows.filter(row => {
             const assignTo = row.values.assignTo;
             return (
               assignTo.name.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -197,7 +197,7 @@ const DataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map(row => row.original));
                     }
                   }}
                 />
@@ -233,17 +233,17 @@ const DataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) => selectedRow.id === row.original.id
+                      selectedRow => selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) => selectedRow.id === row.original.id
+                          selectedRow => selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) => selectedRow.id !== row.original.id
+                            selectedRow => selectedRow.id !== row.original.id
                           )
                         );
                       } else {
@@ -301,7 +301,7 @@ const DataTable = () => {
                   </span>
                   <span className='ps-3'>Select All</span>
                 </li>
-                {uniqueAssigneesArray.map((item) => {
+                {uniqueAssigneesArray.map(item => {
                   return (
                     <li key={item.name} className='listing_sty3 py-1'>
                       <div className='listing_sty2'>
