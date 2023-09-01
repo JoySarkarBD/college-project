@@ -14,3 +14,22 @@
 .logo_img {
   height: 65px;
 }
+
+.profile {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.logout-btn {
+  border: none;
+  background: rgb(136, 135, 135);
+  color: white;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
