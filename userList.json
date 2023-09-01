@@ -20,7 +20,7 @@
     "role": "Technician",
     "supervisorName": "Mark Johnson",
     "teamName": "Re-Processor",
-    "userStatus": "Active",
+    "userStatus": "InActive",
     "ticketsAssigned": 70
   },
   {
@@ -80,7 +80,7 @@
     "role": "Technician",
     "supervisorName": "Laura White",
     "teamName": "Auditor",
-    "userStatus": "Active",
+    "userStatus": "InActive",
     "ticketsAssigned": 90
   },
   {
@@ -116,7 +116,7 @@
     "role": "Technician",
     "supervisorName": "William Harris",
     "teamName": "Re-Processor",
-    "userStatus": "Active",
+    "userStatus": "InActive",
     "ticketsAssigned": 58
   },
   {
@@ -176,7 +176,7 @@
     "role": "Technician",
     "supervisorName": "Emily White",
     "teamName": "Auditor",
-    "userStatus": "Active",
+    "userStatus": "InActive",
     "ticketsAssigned": 40
   },
   {
@@ -224,7 +224,7 @@
     "role": "Manager",
     "supervisorName": "Olivia Johnson",
     "teamName": "Re-Processor",
-    "userStatus": "Active",
+    "userStatus": "InActive",
     "ticketsAssigned": 75
   },
   {

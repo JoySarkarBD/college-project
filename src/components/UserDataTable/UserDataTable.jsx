@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import {
   useFilters,
@@ -28,6 +30,19 @@ const UserDataTable = () => {
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => userManageData, []);
 
+  const uniqueNamesMap = new Map();
+  const uniqueNamesArray = [];
+
+  userManageData.forEach(item => {
+    const { userName, email } = item.name;
+    const key = `${userName}-${email}`;
+
+    if (!uniqueNamesMap.has(key)) {
+      uniqueNamesMap.set(key, true);
+      uniqueNamesArray.push({ userName, email });
+    }
+  });
+
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
     () => [
@@ -38,8 +53,32 @@ const UserDataTable = () => {
       },
       {
         Header: "Name",
-        accessor: "name.userName",
+        accessor: "name",
+        Cell: ({ value, row }) => {
+          return (
+            <div>
+              {/* normal view by default of user name cell */}
+              <div className='edit_assign_to'>
+                <div className='text-black'>
+                  <strong> {value.userName}</strong>
+                  <br />
+                  {value.email}
+                </div>
+              </div>
+            </div>
+          );
+        },
         Filter: columnFilter,
+        // custom search filter for the assignTo (for name and mail)
+        filter: (rows, id, filterValue) => {
+          return rows.filter(row => {
+            const name = row.values.name;
+            return (
+              name.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
+              name.email.toLowerCase().includes(filterValue.toLowerCase())
+            );
+          });
+        },
       },
       {
         Header: "Role",
