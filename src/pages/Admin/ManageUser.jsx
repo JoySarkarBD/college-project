@@ -7,7 +7,7 @@ const ManageUser = () => {
     <>
       <PageTitle title='Manage User' />
       <div className='text-center my-3 '>
-        <h2 className='fw-bold'>Manage User</h2>
+        <h2 className='fw-bold'>USER LIST</h2>
         <div className='admin-heading mx-auto'></div>
       </div>
       <UserDataTable />

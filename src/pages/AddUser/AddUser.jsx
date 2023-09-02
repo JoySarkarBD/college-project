@@ -4,6 +4,19 @@ export default function AddUser() {
     event.preventDefault();
   };
 
+  const getCurrentDateInput = () => {
+    const dateObj = new Date();
+
+    // get the month in this format of 04, the same for months
+    const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+    const day = ("0" + dateObj.getDate()).slice(-2);
+    const year = dateObj.getFullYear();
+
+    const shortDate = `${year}-${month}-${day}`;
+
+    return shortDate;
+  };
+
   return (
     <div className='container my-5'>
       <div className='title text-center'>
@@ -73,7 +86,9 @@ export default function AddUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'>
-                <option selected>Select Role</option>
+                <option selected disabled>
+                  Select Role
+                </option>
                 <option value='Technician'>Technician</option>
                 <option value='Operator'>Operator</option>
                 <option value='Manager'>Manager</option>
@@ -88,10 +103,11 @@ export default function AddUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'>
-                <option selected>Select Team</option>
+                <option selected disabled>
+                  Select Team
+                </option>
                 <option value='AUDITOR'>AUDITOR</option>
-                <option value='AUDITOR1'>AUDITOR1</option>
-                <option value='AUDITOR2'>AUDITOR2</option>
+                <option value='RE-PROCESSOR'>Re-Processor</option>
               </select>
             </div>
           </div>
@@ -116,6 +132,7 @@ export default function AddUser() {
                 type='date'
                 className='form-control formInput'
                 placeholder='Steven Walker'
+                defaultValue={getCurrentDateInput()}
               />
             </div>
           </div>
@@ -127,6 +144,9 @@ export default function AddUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'>
+                <option selected disabled>
+                  Select Status
+                </option>
                 <option value='Active'>Active</option>
                 <option value='In-Active'>In-Active</option>
               </select>
