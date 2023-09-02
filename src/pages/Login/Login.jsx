@@ -68,7 +68,7 @@ export default function Login() {
                 <input
                   type="text"
                   className="form-control windows_id_input"
-                  placeholder="lgarrison"
+                  placeholder="LGARISSON"
                 />
               </div>
             </div>
