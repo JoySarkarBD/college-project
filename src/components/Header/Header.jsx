@@ -1,16 +1,23 @@
 import { BsQuestionCircleFill } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 import logo1 from "../../assets/logo1.jpg";
 import kungKhan from "./../../assets/king-khan.jpg";
 import "./Header.css";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("login");
+  };
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary my-2">
       <div className="container-fluid">
         {/* Logo Image */}
+        <Link to="/">
         <div className="navbar-brand   py-3 px-lg-5 px-md-3 px-sm-1" href="#">
           <img src={logo1} alt="" className="img-fluid logo_img" />
         </div>
+        </Link>
 
         {/* Navigation toggle button */}
         <button
@@ -69,7 +76,7 @@ const Header = () => {
               </li>
               {/* account / profile part */}
               <li className="nav-item d-flex align-items-center  me-3">
-                <div className="dropdown" >
+                <div className="dropdown">
                   <button
                     className="border-0 dropdown-toggle bg-transparent fw-semibold item_color fs-lg-4 fs-md-5 fs-sm-6"
                     type="button"
@@ -78,9 +85,11 @@ const Header = () => {
                   >
                     Accounts/Profile
                   </button>
-                  <ul className="dropdown-menu py-2" style={{left: "-152px"}}>
+                  <ul className="dropdown-menu py-2" style={{ left: "-152px" }}>
                     <li className="fs-lg-4 fs-md-5 fs-sm-6">
-                      <span className="text-center d-block fs-5 fw-bold">Welcome PETER</span>
+                      <span className="text-center d-block fs-5 fw-bold">
+                        Welcome PETER
+                      </span>
                       <div className="profile p-4">
                         <img src={kungKhan} alt="kungKhan" />
                         <div className="d-flex flex-column">
@@ -88,9 +97,12 @@ const Header = () => {
                           <span>peter.philippe@gmail.com</span>
                         </div>
                       </div>
-                        <div className="text-end mx-4">
-                          <button className="logout-btn">Log out</button>
-                        </div>
+                      <div
+                        className="text-end mx-4"
+                        onClick={() => handleLogout()}
+                      >
+                        <button className="logout-btn">Log out</button>
+                      </div>
                     </li>
                   </ul>
                 </div>
