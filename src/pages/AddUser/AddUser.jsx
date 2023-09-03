@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
 import "./AddUser.css";
+
 export default function AddUser() {
   const getCurrentDateInput = () => {
     const dateObj = new Date();
