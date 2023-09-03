@@ -186,8 +186,7 @@ export default function AddUser() {
                 type='date'
                 className='form-control formInput'
                 placeholder='Steven Walker'
-                defaultValue={getCurrentDateInput()}
-                value={systemEffectiveDate}
+                value={systemEffectiveDate || getCurrentDateInput()}
                 onChange={(e) => setSystemEffectiveDate(e.target.value)}
               />
             </div>

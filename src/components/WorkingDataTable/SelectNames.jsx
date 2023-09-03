@@ -3,10 +3,10 @@ import "./SearchInput.css";
 
 const SelectNames = ({ names }) => {
   return (
-    <div className="d-flex align-items-center">
-      <p className="m-0 fw-bold">VIEW ASSIGNMENTS:</p>
+    <div className='d-flex align-items-center'>
+      <p className='m-0 fw-bold'>VIEW ASSIGNMENTS:</p>
       <select className='mx-2 py-1 px-2 '>
-        <option defaultValue='' disabled selected>
+        <option value='' disabled selected>
           Select Name
         </option>
         {names.map((assigneeName) => (
