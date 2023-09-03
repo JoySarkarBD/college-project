@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./DataExportCard.css";
 
 const DataExportCard = () => {
   const [processDate, setrocessDate] = useState(false);
   const [status, setStatus] = useState(false);
+  const form = useRef(null);
 
   const handleForm = () => {
     event.preventDefault();
@@ -14,7 +15,7 @@ const DataExportCard = () => {
       <div className='card w-75 mx-auto '>
         <div className='card-body '>
           <h3 className='text-center select_filter_title'>SELECT FILTERS</h3>
-          <form action='#' className='my-5' onSubmit={handleForm}>
+          <form ref={form} className='my-5' onSubmit={handleForm}>
             <div className='d-flex justify-content-between align-items-center px-5 '>
               {/* PROCESSED DATE Check */}
 
@@ -97,8 +98,18 @@ const DataExportCard = () => {
             </div>
 
             <div className='d-flex justify-content-center align-items-center gap-3 py-5'>
-              <button className='reset_filter_btn'>Reset Filters</button>
-              <button className='data_export_btn'>EXPORT</button>
+              <button
+                className='reset_filter_btn'
+                onClick={() => {
+                  form.current.reset();
+                  setrocessDate(false);
+                  setStatus(false);
+                }}>
+                Reset Filters
+              </button>
+              <button className='data_export_btn' type='submit'>
+                EXPORT
+              </button>
             </div>
           </form>
         </div>
