@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
-import Header from "../../Header/Header";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <>
-      <Header />
+      
       <nav className='navbar navbar-expand-lg nav_section p-0'>
         <div className='container-fluid '>
           {/* navigation toggle button */}
