@@ -11,7 +11,7 @@ import {
 
 // this is the column searching function
 import { Link } from "react-router-dom";
-import userManageData from "../../../manageUploadData.json";
+import manageUploadData from "../../../manageUploadData.json";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import emptyFilter from "../ColumnFilter/EmptyFilter";
 import GoToInput from "../Form/GoToInput";
@@ -22,15 +22,15 @@ const ManageDataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   // extracting unique names from the dummy json data
-  // const userNames = userManageData.map((item) => item.name.userName);
+  // const userNames = manageUploadData.map((item) => item.name.userName);
 
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => userManageData, []);
+  const data = React.useMemo(() => manageUploadData, []);
 
   const uniqueNamesMap = new Map();
   const uniqueNamesArray = [];
 
-  userManageData.forEach((item) => {
+  manageUploadData.forEach((item) => {
     const { userName, email } = item.name;
     const key = `${userName}-${email}`;
 

@@ -1,7 +1,7 @@
 [
   {
     "id": "JDILKGFU",
-    "name": {
+    "user": {
       "userName": "John Doe",
       "email": "johndeo@example.com"
     },
@@ -13,7 +13,7 @@
   },
   {
     "id": "BHDUTSAQ",
-    "name": {
+    "user": {
       "userName": "Jane Smith",
       "email": "janesmith@example.com"
     },
@@ -25,7 +25,7 @@
   },
   {
     "id": "PLWROZXE",
-    "name": {
+    "user": {
       "userName": "Robert Brown",
       "email": "robertbrown@example.com"
     },
@@ -37,7 +37,7 @@
   },
   {
     "id": "GAMVYFDS",
-    "name": {
+    "user": {
       "userName": "Sarah Johnson",
       "email": "sarahjohnson@example.com"
     },
@@ -49,7 +49,7 @@
   },
   {
     "id": "KUJHEBCD",
-    "name": {
+    "user": {
       "userName": "Michael Williams",
       "email": "michaelwilliams@example.com"
     },
@@ -61,7 +61,7 @@
   },
   {
     "id": "QPONMLKJ",
-    "name": {
+    "user": {
       "userName": "Emily Wilson",
       "email": "emilywilson@example.com"
     },
@@ -73,7 +73,7 @@
   },
   {
     "id": "ZXCVBNMA",
-    "name": {
+    "user": {
       "userName": "Kevin Anderson",
       "email": "kevinanderson@example.com"
     },
@@ -85,7 +85,7 @@
   },
   {
     "id": "WERTYUIO",
-    "name": {
+    "user": {
       "userName": "Amanda Taylor",
       "email": "amandataylor@example.com"
     },
@@ -97,7 +97,7 @@
   },
   {
     "id": "ASDFGHJK",
-    "name": {
+    "user": {
       "userName": "Matthew Davis",
       "email": "matthewdavis@example.com"
     },
@@ -109,7 +109,7 @@
   },
   {
     "id": "ZXCVBNMK",
-    "name": {
+    "user": {
       "userName": "Olivia Wilson",
       "email": "oliviawilson@example.com"
     },
@@ -121,7 +121,7 @@
   },
   {
     "id": "QWERTYUI",
-    "name": {
+    "user": {
       "userName": "Christopher Brown",
       "email": "christopherbrown@example.com"
     },
@@ -133,7 +133,7 @@
   },
   {
     "id": "ASDFGHJKL",
-    "name": {
+    "user": {
       "userName": "Stephanie Martinez",
       "email": "stephaniemartinez@example.com"
     },
@@ -145,7 +145,7 @@
   },
   {
     "id": "ZXCVBNMAS",
-    "name": {
+    "user": {
       "userName": "David Wilson",
       "email": "davidwilson@example.com"
     },
@@ -157,7 +157,7 @@
   },
   {
     "id": "LKJHGFDSA",
-    "name": {
+    "user": {
       "userName": "Laura Johnson",
       "email": "laurajohnson@example.com"
     },
@@ -169,7 +169,7 @@
   },
   {
     "id": "MNBVCXZQ",
-    "name": {
+    "user": {
       "userName": "Daniel Davis",
       "email": "daviddaniel@example.com"
     },
@@ -181,7 +181,7 @@
   },
   {
     "id": "POIUYTRE",
-    "name": {
+    "user": {
       "userName": "Jessica Miller",
       "email": "jessicamiller@example.com"
     },
@@ -193,7 +193,7 @@
   },
   {
     "id": "LKJHGFDS",
-    "name": {
+    "user": {
       "userName": "Ryan Thomas",
       "email": "ryanthomas@example.com"
     },
@@ -205,7 +205,7 @@
   },
   {
     "id": "MNBVCXZA",
-    "name": {
+    "user": {
       "userName": "Elizabeth Clark",
       "email": "elizabethclark@example.com"
     },
@@ -217,7 +217,7 @@
   },
   {
     "id": "POIUYTRW",
-    "name": {
+    "user": {
       "userName": "William Anderson",
       "email": "williamanderson@example.com"
     },
@@ -229,7 +229,7 @@
   },
   {
     "id": "ZXCVBNMQ",
-    "name": {
+    "user": {
       "userName": "Grace Martinez",
       "email": "gracemartinez@example.com"
     },

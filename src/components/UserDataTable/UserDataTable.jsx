@@ -24,9 +24,6 @@ const UserDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
 
-  // extracting unique names from the dummy json data
-  // const userNames = userManageData.map((item) => item.name.userName);
-
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => userManageData, []);
 
@@ -34,7 +31,7 @@ const UserDataTable = () => {
   const uniqueNamesArray = [];
 
   userManageData.forEach((item) => {
-    const { userName, email } = item.name;
+    const { userName, email } = item.user;
     const key = `${userName}-${email}`;
 
     if (!uniqueNamesMap.has(key)) {
@@ -53,7 +50,7 @@ const UserDataTable = () => {
       },
       {
         Header: "Name",
-        accessor: "name",
+        accessor: "user",
         Cell: ({ value, row }) => {
           return (
             <div>
@@ -72,10 +69,10 @@ const UserDataTable = () => {
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
           return rows.filter((row) => {
-            const name = row.values.name;
+            const user = row.values.user;
             return (
-              name.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
-              name.email.toLowerCase().includes(filterValue.toLowerCase())
+              user.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
+              user.email.toLowerCase().includes(filterValue.toLowerCase())
             );
           });
         },
