@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./DataExportCard.css";
 
 const DataExportCard = () => {
+  const [processDate, setrocessDate] = useState(false);
+  const [status, setStatus] = useState(false);
+
   const handleForm = () => {
     event.preventDefault();
   };
@@ -18,8 +22,9 @@ const DataExportCard = () => {
                 <input
                   className='form-check-input data_export_check_input'
                   type='checkbox'
-                  value=''
+                  value={processDate}
                   id='flexCheckChecked'
+                  onChange={(e) => setrocessDate(e.target.checked)}
                 />
                 <label
                   className='form-check-label ms-2 fw-bold fs-5'
@@ -40,6 +45,7 @@ const DataExportCard = () => {
                     name='date1'
                     id='date1'
                     className='date_input'
+                    disabled={!processDate}
                   />
                 </div>
                 {/* To Select */}
@@ -51,6 +57,7 @@ const DataExportCard = () => {
                     name='date2'
                     id='date2'
                     className='date_input'
+                    disabled={!processDate}
                   />
                 </div>
               </div>
@@ -62,8 +69,9 @@ const DataExportCard = () => {
                 <input
                   className='form-check-input data_export_check_input'
                   type='checkbox'
-                  value=''
+                  value={status}
                   id='flexCheckChecked'
+                  onChange={(e) => setStatus(e.target.checked)}
                 />
                 <label
                   className='form-check-label ms-2 fw-bold fs-5'
@@ -77,7 +85,8 @@ const DataExportCard = () => {
               <div className=''>
                 <select
                   className='form-select err_select'
-                  aria-label='Default select example'>
+                  aria-label='Default select example'
+                  disabled={!status}>
                   <option selected disabled>
                     Select
                   </option>
