@@ -156,12 +156,7 @@ const ManageDataTable = () => {
         <div className='topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4'>
           {/* Go To Input */}
           <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center text-white'>
-            <GoToInput
-              type='number'
-              title='Go To Page :'
-              gotoPage={gotoPage}
-              defaultValue={pageIndex + 1}
-            />
+            <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
           </div>
         </div>
       </div>

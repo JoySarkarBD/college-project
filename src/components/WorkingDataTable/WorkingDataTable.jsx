@@ -20,7 +20,6 @@ import SelectNames from "./SelectNames";
 const WorkingDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
-  console.log(selectedRows);
   // extracting unique names from the dummy json data
   const names = dummyData.map((item) => item.assignTo.name);
 
@@ -209,12 +208,7 @@ const WorkingDataTable = () => {
       {/* Pagination */}
       <div className='d-flex align-items-center justify-content-center mt-5'>
         <div className='me-auto w-50'>
-          <GoToInput
-            type='number'
-            title='Go to page:'
-            gotoPage={gotoPage}
-            defaultValue={pageIndex + 1}
-          />
+          <GoToInput gotoPage={gotoPage} GoToInput value={pageIndex + 1} />
         </div>
         <div className='me-auto w-100'>
           <Pagination

@@ -166,12 +166,7 @@ const DataTable = () => {
       <div className='row'>
         {/* Go To Input */}
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center'>
-          <GoToInput
-            type='number'
-            title='Go to page:'
-            gotoPage={gotoPage}
-            defaultValue={pageIndex + 1}
-          />
+          <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
         </div>
 
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>

@@ -3,7 +3,7 @@
 import React, { useState } from "react"; // Import React and useState
 import "./SearchInput.css";
 
-const GoToInput = ({ title, gotoPage, ...attributes }) => {
+const GoToInput = ({ title, gotoPage }) => {
   // Initialize state for the input value
   const [inputValue, setInputValue] = useState(1);
 
@@ -23,11 +23,11 @@ const GoToInput = ({ title, gotoPage, ...attributes }) => {
   return (
     <>
       <label htmlFor='search' className='fs-5'>
-        {title}
+        GO TO PAGE
       </label>
       <input
         className='mx-2 py-1 px-2 w-25 number-inp'
-        {...attributes}
+        type='number'
         min={1}
         value={inputValue} // Use the controlled component value
         onChange={handleInputChange}
