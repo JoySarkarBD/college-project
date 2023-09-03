@@ -5,7 +5,7 @@ const SelectNames = ({ names }) => {
   return (
     <>
       <select className='mx-2 py-1 px-2 '>
-        <option value='' disabled selected>
+        <option value='' disabled>
           Select Name
         </option>
         {names.map((assigneeName) => (

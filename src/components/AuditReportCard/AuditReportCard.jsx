@@ -16,9 +16,7 @@ const AuditReportCard = () => {
               <select
                 className='form-select'
                 aria-label='Default select example'>
-                <option selected disabled>
-                  Select Report Type
-                </option>
+                <option disabled>Select Report Type</option>
                 <option value='efficiency report'>EFFICIENCY REPORT</option>
                 <option value='accuracy report'>ACCURACY REPORT</option>
               </select>
@@ -31,9 +29,7 @@ const AuditReportCard = () => {
               <select
                 className='form-select'
                 aria-label='Default select example'>
-                <option selected disabled>
-                  Select User
-                </option>
+                <option disabled>Select User</option>
                 <option value='raju kishore dholakia'>
                   RAJU KISHORE DHOLAKIA
                 </option>

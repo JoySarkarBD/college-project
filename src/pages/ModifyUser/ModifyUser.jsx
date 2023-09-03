@@ -68,7 +68,7 @@ export default function ModifyUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'>
-                <option selected>Select Role</option>
+                <option value=''>Select Role</option>
                 <option value='Technician'>Technician</option>
                 <option value='Operator'>Operator</option>
                 <option value='Manager'>Manager</option>
@@ -83,7 +83,7 @@ export default function ModifyUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'>
-                <option selected>Select Team</option>
+                <option value=''>Select Team</option>
                 <option value='AUDITOR'>AUDITOR</option>
                 <option value='AUDITOR1'>AUDITOR1</option>
                 <option value='AUDITOR2'>AUDITOR2</option>

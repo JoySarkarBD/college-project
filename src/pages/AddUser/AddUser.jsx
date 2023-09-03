@@ -140,7 +140,7 @@ export default function AddUser() {
                 aria-label='Default select example'
                 value={role}
                 onChange={(e) => setRole(e.target.value)}>
-                <option selected>Select Role</option>
+                <option>Select Role</option>
                 <option value='Technician'>Technician</option>
                 <option value='Operator'>Operator</option>
                 <option value='Manager'>Manager</option>
@@ -157,7 +157,7 @@ export default function AddUser() {
                 aria-label='Default select example'
                 value={team}
                 onChange={(e) => setTeam(e.target.value)}>
-                <option selected>Select Team</option>
+                <option>Select Team</option>
                 <option value='AUDITOR'>AUDITOR</option>
                 <option value='RE-PROCESSOR'>Re-Processor</option>
               </select>
@@ -201,7 +201,7 @@ export default function AddUser() {
                 aria-label='Default select example'
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}>
-                <option selected>Select Status</option>
+                <option>Select Status</option>
                 <option value='Active'>Active</option>
                 <option value='In-Active'>In-Active</option>
               </select>
