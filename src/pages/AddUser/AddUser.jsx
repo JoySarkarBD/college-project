@@ -1,9 +1,7 @@
+import React, { useState } from "react";
+
 import "./AddUser.css";
 export default function AddUser() {
-  const handleForm = () => {
-    event.preventDefault();
-  };
-
   const getCurrentDateInput = () => {
     const dateObj = new Date();
 
@@ -17,12 +15,58 @@ export default function AddUser() {
     return shortDate;
   };
 
+  // Define state variables for input fields
+  const [msid, setMsid] = useState("");
+  const [name, setName] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [team, setTeam] = useState("");
+  const [supervisor, setSupervisor] = useState("");
+
+  const [systemEffectiveDate, setSystemEffectiveDate] = useState(
+    getCurrentDateInput()
+  );
+  const [status, setStatus] = useState("");
+
+  const handleForm = (event) => {
+    event.preventDefault();
+    // Here, you can access the state variables and submit the form data
+    const formData = {
+      msid,
+      user: {
+        name,
+        email,
+      },
+      employeeId,
+      role,
+      team,
+      supervisor,
+      systemEffectiveDate,
+      status,
+    };
+    console.log(formData); // You can replace this with your form submission logic
+  };
+
+  const resetForm = () => {
+    event.preventDefault();
+    setMsid("");
+    setName("");
+    setEmployeeId("");
+    setEmail("");
+    setRole("");
+    setTeam("");
+    setSupervisor("");
+    setSystemEffectiveDate(getCurrentDateInput);
+    setStatus("");
+  };
+
   return (
     <div className='container my-5'>
       <div className='title text-center'>
         <h2>Add User</h2>
       </div>
-      <form className='addUserForm mt-5' onSubmit={handleForm}>
+      <form className='addUserForm mt-5'>
         <div className='row'>
           {/* MSID FIELD*/}
           <div className='col-md-4 mb-4'>
@@ -33,6 +77,8 @@ export default function AddUser() {
                   type='text'
                   className='form-control formInput'
                   placeholder='LJKSHSD'
+                  value={msid}
+                  onChange={(e) => setMsid(e.target.value)}
                 />
               </div>
               <div className='col-4'>
@@ -51,6 +97,8 @@ export default function AddUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='PETERPARKER'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
           </div>
@@ -63,6 +111,8 @@ export default function AddUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='PETERPARKER'
+                value={employeeId}
+                onChange={(e) => setEmployeeId(e.target.value)}
               />
             </div>
           </div>
@@ -75,6 +125,8 @@ export default function AddUser() {
                 type='email'
                 className='form-control formInput'
                 placeholder='peterparker@gmail.com'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -85,10 +137,10 @@ export default function AddUser() {
               <label>Role</label>
               <select
                 className='form-select formInput'
-                aria-label='Default select example'>
-                <option selected disabled>
-                  Select Role
-                </option>
+                aria-label='Default select example'
+                value={role}
+                onChange={(e) => setRole(e.target.value)}>
+                <option selected>Select Role</option>
                 <option value='Technician'>Technician</option>
                 <option value='Operator'>Operator</option>
                 <option value='Manager'>Manager</option>
@@ -102,10 +154,10 @@ export default function AddUser() {
               <label>Team</label>
               <select
                 className='form-select formInput'
-                aria-label='Default select example'>
-                <option selected disabled>
-                  Select Team
-                </option>
+                aria-label='Default select example'
+                value={team}
+                onChange={(e) => setTeam(e.target.value)}>
+                <option selected>Select Team</option>
                 <option value='AUDITOR'>AUDITOR</option>
                 <option value='RE-PROCESSOR'>Re-Processor</option>
               </select>
@@ -120,6 +172,8 @@ export default function AddUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='Steven Walker'
+                value={supervisor}
+                onChange={(e) => setSupervisor(e.target.value)}
               />
             </div>
           </div>
@@ -133,6 +187,8 @@ export default function AddUser() {
                 className='form-control formInput'
                 placeholder='Steven Walker'
                 defaultValue={getCurrentDateInput()}
+                value={systemEffectiveDate}
+                onChange={(e) => setSystemEffectiveDate(e.target.value)}
               />
             </div>
           </div>
@@ -143,10 +199,10 @@ export default function AddUser() {
               <label>STATUS</label>
               <select
                 className='form-select formInput'
-                aria-label='Default select example'>
-                <option selected disabled>
-                  Select Status
-                </option>
+                aria-label='Default select example'
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}>
+                <option selected>Select Status</option>
                 <option value='Active'>Active</option>
                 <option value='In-Active'>In-Active</option>
               </select>
@@ -157,13 +213,13 @@ export default function AddUser() {
         {/* form submit button */}
         <div className='text-center mt-5 form_buttons gap-2 gap-md-1'>
           {/* SAVE DETAILS BUTTON */}
-          <button>Save Details</button>
+          <button onClick={handleForm}>Save Details</button>
 
           {/* SAVE AND ADD ANOTHER BUTTON */}
           <button>SAVE AND ADD ANOTHER</button>
 
           {/* RESET BUTTON */}
-          <button>RESET</button>
+          <button onClick={resetForm}>RESET</button>
         </div>
       </form>
     </div>
