@@ -22,7 +22,7 @@ const WorkingDataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   console.log(selectedRows);
   // extracting unique names from the dummy json data
-  const names = dummyData.map(item => item.assignTo.name);
+  const names = dummyData.map((item) => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, []);
@@ -97,6 +97,13 @@ const WorkingDataTable = () => {
     usePagination
   );
 
+  // Calculate the total number of pages based on data length and pageSize
+  const totalPages = Math.ceil(data.length / pageSize);
+
+  // Ensure that pageIndex is within bounds
+  const normalizedPageIndex =
+    pageIndex >= totalPages ? totalPages - 1 : pageIndex;
+
   return (
     <div className='px-5 my-5 table-responsive'>
       <div className='row table_top_area'>
@@ -132,7 +139,7 @@ const WorkingDataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map(row => row.original));
+                      setSelectedRows(page.map((row) => row.original));
                     }
                   }}
                 />
@@ -167,19 +174,19 @@ const WorkingDataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      selectedRow =>
+                      (selectedRow) =>
                         selectedRow.claimId === row.original.claimId
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          selectedRow =>
+                          (selectedRow) =>
                             selectedRow.claimId === row.original.claimId
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            selectedRow =>
+                            (selectedRow) =>
                               selectedRow.claimId !== row.original.claimId
                           )
                         );
@@ -211,11 +218,19 @@ const WorkingDataTable = () => {
         </div>
         <div className='me-auto w-100'>
           <Pagination
-            gotoPage={gotoPage}
+            totalPages={totalPages}
+            currentPage={normalizedPageIndex}
             pageSize={pageSize}
-            setPageSize={setPageSize}
-            page={page}
-            pageIndex={pageIndex}
+            setPageSize={(newPageSize) => {
+              setGlobalFilter(""); // Clear global filter when changing page size
+              setPageSize(newPageSize);
+            }}
+            gotoPage={(newPageIndex) => {
+              setGlobalFilter(""); // Clear global filter when changing pages
+              pageIndex === newPageIndex || normalizedPageIndex === newPageIndex
+                ? null
+                : gotoPage(newPageIndex);
+            }}
           />
         </div>
       </div>

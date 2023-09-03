@@ -55,8 +55,8 @@ const ManageDataTable = () => {
           return (
             <div>
               {/* normal view by default of user name cell */}
-              <div className="edit_assign_to">
-                <div className="text-black">
+              <div className='edit_assign_to'>
+                <div className='text-black'>
                   <strong> {value.userName}</strong>
                   <br />
                   {value.email}
@@ -105,10 +105,9 @@ const ManageDataTable = () => {
         Cell: ({ row }) => {
           return (
             <div>
-              <Link to="">
+              <Link to=''>
                 <button // Define your edit action function
-                  className="btn-edit"
-                >
+                  className='btn-edit'>
                   Delete
                 </button>
               </Link>
@@ -130,6 +129,7 @@ const ManageDataTable = () => {
     state: { pageIndex, pageSize },
     gotoPage,
     setPageSize,
+    setGlobalFilter,
   } = useTable(
     {
       columns,
@@ -142,17 +142,23 @@ const ManageDataTable = () => {
     usePagination
   );
 
-  return (
-    <div className="px-5 my-5 table-responsive">
+  // Calculate the total number of pages based on data length and pageSize
+  const totalPages = Math.ceil(data.length / pageSize);
 
+  // Ensure that pageIndex is within bounds
+  const normalizedPageIndex =
+    pageIndex >= totalPages ? totalPages - 1 : pageIndex;
+
+  return (
+    <div className='px-5 my-5 table-responsive'>
       {/* Table topbar */}
-      <div className="d-flex align-items-center">
-        <div className="topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4">
+      <div className='d-flex align-items-center'>
+        <div className='topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4'>
           {/* Go To Input */}
-          <div className="col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center text-white">
+          <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center text-white'>
             <GoToInput
-              type="number"
-              title="Result per page"
+              type='number'
+              title='Go To Page :'
               gotoPage={gotoPage}
               defaultValue={pageIndex + 1}
             />
@@ -160,7 +166,7 @@ const ManageDataTable = () => {
         </div>
       </div>
 
-      <table className="table" {...getTableProps()}>
+      <table className='table' {...getTableProps()}>
         {/* Mapping the data of header */}
         <thead>
           {headerGroups?.map((headerGroup, index) => (
@@ -168,7 +174,7 @@ const ManageDataTable = () => {
               {/* select all */}
               <th>
                 <input
-                  type="checkbox"
+                  type='checkbox'
                   checked={selectedRows.length === page.length}
                   onChange={() => {
                     if (selectedRows.length === page.length) {
@@ -182,9 +188,8 @@ const ManageDataTable = () => {
               {headerGroup?.headers?.map((column, index) => (
                 <th
                   key={index}
-                  scope="col"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
+                  scope='col'
+                  {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -211,7 +216,7 @@ const ManageDataTable = () => {
               <tr key={index} {...row.getRowProps()}>
                 <td>
                   <input
-                    type="checkbox"
+                    type='checkbox'
                     checked={selectedRows.some(
                       (selectedRow) => selectedRow.id === row.original.id
                     )}
@@ -244,13 +249,21 @@ const ManageDataTable = () => {
       </table>
 
       {/* Pagination */}
-      <div className="d-flex align-items-center justify-content-center mt-5">
+      <div className='d-flex align-items-center justify-content-center mt-5'>
         <Pagination
-          gotoPage={gotoPage}
+          totalPages={totalPages}
+          currentPage={normalizedPageIndex}
           pageSize={pageSize}
-          setPageSize={setPageSize}
-          page={page}
-          pageIndex={pageIndex}
+          setPageSize={(newPageSize) => {
+            setGlobalFilter(""); // Clear global filter when changing page size
+            setPageSize(newPageSize);
+          }}
+          gotoPage={(newPageIndex) => {
+            setGlobalFilter(""); // Clear global filter when changing pages
+            pageIndex === newPageIndex || normalizedPageIndex === newPageIndex
+              ? null
+              : gotoPage(newPageIndex);
+          }}
         />
       </div>
     </div>

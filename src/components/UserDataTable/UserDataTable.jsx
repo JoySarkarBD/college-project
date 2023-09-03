@@ -33,7 +33,7 @@ const UserDataTable = () => {
   const uniqueNamesMap = new Map();
   const uniqueNamesArray = [];
 
-  userManageData.forEach(item => {
+  userManageData.forEach((item) => {
     const { userName, email } = item.name;
     const key = `${userName}-${email}`;
 
@@ -71,7 +71,7 @@ const UserDataTable = () => {
         Filter: columnFilter,
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
-          return rows.filter(row => {
+          return rows.filter((row) => {
             const name = row.values.name;
             return (
               name.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
@@ -113,10 +113,9 @@ const UserDataTable = () => {
         Cell: ({ row }) => {
           return (
             <div>
-              <Link to="/manage-user/modify-user">
+              <Link to='/manage-user/modify-user'>
                 <button // Define your edit action function
-                  className="btn-edit"
-                >
+                  className='btn-edit'>
                   Edit
                 </button>
               </Link>
@@ -138,6 +137,7 @@ const UserDataTable = () => {
     state: { pageIndex, pageSize },
     gotoPage,
     setPageSize,
+    setGlobalFilter,
   } = useTable(
     {
       columns,
@@ -150,24 +150,31 @@ const UserDataTable = () => {
     usePagination
   );
 
+  // Calculate the total number of pages based on data length and pageSize
+  const totalPages = Math.ceil(data.length / pageSize);
+
+  // Ensure that pageIndex is within bounds
+  const normalizedPageIndex =
+    pageIndex >= totalPages ? totalPages - 1 : pageIndex;
+
   return (
-    <div className="px-5 my-5 table-responsive">
-      <div className="row table_top_area">
+    <div className='px-5 my-5 table-responsive'>
+      <div className='row table_top_area'>
         {/* Go To Input */}
-        <div className="col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center">
+        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center'>
           <GoToInput
-            type="number"
-            title="Go to page:"
+            type='number'
+            title='Go to page:'
             gotoPage={gotoPage}
             defaultValue={pageIndex + 1}
           />
         </div>
 
-        <div className="col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center">
-          <NavLink to="/manage-user/add-user">
-            <button className=" border-0 bg-transparent add_user_btn">
+        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center'>
+          <NavLink to='/manage-user/add-user'>
+            <button className=' border-0 bg-transparent add_user_btn'>
               Add User
-              <AiOutlinePlus className="user_add_icon" />
+              <AiOutlinePlus className='user_add_icon' />
             </button>
           </NavLink>
         </div>
@@ -176,7 +183,7 @@ const UserDataTable = () => {
       {/* Table topbar */}
       <AdminTableTopbar />
 
-      <table className="table" {...getTableProps()}>
+      <table className='table' {...getTableProps()}>
         {/* Mapping the data of header */}
         <thead>
           {headerGroups?.map((headerGroup, index) => (
@@ -184,7 +191,7 @@ const UserDataTable = () => {
               {/* select all */}
               <th>
                 <input
-                  type="checkbox"
+                  type='checkbox'
                   checked={selectedRows.length === page.length}
                   onChange={() => {
                     if (selectedRows.length === page.length) {
@@ -198,9 +205,8 @@ const UserDataTable = () => {
               {headerGroup?.headers?.map((column, index) => (
                 <th
                   key={index}
-                  scope="col"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
+                  scope='col'
+                  {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -227,22 +233,19 @@ const UserDataTable = () => {
               <tr key={index} {...row.getRowProps()}>
                 <td>
                   <input
-                    type="checkbox"
+                    type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) =>
-                        selectedRow.id === row.original.id
+                      (selectedRow) => selectedRow.id === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) =>
-                            selectedRow.id === row.original.id
+                          (selectedRow) => selectedRow.id === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) =>
-                              selectedRow.id !== row.original.id
+                            (selectedRow) => selectedRow.id !== row.original.id
                           )
                         );
                       } else {
@@ -263,13 +266,21 @@ const UserDataTable = () => {
       </table>
 
       {/* Pagination */}
-      <div className="d-flex align-items-center justify-content-center mt-5">
+      <div className='d-flex align-items-center justify-content-center mt-5'>
         <Pagination
-          gotoPage={gotoPage}
+          totalPages={totalPages}
+          currentPage={normalizedPageIndex}
           pageSize={pageSize}
-          setPageSize={setPageSize}
-          page={page}
-          pageIndex={pageIndex}
+          setPageSize={(newPageSize) => {
+            setGlobalFilter(""); // Clear global filter when changing page size
+            setPageSize(newPageSize);
+          }}
+          gotoPage={(newPageIndex) => {
+            setGlobalFilter(""); // Clear global filter when changing pages
+            pageIndex === newPageIndex || normalizedPageIndex === newPageIndex
+              ? null
+              : gotoPage(newPageIndex);
+          }}
         />
       </div>
     </div>
