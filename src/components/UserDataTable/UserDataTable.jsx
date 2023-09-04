@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useFilters,
   useGlobalFilter,
@@ -8,12 +8,13 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
+import * as XLSX from "xlsx";
 import "./UserDataTable.css";
 
 // this is the column searching function
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link, NavLink } from "react-router-dom";
-import userManageData from "../../../userList.json";
+// import userManageData from "../../../userList.json";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import emptyFilter from "../ColumnFilter/EmptyFilter";
 import GoToInput from "../Form/GoToInput";
@@ -24,13 +25,51 @@ const UserDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
 
+  const [dataExcel, setData] = useState([]);
+
+  const fetchDataFromExcel = async () => {
+    const response = await fetch("/user_list.xlsx"); // Change the path to your Excel file
+    const blob = await response.blob();
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const data = e.target.result;
+      const workbook = XLSX.read(data, { type: "array" });
+      const sheetName = workbook.SheetNames[0]; // Assuming your data is in the first sheet
+      const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+
+      // Now you have the data from the Excel sheet in sheetData, But before insert it inside of the state we have transform it in another format. SO that the table structure remain perfect.
+
+      const transformedData = sheetData.map((item) => ({
+        id: item.id,
+        user: {
+          userName: item.userName,
+          email: item.email,
+        },
+        role: item.role,
+        supervisorName: item.supervisorName,
+        teamName: item.team,
+        userStatus: item.userStatus,
+        ticketsAssigned: item.ticketAssigned,
+      }));
+
+      setData(transformedData);
+    };
+
+    reader.readAsArrayBuffer(blob);
+  };
+
+  useEffect(() => {
+    fetchDataFromExcel();
+  }, []); // Empty dependency array to run the effect only once on mount
+
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => userManageData, []);
+  const data = React.useMemo(() => dataExcel, [dataExcel]);
 
   const uniqueNamesMap = new Map();
   const uniqueNamesArray = [];
 
-  userManageData.forEach((item) => {
+  dataExcel.forEach((item) => {
     const { userName, email } = item.user;
     const key = `${userName}-${email}`;
 
