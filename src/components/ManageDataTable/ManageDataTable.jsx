@@ -28,7 +28,7 @@ const ManageDataTable = () => {
   const uniqueNamesArray = [];
 
   manageUploadData.forEach((item) => {
-    const { userName, email } = item.name;
+    const { userName, email } = item.user;
     const key = `${userName}-${email}`;
 
     if (!uniqueNamesMap.has(key)) {
@@ -47,7 +47,7 @@ const ManageDataTable = () => {
       },
       {
         Header: "Name",
-        accessor: "name",
+        accessor: "user",
         Cell: ({ value, row }) => {
           return (
             <div>

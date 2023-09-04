@@ -3,21 +3,27 @@ import { useParams } from "react-router-dom";
 import * as XLSX from "xlsx";
 import "./../AddUser/AddUser.css";
 
+// eslint-disable-next-line no-unused-vars
+const getCurrentDateInput = (date) => {
+  const dateObj = new Date(date);
+
+  // get the month in this format of 04, the same for months
+  const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+  const day = ("0" + dateObj.getDate()).slice(-2);
+  const year = dateObj.getFullYear();
+
+  const shortDate = `${year}-${month}-${day}`;
+
+  return shortDate;
+};
+
 export default function ModifyUser() {
   const [userData, setUserData] = useState({});
-  // const [updateData, setUpdateData] = useState({
-  //   id: "",
-  //   user: {
-  //     userName: "",
-  //     email: "",
-  //   },
-  //   role: "",
-  //   supervisorName: "",
-  //   teamName: "",
-  //   userStatus: "",
-  //   ticketsAssigned: "",
-  //   date:
-  // });
+
+  const [userName, setUserName] = useState(userData?.user?.userName);
+  console.log(userData);
+  console.log(userName);
+  const [email, setEmail] = useState("");
   /* 
   id: "",
   userName: "",
@@ -35,48 +41,53 @@ export default function ModifyUser() {
 
   const { userId } = useParams();
 
-  const fetchDataFromExcel = async () => {
-    const response = await fetch("/user_list.xlsx"); // Change the path to your Excel file
-    const blob = await response.blob();
-    const reader = new FileReader();
+  useEffect(() => {
+    const fetchDataFromExcel = async () => {
+      const response = await fetch("/user_list.xlsx");
+      const blob = await response.blob();
+      const reader = new FileReader();
 
-    reader.onload = (e) => {
-      const data = e.target.result;
-      const workbook = XLSX.read(data, { type: "array" });
-      const sheetName = workbook.SheetNames[0]; // Assuming your data is in the first sheet
-      const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      reader.onload = (e) => {
+        const data = e.target.result;
+        const workbook = XLSX.read(data, { type: "array" });
+        const sheetName = workbook.SheetNames[0]; // Assuming your data is in the first sheet
+        const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-      // Now you have the data from the Excel sheet in sheetData, But before insert it inside of the state we have transform it in another format. SO that the table structure remain perfect.
+        // Now you have the data from the Excel sheet in sheetData, But before insert it inside of the state we have transform it in another format. SO that the table structure remain perfect.
 
-      const transformedData = sheetData.map((item) => ({
-        id: item.id,
-        user: {
-          userName: item.userName,
-          email: item.email,
-        },
-        role: item.role,
-        supervisorName: item.supervisorName,
-        teamName: item.team,
-        userStatus: item.userStatus,
-        ticketsAssigned: item.ticketAssigned,
-        date: new Date(item.date).toLocaleDateString(),
-      }));
+        const transformedData = sheetData.map((item) => ({
+          id: item.id,
+          user: {
+            userName: item.userName,
+            email: item.email,
+          },
+          role: item.role,
+          supervisorName: item.supervisorName,
+          teamName: item.team,
+          userStatus: item.userStatus,
+          ticketsAssigned: item.ticketAssigned,
+          date: getCurrentDateInput(item.date),
+        }));
 
-      const singleObj = transformedData.filter((item) => item.id === userId)[0];
+        const singleObj = transformedData.filter(
+          (item) => item.id === userId
+        )[0];
 
-      setUserData(singleObj);
+        setUserData(singleObj);
+      };
+
+      reader.readAsArrayBuffer(blob);
     };
 
-    reader.readAsArrayBuffer(blob);
-  };
-
-  useEffect(() => {
     fetchDataFromExcel();
-  }, []); // Empty dependency array to run the effect only once on mount
-
-  console.log(userData);
+  }, [userId]);
 
   const handleForm = () => {
+    console.log({
+      id: userData?.id,
+      userName,
+      email,
+    });
     event.preventDefault();
   };
   return (
@@ -113,13 +124,8 @@ export default function ModifyUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='PETERPARKER'
-                value={userData?.user?.userName}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    user: { userName: e.target.value },
-                  })
-                }
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
               />
             </div>
           </div>
@@ -153,10 +159,7 @@ export default function ModifyUser() {
                 placeholder='peterparker@gmail.com'
                 value={userData?.user?.email}
                 onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    user: { email: e.target.value },
-                  })
+                  setEmail(e.target.value || userData?.user?.userName)
                 }
               />
             </div>
