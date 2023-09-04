@@ -141,19 +141,17 @@ const UserDataTable = () => {
         accessor: "ticketsAssigned",
         Filter: columnFilter,
       },
-
       {
         Header: "ACTIONS",
-        accessor: "ACTIONS",
+        accessor: "",
         Filter: emptyFilter,
         Cell: ({ row }) => {
+          const userId = row.original.id; // Access the "id" from the row data
           return (
             <div>
-              <Link to='/manage-user/modify-user'>
-                <button // Define your edit action function
-                  className='btn-edit'>
-                  Edit
-                </button>
+              {/* Add your actions here using the userId */}
+              <Link to={`/manage-user/modify-user/${userId}`}>
+                <button className='btn-edit'>Edit</button>
               </Link>
             </div>
           );

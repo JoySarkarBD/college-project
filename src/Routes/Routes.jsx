@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <AddUser />,
       },
       {
-        path: "/manage-user/modify-user",
+        path: "/manage-user/modify-user/:userId",
         element: <ModifyUser />,
       },
       {
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         element: <AuditReport />,
       },
       {
-        path: "/manage-user",
+        path: "/manage-user/",
         element: <ManageUser />,
       },
       {
