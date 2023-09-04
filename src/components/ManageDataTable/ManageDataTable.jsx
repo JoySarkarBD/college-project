@@ -21,9 +21,6 @@ const ManageDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
 
-  // extracting unique names from the dummy json data
-  // const userNames = manageUploadData.map((item) => item.name.userName);
-
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => manageUploadData, []);
 
