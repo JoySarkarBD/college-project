@@ -154,6 +154,7 @@ export default function ModifyUser() {
     });
   };
 
+  // submit updated data
   const handleForm = () => {
     event.preventDefault();
   };
