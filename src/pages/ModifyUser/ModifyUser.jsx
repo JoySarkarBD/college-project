@@ -1,7 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as XLSX from "xlsx";
 import "./../AddUser/AddUser.css";
+
+/* 
+  id: "",
+  userName: "",
+  email: "",
+  role: "",
+  supervisorName: "",
+  teamName: "",
+  userStatus: "",
+  ticketsAssigned: "",
+  date:"",
+  }
+  */
 
 // eslint-disable-next-line no-unused-vars
 const getCurrentDateInput = (date) => {
@@ -18,29 +31,25 @@ const getCurrentDateInput = (date) => {
 };
 
 export default function ModifyUser() {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({
+    id: "",
+    user: {
+      userName: "",
+      email: "",
+    },
+    role: "",
+    supervisorName: "",
+    teamName: "",
+    userStatus: "",
+    date: "",
+  });
 
-  const [userName, setUserName] = useState(userData?.user?.userName);
-  console.log(userData);
-  console.log(userName);
-  const [email, setEmail] = useState("");
-  /* 
-  id: "",
-  userName: "",
-  email: "",
-  role: "",
-  supervisorName: "",
-  teamName: "",
-  userStatus: "",
-  ticketsAssigned: "",
-  date:"",
-  }
-  */
-
-  const userDataForm = useRef();
+  // Store the original data
+  const [originalUserData, setOriginalUserData] = useState({});
 
   const { userId } = useParams();
 
+  // fetching data from the excel sheet by userId
   useEffect(() => {
     const fetchDataFromExcel = async () => {
       const response = await fetch("/user_list.xlsx");
@@ -74,6 +83,7 @@ export default function ModifyUser() {
         )[0];
 
         setUserData(singleObj);
+        setOriginalUserData(singleObj);
       };
 
       reader.readAsArrayBuffer(blob);
@@ -82,23 +92,84 @@ export default function ModifyUser() {
     fetchDataFromExcel();
   }, [userId]);
 
-  const handleForm = () => {
-    console.log({
-      id: userData?.id,
-      userName,
-      email,
+  // Handle changes in the "NAME" input field.
+  const handleUserNameChange = (e) => {
+    setUserData({
+      ...userData,
+      user: {
+        ...userData.user,
+        userName: e.target.value,
+      },
     });
+  };
+
+  // Handle changes in the "Email" input field.
+  const handleEmailChange = (e) => {
+    setUserData({
+      ...userData,
+      user: {
+        ...userData.user,
+        email: e.target.value,
+      },
+    });
+  };
+
+  // Handle changes in the "Role" dropdown select.
+  const handleRoleChange = (e) => {
+    setUserData({
+      ...userData,
+      role: e.target.value,
+    });
+  };
+
+  // Handle changes in the "Team" dropdown select.
+  const handleTeamChange = (e) => {
+    setUserData({
+      ...userData,
+      teamName: e.target.value,
+    });
+  };
+
+  // Handle changes in the "SUPERVISOR" input field.
+  const handleSupervisorChange = (e) => {
+    setUserData({
+      ...userData,
+      supervisorName: e.target.value,
+    });
+  };
+
+  // Handle changes in the "System Effective Date" input field.
+  const handleDateChange = (e) => {
+    setUserData({
+      ...userData,
+      date: e.target.value,
+    });
+  };
+
+  // Handle changes in the "STATUS" dropdown select.
+  const handleStatusChange = (e) => {
+    setUserData({
+      ...userData,
+      userStatus: e.target.value,
+    });
+  };
+
+  const handleForm = () => {
     event.preventDefault();
   };
+
+  // Reset the form data to the original data
+  const handleReset = () => {
+    event.preventDefault();
+    setUserData(originalUserData);
+  };
+
   return (
     <div className='container my-5'>
       <div className='title text-center'>
         <h2>Modify User</h2>
       </div>
-      <form
-        ref={userDataForm}
-        className='addUserForm mt-5'
-        onSubmit={handleForm}>
+      <form className='addUserForm mt-5' onSubmit={handleForm}>
         <div className='row'>
           {/* MSID FIELD*/}
           <div className='col-md-4 mb-4'>
@@ -124,27 +195,8 @@ export default function ModifyUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='PETERPARKER'
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
-            </div>
-          </div>
-
-          {/* Employee ID FIELD*/}
-          <div className='col-md-4'>
-            <div className='mb-3'>
-              <label>Employee ID</label>
-              <input
-                type='text'
-                className='form-control formInput'
-                placeholder='PETERPARKER'
-                // value={userData?.user?.userName}
-                // onChange={(e) =>
-                //   setUserData({
-                //     ...userData,
-                //     user: { userName: e.target.value },
-                //   })
-                // }
+                value={userData.user.userName}
+                onChange={handleUserNameChange}
               />
             </div>
           </div>
@@ -157,10 +209,8 @@ export default function ModifyUser() {
                 type='email'
                 className='form-control formInput'
                 placeholder='peterparker@gmail.com'
-                value={userData?.user?.email}
-                onChange={(e) =>
-                  setEmail(e.target.value || userData?.user?.userName)
-                }
+                value={userData.user.email}
+                onChange={handleEmailChange}
               />
             </div>
           </div>
@@ -172,13 +222,8 @@ export default function ModifyUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'
-                value={userData?.role}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    role: e.target.value,
-                  })
-                }>
+                value={userData.role}
+                onChange={handleRoleChange}>
                 <option value=''>Select Role</option>
                 <option value='Technician'>Technician</option>
                 <option value='Operator'>Operator</option>
@@ -194,13 +239,8 @@ export default function ModifyUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'
-                value={userData?.teamName}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    teamName: e.target.value,
-                  })
-                }>
+                value={userData.teamName}
+                onChange={handleTeamChange}>
                 <option value=''>Select Team</option>
                 <option value='Auditor'>AUDITOR</option>
                 <option value='Re-Processor'>Re-Processor</option>
@@ -216,13 +256,8 @@ export default function ModifyUser() {
                 type='text'
                 className='form-control formInput'
                 placeholder='Steven Walker'
-                value={userData?.supervisorName}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    supervisorName: e.target.value,
-                  })
-                }
+                value={userData.supervisorName}
+                onChange={handleSupervisorChange}
               />
             </div>
           </div>
@@ -236,12 +271,7 @@ export default function ModifyUser() {
                 className='form-control formInput'
                 placeholder='Steven Walker'
                 value={userData.date}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    date: e.target.value,
-                  })
-                }
+                onChange={handleDateChange}
               />
             </div>
           </div>
@@ -253,13 +283,8 @@ export default function ModifyUser() {
               <select
                 className='form-select formInput'
                 aria-label='Default select example'
-                value={userData?.userStatus}
-                onChange={(e) =>
-                  setUserData({
-                    ...userData,
-                    userStatus: e.target.value,
-                  })
-                }>
+                value={userData.userStatus}
+                onChange={handleStatusChange}>
                 <option value='Active'>Active</option>
                 <option value='InActive'>In-Active</option>
               </select>
@@ -275,11 +300,7 @@ export default function ModifyUser() {
           </button>
 
           {/* RESET BUTTON */}
-          <button
-            className='px-5'
-            onClick={() => {
-              userDataForm.current.reset();
-            }}>
+          <button className='px-5' onClick={handleReset}>
             RESET
           </button>
         </div>
