@@ -66,10 +66,10 @@ const ManageDataTable = () => {
         // custom search filter for the assignTo (for name and mail)
         filter: (rows, id, filterValue) => {
           return rows.filter((row) => {
-            const name = row.values.name;
+            const user = row.values.user;
             return (
-              name.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
-              name.email.toLowerCase().includes(filterValue.toLowerCase())
+              user.userName.toLowerCase().includes(filterValue.toLowerCase()) ||
+              user.email.toLowerCase().includes(filterValue.toLowerCase())
             );
           });
         },
@@ -94,7 +94,6 @@ const ManageDataTable = () => {
         accessor: "recordCount",
         Filter: columnFilter,
       },
-
       {
         Header: "ACTIONS",
         accessor: "ACTIONS",
