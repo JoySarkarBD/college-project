@@ -23,7 +23,7 @@ const GoToInput = ({ title, gotoPage }) => {
   return (
     <>
       <label htmlFor='search' className='fs-5'>
-        GO TO PAGE
+        GO TO PAGE:
       </label>
       <input
         className='mx-2 py-1 px-2 w-25 number-inp'
