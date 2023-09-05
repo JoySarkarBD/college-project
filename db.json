@@ -250,7 +250,7 @@
       "role": "Technician",
       "teamName": "AUDITOR",
       "supervisorName": "Botol Khan",
-      "systemEffectiveDate": "2023-09-05",
+      "date": "2023-09-05",
       "userStatus": "Active",
       "ticketsAssigned": 0
     },
@@ -264,7 +264,7 @@
       "role": "Manager",
       "teamName": "AUDITOR",
       "supervisorName": "Roni Bro",
-      "systemEffectiveDate": "2023-09-05",
+      "date": "2023-09-05",
       "userStatus": "Active",
       "ticketsAssigned": 0
     },
@@ -278,21 +278,21 @@
       "role": "Operator",
       "teamName": "RE-PROCESSOR",
       "supervisorName": "Joy Sarkar",
-      "systemEffectiveDate": "2023-09-05",
+      "date": "2023-09-05",
       "userStatus": "Active",
       "ticketsAssigned": 0
     },
     {
       "id": "JDILKGF6",
       "user": {
-        "userName": "Dipto Das",
+        "userName": "Dipto ",
         "email": "dipto@gmail.com"
       },
       "employeeId": "JDILKGF6",
-      "role": "Technician",
-      "teamName": "AUDITOR",
+      "role": "Operator",
+      "teamName": "Auditor",
       "supervisorName": "Mehedi Hasn",
-      "systemEffectiveDate": "2023-09-05",
+      "date": "2023-09-05",
       "userStatus": "Active",
       "ticketsAssigned": 0
     }

@@ -134,12 +134,27 @@ export default function ModifyUser() {
   // submit updated data
   const handleForm = () => {
     event.preventDefault();
+
+    // update user data
+    fetch(`http://localhost:3000/users/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert("user updated successfully");
+        setUserData(data);
+      })
+      .catch((err) => console.log(err));
   };
 
   // Reset the form data to the original data
   const handleReset = () => {
     event.preventDefault();
-    setUserData(originalUserData);
+    setUserData({ ...userData, ...originalUserData });
   };
 
   return (

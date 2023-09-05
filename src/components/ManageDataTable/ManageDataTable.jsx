@@ -121,7 +121,8 @@ const ManageDataTable = () => {
           return (
             <div>
               <Link to=''>
-                <button // Define your edit action function
+                <button
+                  onClick={() => handleSingleDataDelete(row?.original?.id)} // Define your edit action function
                   className='btn-edit'>
                   Delete
                 </button>
@@ -164,6 +165,29 @@ const ManageDataTable = () => {
   const normalizedPageIndex =
     pageIndex >= totalPages ? totalPages - 1 : pageIndex;
 
+  // single data delete by userid
+  const handleSingleDataDelete = (userid) => {
+    fetch(`http://localhost:3000/manageUploadData/${userid}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          // console.log(`User with ID ${userid} has been deleted.`);
+          setManageUploadData((prevData) =>
+            prevData.filter((item) => item.id !== userid)
+          );
+        } else {
+          console.error(`Failed to delete user with ID ${userid}.`);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  // console.log(manageUploadData);
   return (
     <div className='px-5 my-5 table-responsive'>
       {/* Table topbar */}

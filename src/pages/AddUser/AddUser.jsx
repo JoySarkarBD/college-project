@@ -62,7 +62,7 @@ export default function AddUser() {
       role,
       teamName: team,
       supervisorName: supervisor,
-      systemEffectiveDate,
+      date: systemEffectiveDate,
       userStatus: status,
       ticketsAssigned: 0,
     };
