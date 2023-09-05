@@ -29,6 +29,7 @@ const DataTable = () => {
   // data storing after fetching
   const [dummyData, setDummyData] = useState([]);
 
+  // fetching all the assign work data
   useEffect(() => {
     fetch("http://localhost:3000/assignTo")
       .then((response) => {
@@ -56,36 +57,12 @@ const DataTable = () => {
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, [dummyData]);
 
-  /* // extracting unique names from the dummy json data
-  const names = dummyData.map((item) => item.assignTo.name);
-
-  const uniqueAssigneesMap = new Map();
-  const uniqueAssigneesArray = [];
-
-  dummyData.forEach((item) => {
-    const { name, mail } = item.assignTo;
-    const key = v4();
-
-    if (!uniqueAssigneesMap.has(key)) {
-      uniqueAssigneesMap.set(key, true);
-      uniqueAssigneesArray.push({ name, mail });
-    }
-  }); */
-  // console.log(singleRow);
-  /* This is for the modal */
+  /* modal to assign single data start */
   const handelSingleItemUpdate = (item) => {
     const id = singleRow?.id;
-    // console.log(item);
-    /*     const updatedData = {
-      role: singleRow?.role,
-      assignTo: item,
-      assignDate: singleRow?.assignDate,
-      dueDate: singleRow?.dueDate,
-      status: singleRow?.status,
-    }; */
     const updatedData = { ...singleRow, assignTo: { ...item } };
 
-    // update user data
+    // Update user data on the server
     fetch(`http://localhost:3000/assignTo/${id}`, {
       method: "PUT",
       headers: {
@@ -95,12 +72,23 @@ const DataTable = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // Update the UI with the new data
+        setDummyData((prevData) => {
+          // Find the index of the updated item in the data array
+          const dataIndex = prevData.findIndex((item) => item.id === id);
+          if (dataIndex !== -1) {
+            // Create a new array with the updated data
+            const newData = [...prevData];
+            newData[dataIndex] = data; // Assuming the API response is the updated data
+            return newData;
+          }
+          return prevData;
+        });
       })
       .catch((err) => console.log(err));
   };
 
-  /* This is for the modal */
+  /* modal to assign single data end */
 
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
@@ -340,7 +328,11 @@ const DataTable = () => {
               <ul>
                 {dummyData.map((item, index) => {
                   return (
-                    <li key={index} className='listing_sty3 py-1'>
+                    <li
+                      key={index}
+                      className='listing_sty3 py-1'
+                      data-bs-dismiss='modal'
+                      aria-label='Close'>
                       <div
                         className='listing_sty2'
                         style={{ cursor: "pointer" }}
