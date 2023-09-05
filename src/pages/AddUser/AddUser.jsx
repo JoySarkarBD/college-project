@@ -31,6 +31,10 @@ export default function AddUser() {
     return shortDate;
   };
 
+  // error state
+  const [msidErr, setMsidError] = useState("");
+  const [msIdAvailable, setMsIdAvailable] = useState(false);
+
   // Define state variables for input fields
   const [msid, setMsid] = useState("");
   const [name, setName] = useState("");
@@ -49,23 +53,43 @@ export default function AddUser() {
     event.preventDefault();
     // Here, you can access the state variables and submit the form data
     const formData = {
-      msid,
+      id: msid.toUpperCase(),
       user: {
-        name,
+        userName: name,
         email,
       },
-      employeeId,
+      employeeId: employeeId.toUpperCase(),
       role,
-      team,
-      supervisor,
+      teamName: team,
+      supervisorName: supervisor,
       systemEffectiveDate,
-      status,
+      userStatus: status,
+      ticketsAssigned: 0,
     };
-    console.log(formData); // You can replace this with your form submission logic
+
+    // console.log(formData); // You can replace this with your form submission logic
+
+    /* add from in database through fetch api */
+    fetch(`http://localhost:3000/users`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.id) {
+          alert(` ${data?.user?.userName} successfully added.`);
+        }
+        resetForm();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const resetForm = () => {
-    event.preventDefault();
     setMsid("");
     setName("");
     setEmployeeId("");
@@ -77,12 +101,30 @@ export default function AddUser() {
     setStatus("");
   };
 
+  const handleMsIdCheck = async () => {
+    try {
+      const isExistId = await (
+        await fetch(`http://localhost:3000/users?id=${msid.toUpperCase()}`)
+      ).json();
+
+      if (isExistId.length > 0) {
+        setMsidError(`${msid} is already exist`);
+      } else {
+        setMsIdAvailable(true);
+      }
+    } catch (error) {
+      console.log(error.message, "this error from msid checking");
+    }
+  };
+
+  // console.log(msidErr.split(" ")[0] === msid);
+
   return (
     <div className='container my-5'>
       <div className='title text-center'>
         <h2>Add User</h2>
       </div>
-      <form className='addUserForm mt-5'>
+      <form className='addUserForm mt-5' onSubmit={handleForm}>
         <div className='row'>
           {/* MSID FIELD*/}
           <div className='col-md-4 mb-4'>
@@ -96,9 +138,24 @@ export default function AddUser() {
                   value={msid}
                   onChange={(e) => setMsid(e.target.value)}
                 />
+                <p className='text-danger'>
+                  {msid.length > 0 && msidErr && msidErr.split(" ")[0] === msid
+                    ? msidErr
+                    : ""}
+                </p>
+                {msIdAvailable &&
+                msid.length > 0 &&
+                msidErr.split(" ")[0] !== msid ? (
+                  <p className='text-success'>MsId is available </p>
+                ) : (
+                  ""
+                )}
               </div>
               <div className='col-4'>
-                <button type='submit' className='btn btn_input'>
+                <button
+                  type='button'
+                  className='btn btn_input'
+                  onClick={handleMsIdCheck}>
                   CHECK
                 </button>
               </div>
@@ -228,13 +285,17 @@ export default function AddUser() {
         {/* form submit button */}
         <div className='text-center mt-5 form_buttons gap-2 gap-md-1'>
           {/* SAVE DETAILS BUTTON */}
-          <button onClick={handleForm}>Save Details</button>
+          <button type='submit' disabled={msidErr.split(" ")[0] === msid}>
+            Save Details
+          </button>
 
           {/* SAVE AND ADD ANOTHER BUTTON */}
           <button>SAVE AND ADD ANOTHER</button>
 
           {/* RESET BUTTON */}
-          <button onClick={resetForm}>RESET</button>
+          <button type='button' onClick={resetForm}>
+            RESET
+          </button>
         </div>
       </form>
     </div>

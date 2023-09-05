@@ -239,6 +239,62 @@
       "teamName": "Auditor",
       "userStatus": "Active",
       "ticketsAssigned": 96
+    },
+    {
+      "id": "JDILKGFD",
+      "user": {
+        "userName": "Mehedi Hasan",
+        "email": "mehedi@gmail.com"
+      },
+      "employeeId": "JDILKGF5",
+      "role": "Technician",
+      "teamName": "AUDITOR",
+      "supervisorName": "Botol Khan",
+      "systemEffectiveDate": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "JDILKGF4",
+      "user": {
+        "userName": "Joy Sarkar",
+        "email": "joy@gmail.com"
+      },
+      "employeeId": "JDILKGF4",
+      "role": "Manager",
+      "teamName": "AUDITOR",
+      "supervisorName": "Roni Bro",
+      "systemEffectiveDate": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "JDILKGFK",
+      "user": {
+        "userName": "Roni",
+        "email": "roni@gmail.com"
+      },
+      "employeeId": "JDILKGFK",
+      "role": "Operator",
+      "teamName": "RE-PROCESSOR",
+      "supervisorName": "Joy Sarkar",
+      "systemEffectiveDate": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "JDILKGF6",
+      "user": {
+        "userName": "Dipto Das",
+        "email": "dipto@gmail.com"
+      },
+      "employeeId": "JDILKGF6",
+      "role": "Technician",
+      "teamName": "AUDITOR",
+      "supervisorName": "Mehedi Hasn",
+      "systemEffectiveDate": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
     }
   ],
   "assignTo": [
