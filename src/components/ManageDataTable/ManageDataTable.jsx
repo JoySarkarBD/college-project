@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useFilters,
   useGlobalFilter,
@@ -11,7 +11,6 @@ import {
 
 // this is the column searching function
 import { Link } from "react-router-dom";
-import manageUploadData from "../../../manageUploadData.json";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import emptyFilter from "../ColumnFilter/EmptyFilter";
 import GoToInput from "../Form/GoToInput";
@@ -20,9 +19,29 @@ import Pagination from "../Pagination/Pagination";
 const ManageDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
+  const [manageUploadData, setManageUploadData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/manageUploadData")
+      .then((response) => {
+        // Check if the response status is OK (200)
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Parse the JSON response
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the JSON data here
+        setManageUploadData(data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, []);
 
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => manageUploadData, []);
+  const data = React.useMemo(() => manageUploadData, [manageUploadData]);
 
   const uniqueNamesMap = new Map();
   const uniqueNamesArray = [];

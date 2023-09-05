@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiEdit2 } from "react-icons/fi";
 import {
   useFilters,
@@ -17,18 +17,38 @@ import SearchInput from "../Form/SearchInput";
 import SelectNames from "../Form/SelectNames";
 import Pagination from "../Pagination/Pagination";
 import AdminTableTopbar from "../TableTopbar/AdminTableTopbar";
-import dummyData from "./../../../data.json"; // Update the path to your data.json
 import "./DataTable.css";
 
 const DataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
+  // data storing after fetching
+  const [dummyData, setDummyData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/assignTo")
+      .then((response) => {
+        // Check if the response status is OK (200)
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Parse the JSON response
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the JSON data here
+        setDummyData(data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, []);
+
+  // using the useMemo Hook to memoized the value.
+  const data = React.useMemo(() => dummyData, [dummyData]);
 
   // extracting unique names from the dummy json data
   const names = dummyData.map((item) => item.assignTo.name);
-
-  // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => dummyData, []);
 
   const uniqueAssigneesMap = new Map();
   const uniqueAssigneesArray = [];
@@ -128,7 +148,7 @@ const DataTable = () => {
         Filter: columnFilter,
       },
     ],
-    [data]
+    []
   );
 
   // useTable functionalities from react-table

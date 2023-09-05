@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useFilters,
   useGlobalFilter,
@@ -14,17 +14,37 @@ import GoToInput from "../Form/GoToInput";
 import SearchInput from "../Form/SearchInput";
 import Pagination from "../Pagination/Pagination";
 import TableTopbar from "../TableTopbar/TableTopbar";
-import dummyData from "./../../../workQueue.json"; // Update the path to your data.json
 import SelectNames from "./SelectNames";
 
 const WorkingDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
+  const [dummyData, setDummyData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/workQueue")
+      .then((response) => {
+        // Check if the response status is OK (200)
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Parse the JSON response
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the JSON data here
+        setDummyData(data);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, []);
+
   // extracting unique names from the dummy json data
   const names = dummyData.map((item) => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => dummyData, []);
+  const data = React.useMemo(() => dummyData, [dummyData]);
 
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
