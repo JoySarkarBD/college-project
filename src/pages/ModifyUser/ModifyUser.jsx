@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as XLSX from "xlsx";
 import "./../AddUser/AddUser.css";
 
 /* 
@@ -51,45 +50,23 @@ export default function ModifyUser() {
 
   // fetching data from the excel sheet by userId
   useEffect(() => {
-    const fetchDataFromExcel = async () => {
-      const response = await fetch("/user_list.xlsx");
-      const blob = await response.blob();
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const data = e.target.result;
-        const workbook = XLSX.read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[0]; // Assuming your data is in the first sheet
-        const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-
-        // Now you have the data from the Excel sheet in sheetData, But before insert it inside of the state we have transform it in another format. SO that the table structure remain perfect.
-
-        const transformedData = sheetData.map((item) => ({
-          id: item.id,
-          user: {
-            userName: item.userName,
-            email: item.email,
-          },
-          role: item.role,
-          supervisorName: item.supervisorName,
-          teamName: item.team,
-          userStatus: item.userStatus,
-          ticketsAssigned: item.ticketAssigned,
-          date: getCurrentDateInput(item.date),
-        }));
-
-        const singleObj = transformedData.filter(
-          (item) => item.id === userId
-        )[0];
-
-        setUserData(singleObj);
-        setOriginalUserData(singleObj);
-      };
-
-      reader.readAsArrayBuffer(blob);
-    };
-
-    fetchDataFromExcel();
+    fetch(`http://localhost:3000/users?id=${userId}`)
+      .then((response) => {
+        // Check if the response status is OK (200)
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Parse the JSON response
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the JSON data here
+        setUserData(data[0]);
+        setOriginalUserData(data[0]);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
   }, [userId]);
 
   // Handle changes in the "NAME" input field.
