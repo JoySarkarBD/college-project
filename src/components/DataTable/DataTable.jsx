@@ -22,6 +22,10 @@ import "./DataTable.css";
 const DataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
+  const [names, setNames] = useState([]);
+
+  // specific selected row
+  const [singleRow, setSingleRow] = useState("");
   // data storing after fetching
   const [dummyData, setDummyData] = useState([]);
 
@@ -38,6 +42,11 @@ const DataTable = () => {
       .then((data) => {
         // Handle the JSON data here
         setDummyData(data);
+        const assignNames = [];
+        data.forEach((d) => {
+          assignNames.push({ ...d?.assignTo });
+        });
+        setNames(assignNames);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -47,7 +56,7 @@ const DataTable = () => {
   // using the useMemo Hook to memoized the value.
   const data = React.useMemo(() => dummyData, [dummyData]);
 
-  // extracting unique names from the dummy json data
+  /* // extracting unique names from the dummy json data
   const names = dummyData.map((item) => item.assignTo.name);
 
   const uniqueAssigneesMap = new Map();
@@ -55,36 +64,42 @@ const DataTable = () => {
 
   dummyData.forEach((item) => {
     const { name, mail } = item.assignTo;
-    const key = `${name}-${mail}`;
+    const key = v4();
 
     if (!uniqueAssigneesMap.has(key)) {
       uniqueAssigneesMap.set(key, true);
       uniqueAssigneesArray.push({ name, mail });
     }
-  });
-
+  }); */
+  // console.log(singleRow);
   /* This is for the modal */
+  const handelSingleItemUpdate = (item) => {
+    const id = singleRow?.id;
+    // console.log(item);
+    /*     const updatedData = {
+      role: singleRow?.role,
+      assignTo: item,
+      assignDate: singleRow?.assignDate,
+      dueDate: singleRow?.dueDate,
+      status: singleRow?.status,
+    }; */
+    const updatedData = { ...singleRow, assignTo: { ...item } };
 
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [selectAll, setSelectAll] = useState(false);
-
-  const handleSelectAll = () => {
-    if (selectAll) {
-      setSelectedItems([]);
-    } else {
-      const allItemNames = uniqueAssigneesArray.map((item) => item.name);
-      setSelectedItems(allItemNames);
-    }
-    setSelectAll(!selectAll);
+    // update user data
+    fetch(`http://localhost:3000/assignTo/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
   };
 
-  const handleSelectItem = (itemName) => {
-    if (selectedItems.includes(itemName)) {
-      setSelectedItems(selectedItems.filter((item) => item !== itemName));
-    } else {
-      setSelectedItems([...selectedItems, itemName]);
-    }
-  };
   /* This is for the modal */
 
   // using the useMemo Hook to memoized the value.
@@ -104,6 +119,7 @@ const DataTable = () => {
         Header: "ASSIGN TO",
         accessor: "assignTo",
         Cell: ({ value, row }) => {
+          // console.log(row);
           return (
             <div>
               {/* normal view by default of assignTo cell */}
@@ -115,6 +131,7 @@ const DataTable = () => {
                 </div>
 
                 <button
+                  onClick={() => setSingleRow(row?.original)}
                   className='edit-btn'
                   type='button'
                   data-bs-toggle='modal'
@@ -190,7 +207,6 @@ const DataTable = () => {
         </div>
 
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>
-          {/* Step 2: Attach event handler */}
           <SelectNames names={names} />
         </div>
 
@@ -304,6 +320,7 @@ const DataTable = () => {
       </div>
 
       {/* Modal */}
+
       <div
         className='modal fade'
         id='exampleModal3'
@@ -321,30 +338,16 @@ const DataTable = () => {
             </div>
             <div className='modal-body listin_modal_body'>
               <ul>
-                <li className='listing_sty'>
-                  <span className='ps-1'>
-                    <input
-                      type='checkbox'
-                      checked={selectAll}
-                      onChange={handleSelectAll}
-                    />
-                  </span>
-                  <span className='ps-3'>Select All</span>
-                </li>
-                {uniqueAssigneesArray.map((item) => {
+                {dummyData.map((item, index) => {
                   return (
-                    <li key={item.name} className='listing_sty3 py-1'>
-                      <div className='listing_sty2'>
-                        <span>
-                          <input
-                            type='checkbox'
-                            checked={selectedItems.includes(item.name)}
-                            onChange={() => handleSelectItem(item.name)}
-                          />
-                        </span>
+                    <li key={index} className='listing_sty3 py-1'>
+                      <div
+                        className='listing_sty2'
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handelSingleItemUpdate(item?.assignTo)}>
                         <div>
-                          <p className='item_name'>{item.name}</p>
-                          <p className='item_mail'>{item?.mail}</p>
+                          <p className='item_name'>{item?.assignTo?.name}</p>
+                          <p className='item_mail'>{item?.assignTo?.mail}</p>
                         </div>
                       </div>
                     </li>

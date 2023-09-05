@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { v4 } from "uuid";
 import "./SearchInput.css";
 
 const SelectNames = ({ names }) => {
@@ -8,9 +9,9 @@ const SelectNames = ({ names }) => {
         <option value='' disabled>
           Select Name
         </option>
-        {names.map((assigneeName) => (
-          <option key={assigneeName} value={assigneeName}>
-            {assigneeName}
+        {names.map((name) => (
+          <option key={v4()} value={name}>
+            {name?.name}
           </option>
         ))}
       </select>
