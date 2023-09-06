@@ -386,7 +386,7 @@ const DataTable = () => {
             </div>
             <div className='modal-body listin_modal_body'>
               <ul>
-                {dummyData.map((item, index) => {
+                {names.map((item, index) => {
                   return (
                     <li
                       key={index}
@@ -396,10 +396,10 @@ const DataTable = () => {
                       <div
                         className='listing_sty2'
                         style={{ cursor: "pointer" }}
-                        onClick={() => handelSingleItemUpdate(item?.assignTo)}>
+                        onClick={() => handelSingleItemUpdate(item)}>
                         <div>
-                          <p className='item_name'>{item?.assignTo?.name}</p>
-                          <p className='item_mail'>{item?.assignTo?.mail}</p>
+                          <p className='item_name'>{item?.name}</p>
+                          <p className='item_mail'>{item?.mail}</p>
                         </div>
                       </div>
                     </li>

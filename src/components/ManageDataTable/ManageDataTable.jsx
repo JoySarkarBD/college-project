@@ -12,7 +12,6 @@ import {
 // this is the column searching function
 import { Link } from "react-router-dom";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
-import emptyFilter from "../ColumnFilter/EmptyFilter";
 import GoToInput from "../Form/GoToInput";
 import Pagination from "../Pagination/Pagination";
 
@@ -116,7 +115,13 @@ const ManageDataTable = () => {
       {
         Header: "ACTIONS",
         accessor: "ACTIONS",
-        Filter: emptyFilter,
+        Filter: (
+          <button
+            className='btn btn-danger'
+            onClick={() => handleBatchDelete()}>
+            Delete all
+          </button>
+        ),
         Cell: ({ row }) => {
           return (
             <div>
@@ -186,6 +191,11 @@ const ManageDataTable = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+  };
+
+  // batch delete
+  const handleBatchDelete = () => {
+    console.log(selectedRows);
   };
   // console.log(manageUploadData);
   return (
