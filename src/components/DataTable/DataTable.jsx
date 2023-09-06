@@ -215,7 +215,7 @@ const DataTable = () => {
     ],
     []
   );
-  console.log(name);
+
   // useTable functionalities from react-table
   const {
     getTableProps,

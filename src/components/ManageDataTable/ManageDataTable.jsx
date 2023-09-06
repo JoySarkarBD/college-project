@@ -12,6 +12,7 @@ import {
 // this is the column searching function
 import { Link } from "react-router-dom";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
+import emptyFilter from "../ColumnFilter/EmptyFilter";
 import GoToInput from "../Form/GoToInput";
 import Pagination from "../Pagination/Pagination";
 
@@ -115,13 +116,7 @@ const ManageDataTable = () => {
       {
         Header: "ACTIONS",
         accessor: "ACTIONS",
-        Filter: (
-          <button
-            className='btn btn-danger'
-            onClick={() => handleBatchDelete()}>
-            Delete all
-          </button>
-        ),
+        Filter: emptyFilter,
         Cell: ({ row }) => {
           return (
             <div>
@@ -197,16 +192,22 @@ const ManageDataTable = () => {
   const handleBatchDelete = () => {
     console.log(selectedRows);
   };
-  // console.log(manageUploadData);
+
   return (
     <div className='px-5 my-5 table-responsive'>
       {/* Table topbar */}
       <div className='d-flex align-items-center'>
-        <div className='topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4'>
+        <div className='topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4 d-flex justify-content-between'>
           {/* Go To Input */}
-          <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center text-white'>
+          <div className='my-2 text-lg-start text-md-center text-sm-center text-center text-white'>
             <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
           </div>
+
+          <button
+            className='btn btn-danger'
+            onClick={() => handleBatchDelete()}>
+            Delete all
+          </button>
         </div>
       </div>
 
@@ -224,7 +225,7 @@ const ManageDataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map((row) => row.original?.id));
                     }
                   }}
                 />
@@ -262,21 +263,21 @@ const ManageDataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) => selectedRow.id === row.original.id
+                      (selectedRow) => selectedRow === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) => selectedRow.id === row.original.id
+                          (selectedRow) => selectedRow === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) => selectedRow.id !== row.original.id
+                            (selectedRow) => selectedRow !== row.original.id
                           )
                         );
                       } else {
-                        setSelectedRows([...selectedRows, row.original]);
+                        setSelectedRows([...selectedRows, row.original?.id]);
                       }
                     }}
                   />
