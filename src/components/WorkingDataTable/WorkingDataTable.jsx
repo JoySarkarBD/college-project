@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useFilters,
   useGlobalFilter,
@@ -9,11 +9,12 @@ import {
 } from "react-table";
 
 // this is the column searching function
+import { AiFillFileExcel } from "react-icons/ai";
+import { FaFileCsv } from "react-icons/fa";
 import { columnFilter } from "../ColumnFilter/ColumnFilter";
 import GoToInput from "../Form/GoToInput";
 import SearchInput from "../Form/SearchInput";
 import Pagination from "../Pagination/Pagination";
-import TableTopbar from "../TableTopbar/TableTopbar";
 import SelectNames from "./SelectNames";
 
 const WorkingDataTable = () => {
@@ -143,7 +144,21 @@ const WorkingDataTable = () => {
         </div>
       </div>
       {/* Table topbar */}
-      <TableTopbar />
+      <div className='d-flex align-items-center'>
+        <div className='topBar_style mx-2 my-3 px-3'>
+          <div className='w-50'>
+            <GoToInput gotoPage={gotoPage} GoToInput value={pageIndex + 1} />
+          </div>
+        </div>
+        <div className='d-flex align-items-center download_button'>
+          <button>
+            <FaFileCsv />
+          </button>
+          <button className='btn-excel'>
+            <AiFillFileExcel />
+          </button>
+        </div>
+      </div>
       <table className='table' {...getTableProps()}>
         {/* Mapping the data of header */}
         <thead>
@@ -227,9 +242,6 @@ const WorkingDataTable = () => {
       </table>
       {/* Pagination */}
       <div className='d-flex align-items-center justify-content-center mt-5'>
-        <div className='me-auto w-50'>
-          <GoToInput gotoPage={gotoPage} GoToInput value={pageIndex + 1} />
-        </div>
         <div className='me-auto w-100'>
           <Pagination
             totalPages={totalPages}
