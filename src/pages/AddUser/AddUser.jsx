@@ -1,22 +1,6 @@
 import React, { useState } from "react";
 import "./AddUser.css";
 
-/* 
-// During using the json inside the code I have re-structure the data in this formate
-{
-  "id": "JDILKGFU",
-  "user": {
-    "userName": "John Doe",
-    "email": "johndeo@example.com"
-  },
-  "role": "Manager",
-  "supervisorName": "Rahul Bose",
-  "teamName": "Auditor",
-  "userStatus": "Active",
-  "ticketsAssigned": 40
-}
-*/
-
 export default function AddUser() {
   const getCurrentDateInput = () => {
     const dateObj = new Date();
