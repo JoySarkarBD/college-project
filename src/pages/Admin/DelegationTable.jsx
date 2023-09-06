@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 export default function DelegationTable() {
+  const [status, setStatus] = useState("ACTIVE");
+  const handelStatus = () => {
+    setStatus("INACTIVE");
+  };
+
   return (
     <div className='delegationTable_container'>
       <div className='title text-center my-5'>
@@ -22,9 +29,13 @@ export default function DelegationTable() {
               <td>MANAGER</td>
               <td>5/3/23</td>
               <td>6/3/23</td>
-              <td>ACTIVE</td>
+              <td>{status}</td>
               <td>
-                <a href=''>End Now</a>
+                {status === "ACTIVE" && (
+                  <button className='btn btn-danger' onClick={handelStatus}>
+                    End Now
+                  </button>
+                )}
               </td>
             </tr>
             <tr>

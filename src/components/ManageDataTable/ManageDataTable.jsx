@@ -193,24 +193,22 @@ const ManageDataTable = () => {
     if (selectedRows.length > 0) {
       // return console.log(selectedRows);
       selectedRows.forEach((userid) => {
-        setTimeout(() => {
-          fetch(`http://localhost:3000/manageUploadData/${userid}`, {
-            method: "DELETE",
+        fetch(`http://localhost:3000/manageUploadData/${userid}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              // console.log(`User with ID ${userid} has been deleted.`);
+              setManageUploadData((prevData) =>
+                prevData.filter((item) => item.id !== userid)
+              );
+            } else {
+              console.error(`Failed to delete user with ID ${userid}.`);
+            }
           })
-            .then((response) => {
-              if (response.status === 200) {
-                // console.log(`User with ID ${userid} has been deleted.`);
-                setManageUploadData((prevData) =>
-                  prevData.filter((item) => item.id !== userid)
-                );
-              } else {
-                console.error(`Failed to delete user with ID ${userid}.`);
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }, 1500);
+          .catch((error) => {
+            console.error("Error:", error);
+          });
       });
     }
   };

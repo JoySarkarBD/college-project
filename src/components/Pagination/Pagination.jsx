@@ -11,21 +11,24 @@ const Pagination = ({
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i);
 
   return (
-    <div className='d-flex align-items-center justify-content-center mt-3'>
-      <span>Show per page:</span>
-      <select
-        className='ms-2 p-2'
-        value={pageSize}
-        onChange={(e) => {
-          setPageSize(Number(e.target.value));
-          gotoPage(0); // Go to the first page when changing the page size
-        }}>
-        {[10, 20, 30, 40, 50].map((pageSizeOption) => (
-          <option key={pageSizeOption} value={pageSizeOption}>
-            {pageSizeOption}
-          </option>
-        ))}
-      </select>
+    <div className='d-flex justify-content-center gap-2 mt-3'>
+      <div>
+        <span>Show per page:</span>
+
+        <select
+          className='ms-2 p-2'
+          value={pageSize}
+          onChange={(e) => {
+            setPageSize(Number(e.target.value));
+            gotoPage(0); // Go to the first page when changing the page size
+          }}>
+          {[10, 20, 30, 40, 50].map((pageSizeOption) => (
+            <option key={pageSizeOption} value={pageSizeOption}>
+              {pageSizeOption}
+            </option>
+          ))}
+        </select>
+      </div>
       <nav aria-label='Page navigation example'>
         <ul className='pagination justify-content-center'>
           <li className={`page-item ${currentPage === 0 ? "disabled" : ""}`}>
