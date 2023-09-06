@@ -24,6 +24,62 @@ const DataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [names, setNames] = useState([]);
 
+  // update multiple users
+  const [selectedOption, setSelectedOption] = useState("");
+
+  // selected value
+  const handleSelect = (selectedValue) => {
+    setSelectedOption(selectedValue); // Store the selected value in the parent component's state
+  };
+
+  /* update many at a time */
+  const batchUpdate = () => {
+    if (selectedRows.length > 0 && selectedOption) {
+      const batchUpdateArr = [];
+      dummyData.forEach((data) => {
+        if (selectedRows.includes(data.id)) {
+          const newObj = { ...data, assignTo: selectedOption };
+          batchUpdateArr.push(newObj);
+        }
+      });
+
+      if (batchUpdateArr.length > 0) {
+        batchUpdateArr.forEach((row) => {
+          fetch(`http://localhost:3000/assignTo/${row.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(row),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              setDummyData((prevData) => {
+                // Find the index of the updated item in the data array
+                const dataIndex = prevData.findIndex(
+                  (item) => item.id === data?.id
+                );
+                if (dataIndex !== -1) {
+                  // Create a new array with the updated data
+                  const newData = [...prevData];
+                  newData[dataIndex] = data; // Assuming the API response is the updated data
+                  return newData;
+                }
+                return prevData;
+              });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+      }
+
+      // batch || bulk update
+
+      // console.log(batchUpdate);
+    }
+  };
+
   // specific selected row
   const [singleRow, setSingleRow] = useState("");
   // data storing after fetching
@@ -31,27 +87,31 @@ const DataTable = () => {
 
   // fetching all the assign work data
   useEffect(() => {
-    fetch("http://localhost:3000/assignTo")
-      .then((response) => {
-        // Check if the response status is OK (200)
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        // Parse the JSON response
-        return response.json();
-      })
-      .then((data) => {
-        // Handle the JSON data here
-        setDummyData(data);
-        const assignNames = [];
-        data.forEach((d) => {
-          assignNames.push({ ...d?.assignTo });
+    (function () {
+      fetch("http://localhost:3000/assignTo")
+        .then((response) => {
+          // Check if the response status is OK (200)
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          // Parse the JSON response
+          return response.json();
+        })
+        .then((data) => {
+          // Handle the JSON data here
+          setDummyData(data);
+        })
+        .catch((error) => {
+          console.error("Fetch error:", error);
         });
-        setNames(assignNames);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
+    })();
+
+    (async function () {
+      const res = await (
+        await fetch(`http://localhost:3000/assignUserList`)
+      ).json();
+      setNames(res);
+    })();
   }, []);
 
   // using the useMemo Hook to memoized the value.
@@ -155,7 +215,7 @@ const DataTable = () => {
     ],
     []
   );
-
+  console.log(name);
   // useTable functionalities from react-table
   const {
     getTableProps,
@@ -195,7 +255,7 @@ const DataTable = () => {
         </div>
 
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>
-          <SelectNames names={names} />
+          <SelectNames selectedName={{ names, handleSelect, batchUpdate }} />
         </div>
 
         {/* Search Input */}
@@ -223,7 +283,7 @@ const DataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original));
+                      setSelectedRows(page.map((row) => row.original?.id));
                     }
                   }}
                 />
@@ -259,21 +319,21 @@ const DataTable = () => {
                   <input
                     type='checkbox'
                     checked={selectedRows.some(
-                      (selectedRow) => selectedRow.id === row.original.id
+                      (selectedRow) => selectedRow === row.original.id
                     )}
                     onChange={() => {
                       if (
                         selectedRows.some(
-                          (selectedRow) => selectedRow.id === row.original.id
+                          (selectedRow) => selectedRow === row.original.id
                         )
                       ) {
                         setSelectedRows(
                           selectedRows.filter(
-                            (selectedRow) => selectedRow.id !== row.original.id
+                            (selectedRow) => selectedRow !== row.original.id
                           )
                         );
                       } else {
-                        setSelectedRows([...selectedRows, row.original]);
+                        setSelectedRows([...selectedRows, row.original?.id]);
                       }
                     }}
                   />
