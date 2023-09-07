@@ -24,7 +24,7 @@ const UserDataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
 
-  const [dataExcel, setData] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -38,7 +38,7 @@ const UserDataTable = () => {
       })
       .then((data) => {
         // Handle the JSON data here
-        setData(data);
+        setUsers(data);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -46,12 +46,12 @@ const UserDataTable = () => {
   }, []);
 
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => dataExcel, [dataExcel]);
+  const data = React.useMemo(() => users, [users]);
 
   const uniqueNamesMap = new Map();
   const uniqueNamesArray = [];
 
-  dataExcel.forEach((item) => {
+  users.forEach((item) => {
     const { userName, email } = item.user;
     const key = `${userName}-${email}`;
 
