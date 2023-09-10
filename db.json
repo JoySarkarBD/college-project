@@ -25,6 +25,264 @@
       "ticketsAssigned": 70
     },
     {
+      "id": "PLWROZXE",
+      "user": {
+        "userName": "Robert Brown",
+        "email": "robertbrown@example.com"
+      },
+      "role": "Operator",
+      "supervisorName": "Emily Davis",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 20
+    },
+    {
+      "id": "GAMVYFDS",
+      "user": {
+        "userName": "Sarah Johnson",
+        "email": "sarahjohnson@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "David Lee",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 45
+    },
+    {
+      "id": "KUJHEBCD",
+      "user": {
+        "userName": "Michael Williams",
+        "email": "michaelwilliams@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Jennifer Clark",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 60
+    },
+    {
+      "id": "QPONMLKJ",
+      "user": {
+        "userName": "Emily Wilson",
+        "email": "emilywilson@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Daniel Smith",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 30
+    },
+    {
+      "id": "ZXCVBNMA",
+      "user": {
+        "userName": "Kevin Anderson",
+        "email": "kevinanderson@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Laura White",
+      "teamName": "Auditor",
+      "userStatus": "InActive",
+      "ticketsAssigned": 90
+    },
+    {
+      "id": "WERTYUIO",
+      "user": {
+        "userName": "Amanda Taylor",
+        "email": "amandataylor@example.com"
+      },
+      "role": "Operator",
+      "supervisorName": "Brian Miller",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 10
+    },
+    {
+      "id": "ASDFGHJK",
+      "user": {
+        "userName": "Matthew Davis",
+        "email": "matthewdavis@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Jessica Martin",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 25
+    },
+    {
+      "id": "ZXCVBNMK",
+      "user": {
+        "userName": "Olivia Wilson",
+        "email": "oliviawilson@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "William Harris",
+      "teamName": "Re-Processor",
+      "userStatus": "InActive",
+      "ticketsAssigned": 58
+    },
+    {
+      "id": "QWERTYUI",
+      "user": {
+        "userName": "Christopher Brown",
+        "email": "christopherbrown@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Melissa Johnson",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "ASDFGHJKL",
+      "user": {
+        "userName": "Stephanie Martinez",
+        "email": "stephaniemartinez@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Robert Taylor",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 90
+    },
+    {
+      "id": "ZXCVBNMAS",
+      "user": {
+        "userName": "David Wilson",
+        "email": "davidwilson@example.com"
+      },
+      "role": "Operator",
+      "supervisorName": "Jennifer Adams",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 60
+    },
+    {
+      "id": "LKJHGFDSA",
+      "user": {
+        "userName": "Laura Johnson",
+        "email": "laurajohnson@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Michael Brown",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 35
+    },
+    {
+      "id": "MNBVCXZQ",
+      "user": {
+        "userName": "Daniel Davis",
+        "email": "daviddaniel@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Emily White",
+      "teamName": "Auditor",
+      "userStatus": "InActive",
+      "ticketsAssigned": 40
+    },
+    {
+      "id": "POIUYTRE",
+      "user": {
+        "userName": "Jessica Miller",
+        "email": "jessicamiller@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Andrew Wilson",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 13
+    },
+    {
+      "id": "LKJHGFDS",
+      "user": {
+        "userName": "Ryan Thomas",
+        "email": "ryanthomas@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Sophia Martinez",
+      "teamName": "Re-Processor",
+      "userStatus": "Active",
+      "ticketsAssigned": 69
+    },
+    {
+      "id": "MNBVCXZA",
+      "user": {
+        "userName": "Elizabeth Clark",
+        "email": "elizabethclark@example.com"
+      },
+      "role": "Operator",
+      "supervisorName": "Joshua Davis",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 33
+    },
+    {
+      "id": "POIUYTRW",
+      "user": {
+        "userName": "William Anderson",
+        "email": "williamanderson@example.com"
+      },
+      "role": "Manager",
+      "supervisorName": "Olivia Johnson",
+      "teamName": "Re-Processor",
+      "userStatus": "InActive",
+      "ticketsAssigned": 75
+    },
+    {
+      "id": "ZXCVBNMQ",
+      "user": {
+        "userName": "Grace Martinez",
+        "email": "gracemartinez@example.com"
+      },
+      "role": "Technician",
+      "supervisorName": "Ethan Brown",
+      "teamName": "Auditor",
+      "userStatus": "Active",
+      "ticketsAssigned": 96
+    },
+    {
+      "id": "JDILKGFD",
+      "user": {
+        "userName": "Mehedi Hasan",
+        "email": "mehedi@gmail.com"
+      },
+      "employeeId": "JDILKGF5",
+      "role": "Technician",
+      "teamName": "AUDITOR",
+      "supervisorName": "Botol Khan",
+      "date": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "JDILKGF4",
+      "user": {
+        "userName": "Joy Sarkar",
+        "email": "joy@gmail.com"
+      },
+      "employeeId": "JDILKGF4",
+      "role": "Manager",
+      "teamName": "AUDITOR",
+      "supervisorName": "Roni Bro",
+      "date": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
+      "id": "JDILKGFK",
+      "user": {
+        "userName": "Roni",
+        "email": "roni@gmail.com"
+      },
+      "employeeId": "JDILKGFK",
+      "role": "Operator",
+      "teamName": "RE-PROCESSOR",
+      "supervisorName": "Joy Sarkar",
+      "date": "2023-09-05",
+      "userStatus": "Active",
+      "ticketsAssigned": 0
+    },
+    {
       "id": "JDILKGF6",
       "user": {
         "userName": "Dipto ",
@@ -72,6 +330,182 @@
       "assignDate": "2023-08-25",
       "dueDate": "2023-09-05",
       "status": "Unassigned"
+    },
+    {
+      "id": "20D754327504",
+      "role": "Manager",
+      "assignTo": {
+        "name": "Emily Brown",
+        "mail": "Emily@Brown.com"
+      },
+      "assignDate": "2023-08-22",
+      "dueDate": "2023-09-20",
+      "status": "In Progress"
+    },
+    {
+      "id": "20D754327505",
+      "role": "Technician",
+      "assignTo": {
+        "name": "Michael Lee",
+        "mail": "Michael@Lee.com"
+      },
+      "assignDate": "2023-08-24",
+      "dueDate": "2023-09-18",
+      "status": "Open"
+    },
+    {
+      "id": "20D754327506",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Sophia Wilson",
+        "mail": "Sophia@Wilson.com"
+      },
+      "assignDate": "2023-08-21",
+      "dueDate": "2023-09-12",
+      "status": "Unassigned"
+    },
+    {
+      "id": "20D754327507",
+      "role": "Manager",
+      "assignTo": {
+        "name": "Daniel Martinez",
+        "mail": "Daniel@Martinez.com"
+      },
+      "assignDate": "2023-08-26",
+      "dueDate": "2023-09-07",
+      "status": "In Progress"
+    },
+    {
+      "id": "20D754327508",
+      "role": "Technician",
+      "assignTo": {
+        "name": "Olivia Johnson",
+        "mail": "Olivia@Johnson.com"
+      },
+      "assignDate": "2023-08-23",
+      "dueDate": "2023-09-16",
+      "status": "Open"
+    },
+    {
+      "id": "20D754327509",
+      "role": "Manager",
+      "assignTo": {
+        "name": "William Davis",
+        "mail": "William@Davis.com"
+      },
+      "assignDate": "2023-08-22",
+      "dueDate": "2023-09-21",
+      "status": "Unassigned"
+    },
+    {
+      "id": "20D754327510",
+      "role": "Technician",
+      "assignTo": {
+        "name": "Ella Anderson",
+        "mail": "Ella@Anderson.com"
+      },
+      "assignDate": "2023-08-20",
+      "dueDate": "2023-09-11",
+      "status": "In Progress"
+    },
+    {
+      "id": "20D754327511",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Liam Wilson",
+        "mail": "Liam@Wilson.com"
+      },
+      "assignDate": "2023-08-25",
+      "dueDate": "2023-09-08",
+      "status": "Open"
+    },
+    {
+      "id": "20D754327512",
+      "role": "Manager",
+      "assignTo": {
+        "name": "Ava Smith",
+        "mail": "Ava@Smith.com"
+      },
+      "assignDate": "2023-08-24",
+      "dueDate": "2023-09-17",
+      "status": "Unassigned"
+    },
+    {
+      "id": "20D754327513",
+      "role": "Technician",
+      "assignTo": {
+        "name": "James Brown",
+        "mail": "James@Brown.com"
+      },
+      "assignDate": "2023-08-22",
+      "dueDate": "2023-09-22",
+      "status": "In Progress"
+    },
+    {
+      "id": "20D754327514",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Mia Johnson",
+        "mail": "Mia@Johnson.com"
+      },
+      "assignDate": "2023-08-21",
+      "dueDate": "2023-09-13",
+      "status": "Open"
+    },
+    {
+      "id": "20D754327515",
+      "role": "Manager",
+      "assignTo": {
+        "name": "Noah Garcia",
+        "mail": "Noah@Garcia.com"
+      },
+      "assignDate": "2023-08-26",
+      "dueDate": "2023-09-09",
+      "status": "Unassigned"
+    },
+    {
+      "id": "20D754327516",
+      "role": "Technician",
+      "assignTo": {
+        "name": "Sophia Lee",
+        "mail": "Sophia@Lee.com"
+      },
+      "assignDate": "2023-08-23",
+      "dueDate": "2023-09-14",
+      "status": "In Progress"
+    },
+    {
+      "id": "20D754327517",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Ethan Smith",
+        "mail": "Ethan@Smith.com"
+      },
+      "assignDate": "2023-08-20",
+      "dueDate": "2023-09-10",
+      "status": "Open"
+    },
+    {
+      "id": "20D754327518",
+      "role": "Manager",
+      "assignTo": {
+        "name": "Isabella Martinez",
+        "mail": "Isabella@Martinez.com"
+      },
+      "assignDate": "2023-08-22",
+      "dueDate": "2023-09-23",
+      "status": "Unassigned"
+    },
+    {
+      "id": "20D754327520",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Emma Wilson",
+        "mail": "Emma@Wilson.com"
+      },
+      "assignDate": "2023-08-24",
+      "dueDate": "2023-09-19",
+      "status": "Open"
     }
   ],
   "manageUploadData": [
@@ -107,6 +541,259 @@
       "fileName": "O&M_20230715_xls",
       "updateDateAndTime": "07/16/2023 13:15:18",
       "recordCount": 5
+    },
+    {
+      "id": "RPLQKJVS",
+      "user": {
+        "userName": "Emily Williams",
+        "email": "emilywilliams@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230715_xls",
+      "updateDateAndTime": "07/16/2023 14:22:39",
+      "recordCount": 60
+    },
+    {
+      "id": "BGTFIWNE",
+      "user": {
+        "userName": "Michael Brown",
+        "email": "michaelbrown@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230716_xls",
+      "updateDateAndTime": "07/17/2023 09:45:31",
+      "recordCount": 90
+    },
+    {
+      "id": "OMVUCDHA",
+      "user": {
+        "userName": "Jessica Miller",
+        "email": "jessicamiller@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230716_xls",
+      "updateDateAndTime": "07/17/2023 10:20:15",
+      "recordCount": 10
+    },
+    {
+      "id": "FYZWEUXT",
+      "user": {
+        "userName": "William Jones",
+        "email": "williamjones@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230717_xls",
+      "updateDateAndTime": "07/17/2023 11:10:22",
+      "recordCount": 5
+    },
+    {
+      "id": "ILARXKQJ",
+      "user": {
+        "userName": "Sarah Davis",
+        "email": "sarahdavis@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230717_xls",
+      "updateDateAndTime": "07/17/2023 12:05:47",
+      "recordCount": 60
+    },
+    {
+      "id": "VWPMESGC",
+      "user": {
+        "userName": "Christopher Wilson",
+        "email": "christopherwilson@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230718_xls",
+      "updateDateAndTime": "07/18/2023 08:30:55",
+      "recordCount": 0
+    },
+    {
+      "id": "NHQJDZBO",
+      "user": {
+        "userName": "Amanda Martinez",
+        "email": "amandamartinez@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230718_xls",
+      "updateDateAndTime": "07/18/2023 09:15:29",
+      "recordCount": 10
+    },
+    {
+      "id": "LKRGTYAF",
+      "user": {
+        "userName": "Daniel Anderson",
+        "email": "danielanderson@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230718_xls",
+      "updateDateAndTime": "07/18/2023 10:00:12",
+      "recordCount": 5
+    },
+    {
+      "id": "CXMNIWVU",
+      "user": {
+        "userName": "Olivia Martinez",
+        "email": "oliviamartinez@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230719_xls",
+      "updateDateAndTime": "07/19/2023 13:20:40",
+      "recordCount": 60
+    },
+    {
+      "id": "SEYPFJTO",
+      "user": {
+        "userName": "James Wilson",
+        "email": "jameswilson@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230719_xls",
+      "updateDateAndTime": "07/19/2023 14:45:18",
+      "recordCount": 0
+    },
+    {
+      "id": "TZKROCLU",
+      "user": {
+        "userName": "Sophia Taylor",
+        "email": "sophiataylor@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230719_xls",
+      "updateDateAndTime": "07/19/2023 15:30:09",
+      "recordCount": 90
+    },
+    {
+      "id": "MQWDHGIE",
+      "user": {
+        "userName": "Ethan Harris",
+        "email": "ethanharris@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230720_xls",
+      "updateDateAndTime": "07/20/2023 11:10:55",
+      "recordCount": 10
+    },
+    {
+      "id": "UPAVNBSQ",
+      "user": {
+        "userName": "Isabella Miller",
+        "email": "isabellamiller@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230720_xls",
+      "updateDateAndTime": "07/20/2023 12:05:29",
+      "recordCount": 5
+    },
+    {
+      "id": "JRFBILKT",
+      "user": {
+        "userName": "Liam Johnson",
+        "email": "liamjohnson@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230720_xls",
+      "updateDateAndTime": "07/20/2023 13:30:17",
+      "recordCount": 60
+    },
+    {
+      "id": "EYPZSNAC",
+      "user": {
+        "userName": "Mia Smith",
+        "email": "miasmith@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230721_xls",
+      "updateDateAndTime": "07/21/2023 08:45:40",
+      "recordCount": 0
+    },
+    {
+      "id": "DLTOMRUI",
+      "user": {
+        "userName": "Jackson Wilson",
+        "email": "jacksonwilson@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230721_xls",
+      "updateDateAndTime": "07/21/2023 09:20:58",
+      "recordCount": 10
+    },
+    {
+      "id": "VXKHQWNE",
+      "user": {
+        "userName": "Emma Taylor",
+        "email": "emmataylor@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230721_xls",
+      "updateDateAndTime": "07/21/2023 10:15:22",
+      "recordCount": 5
+    },
+    {
+      "id": "BRSJAZPD",
+      "user": {
+        "userName": "Aiden Davis",
+        "email": "aidendavis@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230722_xls",
+      "updateDateAndTime": "07/22/2023 14:30:05",
+      "recordCount": 60
+    },
+    {
+      "id": "NGUMXCTH",
+      "user": {
+        "userName": "Oliver Williams",
+        "email": "oliverwilliams@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230722_xls",
+      "updateDateAndTime": "07/22/2023 15:15:39",
+      "recordCount": 0
+    },
+    {
+      "id": "HWOKYFEL",
+      "user": {
+        "userName": "Sophie Martinez",
+        "email": "sophiemartinez@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230722_xls",
+      "updateDateAndTime": "07/22/2023 16:00:47",
+      "recordCount": 90
+    },
+    {
+      "id": "IFTQVZPY",
+      "user": {
+        "userName": "Elijah Brown",
+        "email": "elijahbrown@example.com"
+      },
+      "role": "Operator",
+      "fileName": "O&M_20230723_xls",
+      "updateDateAndTime": "07/23/2023 10:45:18",
+      "recordCount": 10
+    },
+    {
+      "id": "LPUBCEXS",
+      "user": {
+        "userName": "Ava Johnson",
+        "email": "avajohnson@example.com"
+      },
+      "role": "Manager",
+      "fileName": "C&S_20230723_xls",
+      "updateDateAndTime": "07/23/2023 11:30:33",
+      "recordCount": 5
+    },
+    {
+      "id": "KVGMZTDR",
+      "user": {
+        "userName": "Logan Smith",
+        "email": "logansmith@example.com"
+      },
+      "role": "Technician",
+      "fileName": "T&E_20230723_xls",
+      "updateDateAndTime": "07/23/2023 12:20:59",
+      "recordCount": 60
     }
   ],
   "workQueue": [
@@ -146,6 +833,162 @@
       "assignTo": {
         "name": "Kevin Johnson",
         "email": "kevin.johnson@example.com"
+      },
+      "state": "WA"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "23F54321678G",
+      "receivedDate": "06/04/23",
+      "assignedBy": "M WILLIAMS",
+      "assignedDate": "06/04/23",
+      "status": "OPEN",
+      "assignTo": {
+        "name": "Mary Williams",
+        "email": "mary.williams@example.com"
+      },
+      "state": "MD"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "24H87654321I",
+      "receivedDate": "06/04/23",
+      "assignedBy": "R JONES",
+      "assignedDate": "06/04/23",
+      "status": "IN PROGRESS",
+      "assignTo": {
+        "name": "Robert Jones",
+        "email": "robert.jones@example.com"
+      },
+      "state": "NE"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "25J23456789K",
+      "receivedDate": "06/04/23",
+      "assignedBy": "L BROWN",
+      "assignedDate": "06/04/23",
+      "status": "ON HOLD",
+      "assignTo": {
+        "name": "Linda Brown",
+        "email": "linda.brown@example.com"
+      },
+      "state": "WA"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "26L98765432M",
+      "receivedDate": "06/04/23",
+      "assignedBy": "P MILLER",
+      "assignedDate": "06/04/23",
+      "status": "OPEN",
+      "assignTo": {
+        "name": "Paul Miller",
+        "email": "paul.miller@example.com"
+      },
+      "state": "MD"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "27N87654321O",
+      "receivedDate": "06/04/23",
+      "assignedBy": "T DAVIS",
+      "assignedDate": "06/04/23",
+      "status": "IN PROGRESS",
+      "assignTo": {
+        "name": "Thomas Davis",
+        "email": "thomas.davis@example.com"
+      },
+      "state": "NE"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "28P23456789Q",
+      "receivedDate": "06/04/23",
+      "assignedBy": "W MARTINEZ",
+      "assignedDate": "06/04/23",
+      "status": "ON HOLD",
+      "assignTo": {
+        "name": "William Martinez",
+        "email": "william.martinez@example.com"
+      },
+      "state": "WA"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "29R98765432S",
+      "receivedDate": "06/04/23",
+      "assignedBy": "C ANDERSON",
+      "assignedDate": "06/04/23",
+      "status": "OPEN",
+      "assignTo": {
+        "name": "Christine Anderson",
+        "email": "christine.anderson@example.com"
+      },
+      "state": "MD"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "30T87654321U",
+      "receivedDate": "06/04/23",
+      "assignedBy": "B THOMPSON",
+      "assignedDate": "06/04/23",
+      "status": "IN PROGRESS",
+      "assignTo": {
+        "name": "Brian Thompson",
+        "email": "brian.thompson@example.com"
+      },
+      "state": "NE"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "31V23456789W",
+      "receivedDate": "06/04/23",
+      "assignedBy": "E HALL",
+      "assignedDate": "06/04/23",
+      "status": "ON HOLD",
+      "assignTo": {
+        "name": "Emily Hall",
+        "email": "emily.hall@example.com"
+      },
+      "state": "WA"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "32X98765432Y",
+      "receivedDate": "06/04/23",
+      "assignedBy": "S WALKER",
+      "assignedDate": "06/04/23",
+      "status": "OPEN",
+      "assignTo": {
+        "name": "Steven Walker",
+        "email": "steven.walker@example.com"
+      },
+      "state": "MD"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "33Z87654321A",
+      "receivedDate": "06/04/23",
+      "assignedBy": "F GARCIA",
+      "assignedDate": "06/04/23",
+      "status": "IN PROGRESS",
+      "assignTo": {
+        "name": "Fiona Garcia",
+        "email": "fiona.garcia@example.com"
+      },
+      "state": "NE"
+    },
+    {
+      "processedDate": "05/04/23",
+      "claimId": "34B23456789C",
+      "receivedDate": "06/04/23",
+      "assignedBy": "D ALLEN",
+      "assignedDate": "06/04/23",
+      "status": "ON HOLD",
+      "assignTo": {
+        "name": "David Allen",
+        "email": "david.allen@example.com"
       },
       "state": "WA"
     }

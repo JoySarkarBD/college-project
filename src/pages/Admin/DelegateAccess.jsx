@@ -39,7 +39,7 @@ const DelegateAccess = () => {
   // console.log(delegateUsers);
 
   // selected value
-  const [selectedUser, isSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
 
@@ -88,6 +88,9 @@ const DelegateAccess = () => {
         };
 
         setDelegateUsers((prev) => [...prev, delegateObj]);
+        setSelectedUser(null);
+        setFromDate("");
+        setToDate("");
       }
     }
   };
@@ -124,7 +127,7 @@ const DelegateAccess = () => {
                 options={users}
                 isClearable
                 isSearchable
-                onChange={(option) => isSelectedUser(option?.value)}
+                onChange={(option) => setSelectedUser(option?.value)}
               />
             </div>
           </div>

@@ -220,7 +220,11 @@ const ManageDataTable = () => {
         <div className='topBar_style mx-2 my-3 d-flex align-items-center py-3 px-4 d-flex justify-content-between'>
           {/* Go To Input */}
           <div className='my-2 text-lg-start text-md-center text-sm-center text-center text-white'>
-            <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
+            <GoToInput
+              gotoPage={gotoPage}
+              pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput
+              totalPages={totalPages} // Pass the totalPages to GoToInput
+            />
           </div>
 
           <button

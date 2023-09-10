@@ -178,7 +178,11 @@ const UserDataTable = () => {
       <div className='row table_top_area'>
         {/* Go To Input */}
         <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center'>
-          <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
+          <GoToInput
+            gotoPage={gotoPage}
+            pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput
+            totalPages={totalPages} // Pass the totalPages to GoToInput
+          />
         </div>
 
         <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center'>

@@ -241,7 +241,6 @@ const DataTable = () => {
 
   // Calculate the total number of pages based on data length and pageSize
   const totalPages = Math.ceil(data.length / pageSize);
-
   // Ensure that pageIndex is within bounds
   const normalizedPageIndex =
     pageIndex >= totalPages ? totalPages - 1 : pageIndex;
@@ -251,7 +250,11 @@ const DataTable = () => {
       <div className='row'>
         {/* Go To Input */}
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center'>
-          <GoToInput gotoPage={gotoPage} value={pageIndex + 1} />
+          <GoToInput
+            gotoPage={gotoPage}
+            pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput
+            totalPages={totalPages} // Pass the totalPages to GoToInput
+          />
         </div>
 
         <div className='col-lg-4 col-md-12 col-sm-12 my-2 text-lg-center text-md-center text-sm-center text-center'>
@@ -359,6 +362,7 @@ const DataTable = () => {
             setPageSize(newPageSize);
           }}
           gotoPage={(newPageIndex) => {
+            console.log(newPageIndex);
             setGlobalFilter(""); // Clear global filter when changing pages
             pageIndex === newPageIndex || normalizedPageIndex === newPageIndex
               ? null
