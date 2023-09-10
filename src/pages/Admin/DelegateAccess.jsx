@@ -5,31 +5,6 @@ import { v4 } from "uuid";
 import "./Admin.css";
 import DelegationTable from "./DelegationTable";
 
-//Option
-const options = [
-  {
-    value: "search",
-    label: "Search",
-  },
-  {
-    value: "Rechard Rachel Ronald",
-    label: "Rechard Rachel Ronald",
-    name: "Rechard Rachel Ronald",
-    email: "RRCH@gmail.com",
-  },
-  {
-    value: "PENA THOMAS WHITE",
-    label: "PENA THOMAS WHITE",
-    name: "PENA THOMAS WHITE",
-    email: "Pena@gmail.com",
-  },
-  {
-    value: "Whide Warren",
-    label: "Whide Warren",
-    name: "Whide Warren",
-    email: "WhideWarren@gmail.com",
-  },
-];
 const delegateUser = [
   {
     delegatedTo: "Rechard Rachel Ronald",

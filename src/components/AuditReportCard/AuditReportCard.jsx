@@ -1,6 +1,34 @@
+import { useEffect, useState } from "react";
+import Select from "react-select";
 import "./AuditReportCard.css";
 
 const AuditReportCard = () => {
+  // selected value
+  const [selectedUser, isSelectedUser] = useState(null);
+
+  const [users, setUsers] = useState([]);
+  // load user data
+  const loadUser = async () => {
+    try {
+      const res = await (await fetch(`http://localhost:3000/users`)).json();
+      let modifiedData = [];
+      res.forEach((data) => {
+        modifiedData.push({
+          label: data?.user?.userName,
+          value: data?.user?.email,
+        });
+      });
+
+      setUsers([...modifiedData]);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
   const handleForm = () => {
     event.preventDefault();
   };
@@ -26,14 +54,12 @@ const AuditReportCard = () => {
               <label className='form-label fw-bold'>
                 SELECT USER<sup className='text-danger'>*</sup>{" "}
               </label>
-              <select
-                className='form-select'
-                aria-label='Default select example'>
-                <option>Select User</option>
-                <option value='raju kishore dholakia'>
-                  RAJU KISHORE DHOLAKIA
-                </option>
-              </select>
+              <Select
+                options={users}
+                isClearable
+                isSearchable
+                onChange={(option) => isSelectedUser(option?.value)}
+              />
             </div>
 
             {/* Date Range */}
