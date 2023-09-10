@@ -22,6 +22,8 @@ const WorkingDataTable = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [dummyData, setDummyData] = useState([]);
 
+  const [selectedName, setSelectedName] = useState("");
+
   useEffect(() => {
     fetch("http://localhost:3000/workQueue")
       .then((response) => {
@@ -45,7 +47,13 @@ const WorkingDataTable = () => {
   const names = dummyData.map((item) => item.assignTo.name);
 
   // using the useMemo Hook to memoized the value.
-  const data = React.useMemo(() => dummyData, [dummyData]);
+  // Modify the data variable to filter based on selectedName
+  const data = React.useMemo(() => {
+    if (!selectedName) {
+      return dummyData; // No filter applied
+    }
+    return dummyData.filter((item) => item.assignTo.name === selectedName);
+  }, [dummyData, selectedName]);
 
   // using the useMemo Hook to memoized the value.
   const columns = React.useMemo(
@@ -94,17 +102,16 @@ const WorkingDataTable = () => {
     []
   );
 
-  // useTable functionalities from react-table
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     page,
     prepareRow,
-    state: { pageIndex, pageSize },
+    state: { pageIndex, pageSize }, // Add globalFilter to state
     gotoPage,
     setPageSize,
-    setGlobalFilter,
+    setGlobalFilter, // Use setGlobalFilter from react-table
   } = useTable(
     {
       columns,
@@ -124,6 +131,8 @@ const WorkingDataTable = () => {
   const normalizedPageIndex =
     pageIndex >= totalPages ? totalPages - 1 : pageIndex;
 
+  // Clear global filter when changing selectedName
+
   return (
     <div className='px-5 my-5 table-responsive'>
       <div className='row table_top_area'>
@@ -131,7 +140,11 @@ const WorkingDataTable = () => {
 
         <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-end'>
           {/* Step 2: Attach event handler */}
-          <SelectNames names={names} />
+          <SelectNames
+            names={names}
+            selectedName={selectedName} // Pass selectedName as a prop
+            setSelectedName={setSelectedName} // Pass setSelectedName as a prop
+          />
         </div>
 
         {/* Search Input */}
@@ -147,7 +160,11 @@ const WorkingDataTable = () => {
       <div className='d-flex align-items-center'>
         <div className='topBar_style mx-2 my-3 px-3'>
           <div className='w-50'>
-            <GoToInput gotoPage={gotoPage} GoToInput value={pageIndex + 1} />
+            <GoToInput
+              gotoPage={gotoPage}
+              pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput
+              totalPages={totalPages} // Pass the totalPages to GoToInput
+            />
           </div>
         </div>
         <div className='d-flex align-items-center download_button'>
