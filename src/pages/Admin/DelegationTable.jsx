@@ -1,11 +1,7 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 
-export default function DelegationTable() {
-  const [status, setStatus] = useState("ACTIVE");
-  const handelStatus = () => {
-    setStatus("INACTIVE");
-  };
-
+export default function DelegationTable({ delegateUser }) {
+  const { delegateUsers, handelStatus } = delegateUser;
   return (
     <div className='delegationTable_container'>
       <div className='title text-center my-5'>
@@ -24,36 +20,29 @@ export default function DelegationTable() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope='row'>Emily Brown</th>
-              <td>MANAGER</td>
-              <td>5/3/23</td>
-              <td>6/3/23</td>
-              <td>{status}</td>
-              <td>
-                {status === "ACTIVE" && (
-                  <button className='btn btn-danger' onClick={handelStatus}>
-                    End Now
-                  </button>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <th scope='row'>Emily Brown</th>
-              <td>MANAGER</td>
-              <td>5/3/23</td>
-              <td>6/3/23</td>
-              <td>INACTIVE</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope='row'>Emily Brown</th>
-              <td>MANAGER</td>
-              <td>5/3/23</td>
-              <td>6/3/23</td>
-              <td>INACTIVE</td>
-              <td></td>
-            </tr>
+            {delegateUsers.map((user) => {
+              const { delegatedTo, role, start_date, end_date, status, id } =
+                user;
+              // console.log(id);
+              return (
+                <tr key={id}>
+                  <th scope='row'>{delegatedTo.toUpperCase()}</th>
+                  <td>{role.toUpperCase()}</td>
+                  <td>{new Date(start_date).toLocaleDateString("In-en")}</td>
+                  <td>{new Date(end_date).toLocaleDateString("In-en")}</td>
+                  <td>{status.toUpperCase()}</td>
+                  <td>
+                    {status === "Active" && (
+                      <button
+                        className='btn btn-danger'
+                        onClick={() => handelStatus(id)}>
+                        End Now
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
