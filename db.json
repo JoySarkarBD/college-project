@@ -302,8 +302,8 @@
       "id": "20D754327500",
       "role": "Manager",
       "assignTo": {
-        "name": "Sophia Wilson",
-        "mail": "Sophia@Wilson.com"
+        "name": "Emily Brown",
+        "mail": "Emily@Brown.com"
       },
       "assignDate": "2023-08-23",
       "dueDate": "2023-09-15",
@@ -313,8 +313,8 @@
       "id": "20D754327501",
       "role": "Manager",
       "assignTo": {
-        "name": "William Davis",
-        "mail": "William@Davis.com"
+        "name": "Sophia Wilson",
+        "mail": "Sophia@Wilson.com"
       },
       "assignDate": "2023-08-23",
       "dueDate": "2023-09-15",

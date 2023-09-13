@@ -158,8 +158,8 @@ const WorkingDataTable = () => {
       </div>
       {/* Table topbar */}
       <div className='d-flex align-items-center'>
-        <div className='topBar_style mx-2 my-3 px-3'>
-          <div className='w-50'>
+        <div className='topBar_style mx-2 my-3 px-3 text-white'>
+          <div className='w-50 d-flex align-items-center'>
             <GoToInput
               gotoPage={gotoPage}
               pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput

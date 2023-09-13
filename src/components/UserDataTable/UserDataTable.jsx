@@ -281,7 +281,7 @@ const UserDataTable = () => {
       </table>
 
       {/* Pagination */}
-      <div className='d-flex align-items-center justify-content-center mt-5'>
+      <div className='d-flex align-items-center mt-5'>
         <Pagination
           totalPages={totalPages}
           currentPage={normalizedPageIndex}
