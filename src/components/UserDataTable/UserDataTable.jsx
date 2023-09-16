@@ -76,8 +76,8 @@ const UserDataTable = () => {
           return (
             <div>
               {/* normal view by default of user name cell */}
-              <div className='edit_assign_to'>
-                <div className='text-black'>
+              <div className="edit_assign_to">
+                <div className="text-black">
                   <strong> {value.userName}</strong>
                   <br />
                   {value.email}
@@ -133,7 +133,7 @@ const UserDataTable = () => {
             <div>
               {/* Add your actions here using the userId */}
               <Link to={`/manage-user/modify-user/${userId}`}>
-                <button className='btn-edit'>Edit</button>
+                <button className="btn-edit">Edit</button>
               </Link>
             </div>
           );
@@ -174,10 +174,10 @@ const UserDataTable = () => {
     pageIndex >= totalPages ? totalPages - 1 : pageIndex;
 
   return (
-    <div className='px-5 my-5 table-responsive'>
-      <div className='row table_top_area'>
+    <div className="px-5 my-5 table-responsive table-bar">
+      <div className="row table_top_area">
         {/* Go To Input */}
-        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center'>
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2 text-lg-start text-md-center text-sm-center text-center">
           <GoToInput
             gotoPage={gotoPage}
             pageIndex={normalizedPageIndex} // Pass the pageIndex to GoToInput
@@ -185,20 +185,20 @@ const UserDataTable = () => {
           />
         </div>
 
-        <div className='col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center'>
-          <NavLink to='/manage-user/add-user'>
-            <button className=' border-0 bg-transparent add_user_btn'>
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2 text-lg-end text-md-center text-sm-center text-center">
+          <NavLink to="/manage-user/add-user">
+            <button className=" border-0 bg-transparent add_user_btn">
               Add User
-              <AiOutlinePlus className='user_add_icon' />
+              <AiOutlinePlus className="user_add_icon" />
             </button>
           </NavLink>
         </div>
       </div>
 
       {/* Table topbar */}
-      <AdminTableTopbar />
 
-      <table className='table' {...getTableProps()}>
+      <AdminTableTopbar />
+      <table className="table" {...getTableProps()}>
         {/* Mapping the data of header */}
         <thead>
           {headerGroups?.map((headerGroup, index) => (
@@ -206,7 +206,7 @@ const UserDataTable = () => {
               {/* select all */}
               <th>
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   checked={selectedRows.length === page.length}
                   onChange={() => {
                     if (selectedRows.length === page.length) {
@@ -220,8 +220,9 @@ const UserDataTable = () => {
               {headerGroup?.headers?.map((column, index) => (
                 <th
                   key={index}
-                  scope='col'
-                  {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  scope="col"
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -248,7 +249,7 @@ const UserDataTable = () => {
               <tr key={index} {...row.getRowProps()}>
                 <td>
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     checked={selectedRows.some(
                       (selectedRow) => selectedRow.id === row.original.id
                     )}
@@ -281,7 +282,7 @@ const UserDataTable = () => {
       </table>
 
       {/* Pagination */}
-      <div className='d-flex align-items-center mt-5'>
+      <div className="d-flex align-items-center mt-5">
         <Pagination
           totalPages={totalPages}
           currentPage={normalizedPageIndex}
