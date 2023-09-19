@@ -354,6 +354,17 @@
       "status": "Open"
     },
     {
+      "id": "20D754327506",
+      "role": "Operator",
+      "assignTo": {
+        "name": "Liam Wilson",
+        "mail": "Liam@Wilson.com"
+      },
+      "assignDate": "2023-08-21",
+      "dueDate": "2023-09-12",
+      "status": "Unassigned"
+    },
+    {
       "id": "20D754327507",
       "role": "Manager",
       "assignTo": {

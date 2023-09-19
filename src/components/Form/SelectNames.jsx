@@ -11,16 +11,15 @@ const SelectNames = ({ selectedName }) => {
 
   const handleSelectChange = async (event) => {
     const selectedOption = event.target.value;
+
     setSelectedValue(selectedOption);
 
     const res = await (
       await fetch(
-        `http://localhost:3000/assignTo?assignTo.mail=${selectedOption}`
+        `http://localhost:3000/assignUserList?assignTo.mail=${selectedOption}`
       )
     ).json();
-
-    console.log(res);
-    handleSelect(res[0]?.assignTo); // Pass the selected value to the parent component
+    handleSelect(res[0]); // Pass the selected value to the parent component
   };
 
   return (
@@ -32,8 +31,8 @@ const SelectNames = ({ selectedName }) => {
         <option value=''>Select Name</option>
         {names.map((user) => {
           return (
-            <option key={v4()} value={user?.mail}>
-              {user?.name}
+            <option key={v4()} value={user?.assignTo?.mail}>
+              {user?.assignTo?.name}
             </option>
           );
         })}

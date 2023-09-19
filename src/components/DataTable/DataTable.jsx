@@ -40,7 +40,7 @@ const DataTable = () => {
       const batchUpdateArr = [];
       dummyData.forEach((data) => {
         if (selectedRows.includes(data.id)) {
-          const newObj = { ...data, assignTo: selectedOption };
+          const newObj = { ...data, ...selectedOption };
           batchUpdateArr.push(newObj);
         }
       });
