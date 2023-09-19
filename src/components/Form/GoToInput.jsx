@@ -17,6 +17,7 @@ const GoToInput = ({ pageIndex, totalPages, gotoPage }) => {
         value={pageIndex + 1}
         onChange={(e) => {
           const pageNumber = parseInt(e.target.value);
+
           if (
             !isNaN(pageNumber) &&
             pageNumber >= 1 &&

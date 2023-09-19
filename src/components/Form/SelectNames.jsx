@@ -19,7 +19,8 @@ const SelectNames = ({ selectedName }) => {
       )
     ).json();
 
-    handleSelect(res[0].assignTo); // Pass the selected value to the parent component
+    console.log(res);
+    handleSelect(res[0]?.assignTo); // Pass the selected value to the parent component
   };
 
   return (
@@ -29,11 +30,15 @@ const SelectNames = ({ selectedName }) => {
         value={selectedValue}
         onChange={handleSelectChange}>
         <option value=''>Select Name</option>
-        {names.map((name) => (
-          <option key={v4()} value={name?.mail}>
-            {name?.name}
-          </option>
-        ))}
+        {names.map((user) => {
+          return (
+            <option key={v4()} value={user?.mail}>
+              {user?.name}
+            </option>
+          );
+        })}
+
+        {/* <option value='sofia@gmail.com'>Sofia</option> */}
       </select>
       <button
         className='go_btn px-4 py-1 bg-dark text-white rounded-pill'

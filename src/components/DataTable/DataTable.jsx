@@ -22,6 +22,8 @@ import "./DataTable.css";
 const DataTable = () => {
   // select row state
   const [selectedRows, setSelectedRows] = useState([]);
+
+  // [name lists state in modal]
   const [names, setNames] = useState([]);
 
   // update multiple users
@@ -57,8 +59,9 @@ const DataTable = () => {
               setDummyData((prevData) => {
                 // Find the index of the updated item in the data array
                 const dataIndex = prevData.findIndex(
-                  (item) => item.id === data?.id
+                  (prevItemData) => prevItemData.id === data?.id
                 );
+
                 if (dataIndex !== -1) {
                   // Create a new array with the updated data
                   const newData = [...prevData];
@@ -120,7 +123,8 @@ const DataTable = () => {
   /* modal to assign single data start */
   const handelSingleItemUpdate = (item) => {
     const id = singleRow?.id;
-    const updatedData = { ...singleRow, assignTo: { ...item } };
+
+    const updatedData = { ...singleRow, ...item };
 
     // Update user data on the server
     fetch(`http://localhost:3000/assignTo/${id}`, {
@@ -135,7 +139,10 @@ const DataTable = () => {
         // Update the UI with the new data
         setDummyData((prevData) => {
           // Find the index of the updated item in the data array
-          const dataIndex = prevData.findIndex((item) => item.id === id);
+          const dataIndex = prevData.findIndex(
+            (singleDummyData) => singleDummyData?.id === id
+          );
+
           if (dataIndex !== -1) {
             // Create a new array with the updated data
             const newData = [...prevData];
@@ -167,7 +174,6 @@ const DataTable = () => {
         Header: "ASSIGN TO",
         accessor: "assignTo",
         Cell: ({ value, row }) => {
-          // console.log(row);
           return (
             <div>
               {/* normal view by default of assignTo cell */}
@@ -241,6 +247,7 @@ const DataTable = () => {
 
   // Calculate the total number of pages based on data length and pageSize
   const totalPages = Math.ceil(data.length / pageSize);
+
   // Ensure that pageIndex is within bounds
   const normalizedPageIndex =
     pageIndex >= totalPages ? totalPages - 1 : pageIndex;
@@ -286,7 +293,11 @@ const DataTable = () => {
                     if (selectedRows.length === page.length) {
                       setSelectedRows([]);
                     } else {
-                      setSelectedRows(page.map((row) => row.original?.id));
+                      setSelectedRows(
+                        page.map((row) => {
+                          return row.original?.id;
+                        })
+                      );
                     }
                   }}
                 />
@@ -362,7 +373,6 @@ const DataTable = () => {
             setPageSize(newPageSize);
           }}
           gotoPage={(newPageIndex) => {
-            console.log(newPageIndex);
             setGlobalFilter(""); // Clear global filter when changing pages
             pageIndex === newPageIndex || normalizedPageIndex === newPageIndex
               ? null
@@ -402,8 +412,8 @@ const DataTable = () => {
                         style={{ cursor: "pointer" }}
                         onClick={() => handelSingleItemUpdate(item)}>
                         <div>
-                          <p className='item_name'>{item?.name}</p>
-                          <p className='item_mail'>{item?.mail}</p>
+                          <p className='item_name'>{item?.assignTo?.name}</p>
+                          <p className='item_mail'>{item?.assignTo?.mail}</p>
                         </div>
                       </div>
                     </li>

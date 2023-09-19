@@ -62,6 +62,7 @@ export default function ModifyUser() {
       .then((data) => {
         // Handle the JSON data here
         setUserData(data[0]);
+
         setOriginalUserData(data[0]);
       })
       .catch((error) => {
@@ -71,6 +72,7 @@ export default function ModifyUser() {
 
   // Handle changes in the "NAME" input field.
   const handleUserNameChange = (e) => {
+    console.log(e.target.value);
     setUserData({
       ...userData,
       user: {

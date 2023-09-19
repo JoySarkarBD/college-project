@@ -6,12 +6,14 @@ export default function Login() {
   const userPass = `12345`;
   const [password, setPassWord] = useState("");
   const navigate = useNavigate();
+
   const handleForm = (e) => {
     e.preventDefault();
     if (password !== userPass) {
       return alert("Password does not match");
+    } else {
+      navigate("/");
     }
-    navigate("/");
   };
 
   return (
@@ -116,7 +118,7 @@ export default function Login() {
                 <input
                   type='password'
                   className='form-control windows_id_input'
-                  placeholder=''
+                  placeholder='Enter Your Password'
                   value={password}
                   onChange={(e) => setPassWord(e.target.value)}
                 />
