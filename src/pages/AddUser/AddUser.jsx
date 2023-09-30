@@ -117,9 +117,10 @@ export default function AddUser() {
               <div className='col-8'>
                 <input
                   type='text'
+                  maxLength={7}
                   className='form-control formInput'
                   placeholder='LJKSHSD'
-                  value={msid}
+                  value={msid.toUpperCase()}
                   onChange={(e) => setMsid(e.target.value)}
                 />
                 <p className='text-danger'>
@@ -274,7 +275,13 @@ export default function AddUser() {
           </button>
 
           {/* SAVE AND ADD ANOTHER BUTTON */}
-          <button>SAVE AND ADD ANOTHER</button>
+          <button
+            type='button'
+            onClick={() => {
+              alert("This is not develop yet");
+            }}>
+            SAVE AND ADD ANOTHER
+          </button>
 
           {/* RESET BUTTON */}
           <button type='button' onClick={resetForm}>
