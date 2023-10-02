@@ -19,7 +19,7 @@ import SelectNames from "./SelectNames";
 
 const WorkingDataTable = () => {
   // select row state
-  const [selectedRows, setSelectedRows] = useState([]);
+
   const [dummyData, setDummyData] = useState([]);
 
   const [selectedName, setSelectedName] = useState("");
