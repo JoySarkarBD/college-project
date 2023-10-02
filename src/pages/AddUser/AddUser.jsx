@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./AddUser.css";
 
 export default function AddUser() {
+  // @desc => system effective date
   const getCurrentDateInput = () => {
     const dateObj = new Date();
 
@@ -27,12 +28,12 @@ export default function AddUser() {
   const [role, setRole] = useState("");
   const [team, setTeam] = useState("");
   const [supervisor, setSupervisor] = useState("");
-
   const [systemEffectiveDate, setSystemEffectiveDate] = useState(
     getCurrentDateInput()
   );
   const [status, setStatus] = useState("");
 
+  // @desc => submit form
   const handleForm = (event) => {
     event.preventDefault();
     // Here, you can access the state variables and submit the form data
@@ -73,6 +74,7 @@ export default function AddUser() {
       });
   };
 
+  //  @desc => reset form
   const resetForm = () => {
     setMsid("");
     setName("");
@@ -85,6 +87,7 @@ export default function AddUser() {
     setStatus("");
   };
 
+  // @desc => check existing user
   const handleMsIdCheck = async () => {
     try {
       const isExistId = await (
@@ -126,10 +129,7 @@ export default function AddUser() {
     date: systemEffectiveDate,
     userStatus: status,
   });
-
-  // console.log(msidErr.length > 0);
-
-  // console.log(msidErr.length === 0);
+  /* ========================================== */
   return (
     <div className='container my-5'>
       <div className='title text-center'>
