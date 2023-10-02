@@ -195,9 +195,10 @@ export default function AddUser() {
               <label>Employee ID</label>
               <input
                 type='text'
+                maxLength={8}
                 className='form-control formInput'
                 placeholder='PETERPARKER'
-                value={employeeId}
+                value={employeeId.toUpperCase()}
                 onChange={(e) => setEmployeeId(e.target.value)}
               />
             </div>
