@@ -182,19 +182,7 @@ const WorkingDataTable = () => {
           {headerGroups.map((headerGroup, index) => (
             <tr key={index} {...headerGroup.getHeaderGroupProps()}>
               {/* select all */}
-              <th>
-                <input
-                  type='checkbox'
-                  checked={selectedRows.length === page.length}
-                  onChange={() => {
-                    if (selectedRows.length === page.length) {
-                      setSelectedRows([]);
-                    } else {
-                      setSelectedRows(page.map((row) => row.original));
-                    }
-                  }}
-                />
-              </th>
+              <th></th>
               {headerGroup.headers.map((column, index) => (
                 <th
                   key={index}
@@ -221,32 +209,7 @@ const WorkingDataTable = () => {
             return (
               // Mapping the table body row data
               <tr key={index} {...row.getRowProps()}>
-                <td>
-                  <input
-                    type='checkbox'
-                    checked={selectedRows.some(
-                      (selectedRow) =>
-                        selectedRow.claimId === row.original.claimId
-                    )}
-                    onChange={() => {
-                      if (
-                        selectedRows.some(
-                          (selectedRow) =>
-                            selectedRow.claimId === row.original.claimId
-                        )
-                      ) {
-                        setSelectedRows(
-                          selectedRows.filter(
-                            (selectedRow) =>
-                              selectedRow.claimId !== row.original.claimId
-                          )
-                        );
-                      } else {
-                        setSelectedRows([...selectedRows, row.original]);
-                      }
-                    }}
-                  />
-                </td>
+                <td></td>
                 {row.cells.map((cell, index) => (
                   <td key={index} {...cell.getCellProps()}>
                     {cell.render("Cell")}
