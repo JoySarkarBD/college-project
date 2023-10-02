@@ -2,9 +2,10 @@ import { useRef, useState } from "react";
 import "./DataExportCard.css";
 
 const DataExportCard = () => {
-  const [processDate, setrocessDate] = useState(false);
+  const [processDate, setProcessDate] = useState(false);
   const [status, setStatus] = useState(false);
-  const form = useRef(null);
+  // form reference
+  const form = useRef();
 
   const handleForm = () => {
     event.preventDefault();
@@ -24,12 +25,12 @@ const DataExportCard = () => {
                   className='form-check-input data_export_check_input'
                   type='checkbox'
                   value={processDate}
-                  id='flexCheckChecked'
-                  onChange={(e) => setrocessDate(e.target.checked)}
+                  id='flexCheckCheckedd'
+                  onChange={(e) => setProcessDate(e.target.checked)}
                 />
                 <label
                   className='form-check-label ms-2 fw-bold fs-5'
-                  htmlFor='flexCheckChecked'>
+                  htmlFor='flexCheckCheckedd'>
                   PROCESSED DATE
                 </label>
               </div>
@@ -102,7 +103,7 @@ const DataExportCard = () => {
                 className='reset_filter_btn'
                 onClick={() => {
                   form.current.reset();
-                  setrocessDate(false);
+                  setProcessDate(false);
                   setStatus(false);
                 }}>
                 Reset Filters

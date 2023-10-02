@@ -88,7 +88,7 @@ export default function AddUser() {
   const handleMsIdCheck = async () => {
     try {
       const isExistId = await (
-        await fetch(`http://localhost:3000/users?id=${msid.toUpperCase()}`)
+        await fetch(`http://localhost:3000/users?id=${msid}`)
       ).json();
 
       if (isExistId.length > 0) {
@@ -101,8 +101,35 @@ export default function AddUser() {
     }
   };
 
-  // console.log(msidErr.split(" ")[0] === msid);
+  /* @desc find all field empty or not */
+  function checkFieldsNotEmpty(obj) {
+    for (const key in obj) {
+      // Skip the "date" field
+      if (key === "date") continue;
 
+      // Check if the field is empty (an empty string or null)
+      if (!obj[key]) {
+        return true; // Found a field that is empty
+      }
+    }
+    return false; // All fields (except "date") are not empty
+  }
+
+  const isEmpty = checkFieldsNotEmpty({
+    id: msid,
+    userName: name,
+    email: email,
+    employeeId: employeeId,
+    role: role,
+    teamName: team,
+    supervisorName: supervisor,
+    date: systemEffectiveDate,
+    userStatus: status,
+  });
+
+  // console.log(msidErr.length > 0);
+
+  // console.log(msidErr.length === 0);
   return (
     <div className='container my-5'>
       <div className='title text-center'>
@@ -117,7 +144,7 @@ export default function AddUser() {
               <div className='col-8'>
                 <input
                   type='text'
-                  maxLength={7}
+                  maxLength={8}
                   className='form-control formInput'
                   placeholder='LJKSHSD'
                   value={msid.toUpperCase()}
@@ -140,6 +167,7 @@ export default function AddUser() {
                 <button
                   type='button'
                   className='btn btn_input'
+                  disabled={!msid}
                   onClick={handleMsIdCheck}>
                   CHECK
                 </button>
@@ -270,7 +298,7 @@ export default function AddUser() {
         {/* form submit button */}
         <div className='text-center mt-5 form_buttons gap-2 gap-md-1'>
           {/* SAVE DETAILS BUTTON */}
-          <button type='submit' disabled={msidErr.split(" ")[0] === msid}>
+          <button type='submit' disabled={isEmpty}>
             Save Details
           </button>
 

@@ -11,7 +11,9 @@ const AuditReportCard = () => {
   const loadUser = async () => {
     try {
       const res = await (await fetch(`http://localhost:3000/users`)).json();
+      // console.log(res);
       let modifiedData = [];
+
       res.forEach((data) => {
         modifiedData.push({
           label: data?.user?.userName,
@@ -25,6 +27,7 @@ const AuditReportCard = () => {
     }
   };
 
+  // load data
   useEffect(() => {
     loadUser();
   }, []);
